@@ -212,6 +212,141 @@ a { color: inherit; text-decoration: none; }
 .empty { padding: 34px 22px; text-align: center; color: var(--muted); background: rgba(13,19,32,.7); border: 1px solid var(--border); border-radius: 12px; }
 .source-note { margin-top: 26px; color: var(--muted); font-size: 12px; text-align: center; }
 
+/* ── DETALJER / BONUSSTATUS ── */
+.bonus-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.bonus-status-card {
+  background: linear-gradient(180deg, rgba(17,26,46,.98), rgba(13,19,32,.94));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 13px;
+  min-height: 96px;
+}
+.bonus-status-label {
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.bonus-status-value {
+  margin-top: 7px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  line-height: 1.05;
+  font-weight: 900;
+  color: var(--text);
+  text-transform: uppercase;
+}
+.bonus-status-sub {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+.bonus-round-list {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 22px;
+}
+.bonus-round-row {
+  display: grid;
+  grid-template-columns: 130px minmax(0,1fr) auto;
+  gap: 12px;
+  align-items: center;
+  background: rgba(17,26,46,.86);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 13px;
+}
+.bonus-round-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.bonus-round-meta {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.details-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0 14px;
+}
+.details-table-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.details-header,
+.details-score-row {
+  display: grid;
+  grid-template-columns: 44px minmax(0,1fr) 88px 110px 110px 88px;
+  gap: 8px;
+  align-items: center;
+}
+.details-header {
+  padding: 9px 16px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.details-score-row {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(30,45,74,.6);
+  transition: background .15s;
+}
+.details-score-row:last-child { border-bottom: none; }
+.details-score-row:hover { background: rgba(239,43,45,.045); }
+.details-score-name {
+  min-width: 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--accent);
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.details-score-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-align: right;
+  color: var(--text);
+}
+.details-score-total {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+  line-height: 1;
+  color: var(--gold);
+  text-align: right;
+}
+.details-section-title {
+  margin: 22px 0 10px;
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
 /* ── LOKAL PROFIL OG MODALER ── */
 .profil-linje {
   position: absolute;
@@ -460,6 +595,20 @@ a { color: inherit; text-decoration: none; }
   .tipline { grid-template-columns: minmax(0,1fr) auto; }
   .tipline .poeng { display: none; }
 }
+
+@media (max-width: 760px) {
+  .bonus-status-grid { grid-template-columns: 1fr; }
+  .bonus-round-row { grid-template-columns: 1fr auto; }
+  .bonus-round-meta { grid-column: 1 / -1; }
+  .details-filter { flex-wrap: nowrap; overflow-x: auto; margin-left: -16px; margin-right: -16px; padding: 0 16px 5px; scrollbar-width: none; }
+  .details-filter::-webkit-scrollbar { display: none; }
+  .details-filter .filter-btn { flex: 0 0 auto; }
+  .details-header { display: none; }
+  .details-score-row { grid-template-columns: 34px minmax(0,1fr) 68px; }
+  .details-score-row .details-score-num:nth-of-type(1),
+  .details-score-row .details-score-num:nth-of-type(2),
+  .details-score-row .details-score-num:nth-of-type(3) { display: none; }
+}
 </style>
 </head>
 <body>
@@ -480,6 +629,7 @@ a { color: inherit; text-decoration: none; }
 <nav class="nav" aria-label="Hovedmeny">
   <button class="nav-tab active" data-section="stilling">Stilling</button>
   <button class="nav-tab" data-section="kamper">Kamper</button>
+  <button class="nav-tab" data-section="detaljer">Detaljer</button>
   <button class="nav-tab" data-section="innlevering">Innlevering</button>
 </nav>
 <main class="container">
@@ -506,6 +656,14 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="kamp-filter" id="kampFilter"></div>
     <div id="matches"></div>
+  </section>
+
+  <section class="seksjon" id="section-detaljer">
+    <div class="section-intro">
+      <div><h2>Detaljer</h2><p>Bonusstatus, foreløpige bonusverdier og mer detaljert poengfordeling.</p></div>
+      <div class="oppdatert" id="detailsUpdated">Ikke oppdatert ennå</div>
+    </div>
+    <div id="detailsContent"></div>
   </section>
 
   <section class="seksjon" id="section-innlevering">
@@ -601,6 +759,7 @@ function renderStats() {
   document.getElementById('generatedAt').textContent = text;
   document.getElementById('matchesUpdated').textContent = status.generated_at ? `Oppdatert ${fmtTime(status.generated_at)}` : text;
   document.getElementById('deliveryUpdated').textContent = innlevering.generated_at ? `Oppdatert ${fmtTime(innlevering.generated_at)}` : text;
+  document.getElementById('detailsUpdated').textContent = resultater.generated_at ? `Oppdatert ${fmtTime(resultater.generated_at)}` : text;
 }
 function renderPodium() {
   const board = resultater.leaderboard || [];
@@ -655,6 +814,161 @@ function renderDeliveries() {
     }).join(' · ');
     return `<div class="delivery-row clickable" data-participant="${esc(p.deltaker)}" title="Vis detaljer for ${esc(p.deltaker)}"><div><div class="delivery-name">${esc(p.deltaker)}</div><div class="delivery-rounds">${esc(rounds || 'Ingen runder')}</div></div><div class="delivery-total">${Number(p.total_levert || 0)}<span style="display:block;font-family:'Barlow',sans-serif;font-size:10px;color:var(--muted);line-height:1">+${Number(p.total_bonus || 0)} bonus</span></div></div>`;
   }).join('')}</div>`;
+  el.querySelectorAll('[data-participant]').forEach(row => row.addEventListener('click', () => openParticipantDetails(row.dataset.participant)));
+}
+
+let activeDetailsFilter = 'alle';
+const detailFilterOrder = ['alle','r32','r16','qf','sf','final','bonus'];
+const roundBonusShort = {
+  r32: 'Uavgjorte kamper',
+  r16: 'Lag som holder nullen',
+  qf: 'Ettmålsseiere',
+  sf: 'Totalt antall mål',
+  final: 'Begge lag scorer'
+};
+function numericResult(m) {
+  const r = m?.resultat_90min || m?.football_data_regular_time || m?.resultat || (resultMatches.find(x => x.id === m?.id) || {}).resultat;
+  if (!r) return null;
+  const h = r.home_score ?? r.hjemme ?? r.home;
+  const a = r.away_score ?? r.borte ?? r.away;
+  if (h === undefined || a === undefined || h === null || a === null) return null;
+  const home = Number(h);
+  const away = Number(a);
+  if (!Number.isFinite(home) || !Number.isFinite(away)) return null;
+  return { home, away };
+}
+function finishedWithResult(m) { return Boolean((m?.ferdig || m?.tippe_status === 'ferdig') && numericResult(m)); }
+function roundMatches(round) { return matches.filter(m => m.runde === round); }
+function finishedRoundMatches(round) { return roundMatches(round).filter(finishedWithResult); }
+function plural(n, one, many) { return Number(n) === 1 ? one : many; }
+function roundCurrentValue(round) {
+  const finished = finishedRoundMatches(round);
+  if (!finished.length) return null;
+  const results = finished.map(numericResult).filter(Boolean);
+  if (round === 'r32') return results.filter(r => r.home === r.away).length;
+  if (round === 'r16') return results.reduce((sum, r) => sum + (r.home === 0 ? 1 : 0) + (r.away === 0 ? 1 : 0), 0);
+  if (round === 'qf') return results.filter(r => Math.abs(r.home - r.away) === 1).length;
+  if (round === 'sf') return results.reduce((sum, r) => sum + r.home + r.away, 0);
+  if (round === 'final') {
+    const r = results[0];
+    return r ? (r.home > 0 && r.away > 0 ? 'Ja' : 'Nei') : null;
+  }
+  return null;
+}
+function roundProgressText(round) {
+  const total = roundMatches(round).length;
+  const finished = finishedRoundMatches(round).length;
+  const value = roundCurrentValue(round);
+  const valueText = value === null ? 'Ingen foreløpig verdi' : `Foreløpig: ${value}`;
+  return `${valueText} · ${finished} av ${total} ${plural(total, 'kamp', 'kamper')}`;
+}
+function roundState(round) {
+  const total = roundMatches(round).length;
+  const finished = finishedRoundMatches(round).length;
+  if (!total || finished === 0) return { label: 'Ikke startet', cls: '' };
+  if (finished < total) return { label: 'Pågår', cls: 'warn' };
+  return { label: 'Ferdig', cls: 'ok' };
+}
+function currentKnockoutSummary() {
+  const goalsByTeam = new Map();
+  let totalGoals = 0;
+  let finished = 0;
+  for (const m of matches) {
+    if (!finishedWithResult(m)) continue;
+    const r = numericResult(m);
+    if (!r) continue;
+    finished += 1;
+    totalGoals += r.home + r.away;
+    const home = String(m.hjemme || 'TBD').trim();
+    const away = String(m.borte || 'TBD').trim();
+    if (home) goalsByTeam.set(home, (goalsByTeam.get(home) || 0) + r.home);
+    if (away) goalsByTeam.set(away, (goalsByTeam.get(away) || 0) + r.away);
+  }
+  const maxTeamGoals = goalsByTeam.size ? Math.max(...goalsByTeam.values()) : 0;
+  const leadingTeams = [...goalsByTeam.entries()].filter(([,goals]) => goals === maxTeamGoals && goals > 0).map(([team, goals]) => ({team, goals}));
+  return { finished, total: matches.length, totalGoals, leadingTeams };
+}
+function formatLeadingTeams(leaders) {
+  if (!leaders?.length) return 'Ingen foreløpig verdi';
+  return leaders.slice(0,3).map(x => `${x.team} · ${x.goals} ${plural(x.goals, 'mål', 'mål')}`).join(', ') + (leaders.length > 3 ? ` +${leaders.length - 3}` : '');
+}
+function currentGoldenBoot() {
+  const rows = Array.isArray(status.top_scorers) ? status.top_scorers.filter(s => s && s.player && Number.isFinite(Number(s.goals))) : [];
+  if (!rows.length) return { leaders: [], max: 0 };
+  const max = Math.max(...rows.map(s => Number(s.goals)));
+  return { leaders: rows.filter(s => Number(s.goals) === max), max };
+}
+function formatGoldenBoot() {
+  const gb = currentGoldenBoot();
+  if (!gb.leaders.length) return 'Ingen foreløpig verdi';
+  return gb.leaders.slice(0,3).map(s => `${s.player} · ${Number(s.goals)} ${plural(s.goals, 'mål', 'mål')}`).join(', ') + (gb.leaders.length > 3 ? ` +${gb.leaders.length - 3}` : '');
+}
+function intervalText(value) {
+  const map = { '0_46': '0–46 mål', '47_77': '47–77 mål', '78_pluss': '78 mål eller flere' };
+  return map[value] || value || 'Ikke beregnet';
+}
+function renderDetailsFilter() {
+  return `<div class="details-filter">${detailFilterOrder.map(f => {
+    const label = f === 'alle' ? 'Alle' : f === 'bonus' ? 'Bonus' : roundLabels[f];
+    return `<button type="button" class="filter-btn ${activeDetailsFilter === f ? 'active' : ''}" data-detail-filter="${f}">${label}</button>`;
+  }).join('')}</div>`;
+}
+function detailValuesForPlayer(p) {
+  const filter = activeDetailsFilter;
+  if (filter === 'bonus') {
+    const roundBonus = Number(p.rundebonus_poeng ?? 0);
+    const overallBonus = Number(p.helhetsbonus_poeng ?? 0);
+    const bonusTotal = Number(p.bonus_poeng ?? (roundBonus + overallBonus));
+    return { kamp: 0, roundBonus, overallBonus, total: bonusTotal };
+  }
+  if (filter !== 'alle') {
+    const r = p.per_round?.[filter] || {};
+    return { kamp: Number(r.kamp_poeng || 0), roundBonus: Number(r.bonus_poeng || 0), overallBonus: 0, total: Number(r.poeng || 0) };
+  }
+  const roundBonus = Number(p.rundebonus_poeng ?? 0);
+  const overallBonus = Number(p.helhetsbonus_poeng ?? 0);
+  return { kamp: Number(p.kamp_poeng || 0), roundBonus, overallBonus, total: Number(p.poeng || 0) };
+}
+function renderDetailScoreTable() {
+  const board = (resultater.leaderboard || []).slice().sort((a,b) => {
+    const av = detailValuesForPlayer(a);
+    const bv = detailValuesForPlayer(b);
+    return bv.total - av.total || Number(b.exact || 0) - Number(a.exact || 0) || String(a.deltaker || '').localeCompare(String(b.deltaker || ''), 'no');
+  });
+  if (!board.length) return '<div class="empty">Ingen deltakere å vise ennå.</div>';
+  return `<div class="details-table-card"><div class="details-header"><div>#</div><div>Navn</div><div>Kamp</div><div>Rundebonus</div><div>Helhetsbonus</div><div>Totalt</div></div>${board.map((p, i) => {
+    const v = detailValuesForPlayer(p);
+    return `<div class="details-score-row clickable" data-participant="${esc(p.deltaker)}" title="Vis detaljer for ${esc(p.deltaker)}"><div class="plass-num p${i+1 <= 3 ? i+1 : ''}">${i+1}</div><div class="details-score-name">${esc(p.deltaker)}</div><div class="details-score-num">${v.kamp}</div><div class="details-score-num">${v.roundBonus}</div><div class="details-score-num">${v.overallBonus}</div><div class="details-score-total">${v.total}</div></div>`;
+  }).join('')}</div>`;
+}
+function renderDetails() {
+  const el = document.getElementById('detailsContent');
+  if (!el) return;
+  const summary = currentKnockoutSummary();
+  const totalSub = `${summary.finished} av ${summary.total} ${plural(summary.total, 'kamp', 'kamper')} ferdig`;
+  const helhet = resultater.bonus?.helhet || {};
+  const helhetFasit = helhet.fasit || {};
+  const totalGoalsText = helhetFasit.totale_maal_utslag_verdi !== undefined ? `${helhetFasit.totale_maal_utslag_verdi} mål` : `${summary.totalGoals} mål`;
+  const interval = helhetFasit.totale_maal_utslag ? `Kategori: ${intervalText(helhetFasit.totale_maal_utslag)}` : 'Foreløpig kategori beregnes etter ferdige kamper';
+  const teamLeaders = helhetFasit.flest_maal_lag ? helhetFasit.flest_maal_lag.map(team => ({ team, goals: '' })) : summary.leadingTeams;
+  const teamLeaderText = helhetFasit.flest_maal_lag ? helhetFasit.flest_maal_lag.join(', ') : formatLeadingTeams(teamLeaders);
+  const goldenText = helhetFasit.golden_boot ? `${Array.isArray(helhetFasit.golden_boot) ? helhetFasit.golden_boot.join(', ') : helhetFasit.golden_boot}${helhetFasit.golden_boot_goals ? ` · ${helhetFasit.golden_boot_goals} mål` : ''}` : formatGoldenBoot();
+  const roundsHtml = ['r32','r16','qf','sf','final'].map(round => {
+    const state = roundState(round);
+    return `<div class="bonus-round-row"><div class="bonus-round-name">${esc(roundLabels[round] || round)}</div><div class="bonus-round-meta">${esc(roundBonusShort[round])} · ${esc(roundProgressText(round))}</div><span class="status-chip ${state.cls}">${esc(state.label)}</span></div>`;
+  }).join('');
+  el.innerHTML = `
+    <div class="bonus-status-grid">
+      <div class="bonus-status-card"><div class="bonus-status-label">Flest mål · utslagsfasen</div><div class="bonus-status-value">${esc(teamLeaderText)}</div><div class="bonus-status-sub">${esc(totalSub)}</div></div>
+      <div class="bonus-status-card"><div class="bonus-status-label">Totalt antall mål</div><div class="bonus-status-value">${esc(totalGoalsText)}</div><div class="bonus-status-sub">${esc(interval)} · ${esc(totalSub)}</div></div>
+      <div class="bonus-status-card"><div class="bonus-status-label">Golden Boot</div><div class="bonus-status-value">${esc(goldenText)}</div><div class="bonus-status-sub">Foreløpig. Kilde: FIFA/football-data via status.json</div></div>
+    </div>
+    <div class="bonus-round-list">${roundsHtml}</div>
+    <div class="details-section-title">Detaljert poengfordeling</div>
+    ${renderDetailsFilter()}
+    ${renderDetailScoreTable()}
+  `;
+  el.querySelectorAll('[data-detail-filter]').forEach(btn => btn.addEventListener('click', () => { activeDetailsFilter = btn.dataset.detailFilter; renderDetails(); }));
   el.querySelectorAll('[data-participant]').forEach(row => row.addEventListener('click', () => openParticipantDetails(row.dataset.participant)));
 }
 
@@ -830,7 +1144,7 @@ function maybeShowPersonalRecap() {
   }
 }
 
-renderProfile(); renderNav(); renderStats(); renderPodium(); renderLeaderboard(); renderFilter(); renderMatches(); renderDeliveries(); maybeShowPersonalRecap();
+renderProfile(); renderNav(); renderStats(); renderPodium(); renderLeaderboard(); renderFilter(); renderMatches(); renderDetails(); renderDeliveries(); maybeShowPersonalRecap();
 </script>
 </body>
 </html>
