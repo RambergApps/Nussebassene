@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-29T20:30:42Z",
+    "generated_at": "2026-06-29T20:45:34Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -42,14 +42,19 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Germany",
         "borte": "Paraguay",
         "utcDate": "2026-06-29T20:30:00Z",
-        "fifa_status": "1",
-        "fd_status": "TIMED",
+        "fifa_status": "3",
+        "fd_status": "IN_PLAY",
         "tippebar": false,
-        "tippe_status": "startet",
+        "tippe_status": "ferdig",
         "vis_tips": true,
-        "ferdig": false,
-        "ferdig_kilde": null,
-        "resultat": null
+        "ferdig": true,
+        "ferdig_kilde": "fifa_calendar",
+        "resultat": {
+          "home_score": 0,
+          "away_score": 0,
+          "source": "fifa_calendar",
+          "source_role": "primary"
+        }
       },
       {
         "id": "M75",
@@ -1683,7 +1688,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-29T20:30:42Z",
+    "generated_at": "2026-06-29T20:45:34Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1772,19 +1777,24 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Germany",
         "borte": "Paraguay",
         "utcDate": "2026-06-29T20:30:00Z",
-        "fifa_status": "1",
-        "fd_status": "TIMED",
-        "ferdig": false,
-        "ferdig_kilde": null,
-        "resultat": null,
+        "fifa_status": "3",
+        "fd_status": "IN_PLAY",
+        "ferdig": true,
+        "ferdig_kilde": "fifa_calendar",
+        "resultat": {
+          "home_score": 0,
+          "away_score": 0,
+          "source": "fifa_calendar",
+          "source_role": "primary"
+        },
         "tips": [
           {
             "deltaker": "Alexander",
             "home_score": 3,
             "away_score": 0,
-            "poeng": null,
-            "exact": null,
-            "outcome": null,
+            "poeng": 0,
+            "exact": false,
+            "outcome": false,
             "submitted_at": "2026-06-29T12:47:22.449Z"
           }
         ]
@@ -2445,11 +2455,11 @@ window.NUSSEBASSENE_DATA = {
       "bonus_total": 1,
       "helhetsbonus_total": 3,
       "kamper_total": 31,
-      "kamper_ferdig": 2
+      "kamper_ferdig": 3
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-29T20:30:42Z",
+    "generated_at": "2026-06-29T20:45:34Z",
     "rounds": {
       "r32": {
         "mulige": 16,
