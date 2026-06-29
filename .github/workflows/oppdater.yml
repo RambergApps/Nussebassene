@@ -1,0 +1,49 @@
+name: Oppdater Nussebassene
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: oppdater-utslag
+  cancel-in-progress: false
+
+jobs:
+  oppdater:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sett opp Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Kjør oppdatering
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+          FIFA_CALENDAR_URL: ${{ vars.FIFA_CALENDAR_URL }}
+          FOOTBALL_DATA_COMPETITION: ${{ vars.FOOTBALL_DATA_COMPETITION || 'WC' }}
+        run: |
+          python scripts/sync-kamper.py
+          python scripts/poengregning.py
+          python scripts/bygg-innleveringsstatus.py
+
+      - name: Commit genererte data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ tippinger/
+          if git diff --cached --quiet; then
+            echo "Ingen endringer å committe."
+          else
+            git commit -m "Oppdater kampdata og poeng"
+            git push
+          fi
