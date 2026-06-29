@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T17:45:34Z",
+  "generated_at": "2026-06-29T18:00:52Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -78,7 +78,7 @@
       "borte": "Japan",
       "utcDate": "2026-06-29T17:00:00Z",
       "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fd_status": "PAUSED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
