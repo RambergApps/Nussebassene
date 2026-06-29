@@ -622,6 +622,13 @@ function updateSubmitButton(matches) {
   btn.disabled = total === 0;
   btn.textContent = total ? `Lever tips og bonus (${total})` : 'Lever tips';
 }
+function lagNaturligListe(items) {
+  const verdier = items.filter(Boolean);
+  if (verdier.length <= 1) return verdier.join('');
+  if (verdier.length === 2) return verdier.join(' og ');
+  return verdier.slice(0, -1).join(', ') + ' og ' + verdier[verdier.length - 1];
+}
+
 async function submitTips() {
   showMessage('');
   const participant = participantInput.value.trim();
@@ -647,8 +654,9 @@ async function submitTips() {
     if (tips.length) parts.push(`${tips.length} kamptips`);
     if (bonus) parts.push('1 rundebonus');
     const helhetCount = Object.keys(helhetsbonus).length;
-    if (helhetCount) parts.push(`${helhetCount} helhetsbonus`);
-    showMessage(`${parts.join(', ')} levert for ${participant}. Fil: ${data.path || 'ukjent'}`, 'ok');
+    if (helhetCount) parts.push(`${helhetCount} helhetsbonus${helhetCount === 1 ? '' : 'er'}`);
+    const levertTekst = lagNaturligListe(parts);
+    showMessage(`Tips lagret! ${levertTekst} er levert. Poeng og innleveringsstatus oppdateres automatisk om kort tid.`, 'ok');
   } catch (err) { showMessage(err.message || 'Innsending feilet.', 'err'); }
   finally { btn.disabled = false; renderRound(); }
 }
