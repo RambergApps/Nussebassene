@@ -3,679 +3,1174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nussebassene — Lever tips</title>
+<title>Nussebassene — Tippekonkurranse</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="app-config.js"></script>
 <script src="data/data.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg:      #060912;
-  --surface: #0d1320;
-  --card:    #111a2e;
-  --card2:   #152035;
-  --border:  #1e2d4a;
-  --accent:  #ef2b2d;
-  --gold:    #ffd600;
-  --red:     #ff5a5a;
-  --success: #00e676;
-  --text:    #e8f0ff;
-  --muted:   #6b7fa8;
-  --locked:  #0b101c;
+  --bg:       #060912;
+  --surface:  #0d1320;
+  --card:     #111a2e;
+  --card2:    #152035;
+  --border:   #1e2d4a;
+  --accent:   #ef2b2d;
+  --gold:     #ffd600;
+  --silver:   #b0bec5;
+  --bronze:   #ff8a65;
+  --success:  #00e676;
+  --text:     #e8f0ff;
+  --muted:    #6b7fa8;
+  --danger:   #ff5a5a;
 }
 body {
   font-family: 'Barlow', sans-serif;
-  background:
-    radial-gradient(ellipse at 50% -180px, rgba(239,43,45,.10) 0%, transparent 58%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
 }
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+a { color: inherit; text-decoration: none; }
+.bg-grid {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background-image:
-    linear-gradient(rgba(239,43,45,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(239,43,45,.025) 1px, transparent 1px);
+    linear-gradient(rgba(239,43,45,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,43,45,.028) 1px, transparent 1px);
   background-size: 48px 48px;
 }
-a { color: inherit; text-decoration: none; }
+.bg-glow {
+  position: fixed; top: -220px; left: 50%; transform: translateX(-50%);
+  width: 900px; height: 620px;
+  background: radial-gradient(ellipse, rgba(239,43,45,.12) 0%, rgba(255,214,0,.035) 34%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
 .hero {
   position: relative; z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(6,9,18,.28), rgba(6,9,18,.92)),
-    linear-gradient(135deg, rgba(8,13,24,.72) 0%, rgba(18,21,40,.7) 52%, rgba(9,13,24,.9) 100%),
+  padding: 56px 24px 48px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background-image:
+    linear-gradient(180deg,
+      rgba(6,9,18,.55) 0%,
+      rgba(6,9,18,.45) 40%,
+      rgba(6,9,18,.75) 75%,
+      rgba(6,9,18,.97) 100%),
     url('Haaland.png');
   background-size: cover;
-  background-position: center 18%;
-  border-bottom: 1px solid var(--border);
-  padding: 38px 24px 32px;
-  text-align: center;
-  min-height: 320px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  min-height: 520px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: flex-end;
-  align-items: center;
 }
-.hero .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
   background: rgba(239,43,45,.12);
   border: 1px solid rgba(239,43,45,.32);
-  color: var(--accent);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  font-size: 11px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  margin-bottom: 13px;
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
   text-shadow: 0 1px 8px rgba(0,0,0,.75);
 }
+.live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .45; transform: scale(.78); } }
 .hero h1 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(50px, 11vw, 98px);
-  font-weight: 400;
-  text-transform: uppercase;
+  font-size: clamp(56px, 12vw, 120px);
   line-height: .9;
   letter-spacing: .02em;
+  color: var(--text);
   text-shadow: 0 12px 34px rgba(0,0,0,.68);
 }
-.hero h1 span { color: var(--accent); }
-.hero p {
-  margin-top: 9px;
-  color: rgba(232,240,255,.86);
+.hero h1 .year { color: var(--accent); }
+.hero-sub {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(13px, 2.5vw, 17px);
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  max-width: 720px;
+  font-size: clamp(14px, 3vw, 20px);
+  font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.88); margin-top: 8px;
+  text-shadow: 0 8px 24px rgba(0,0,0,.75);
 }
-.hero-link {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  border: 1px solid rgba(232,240,255,.22);
-  background: rgba(6,9,18,.32);
-  color: rgba(232,240,255,.82);
-  border-radius: 999px;
-  padding: 6px 10px;
-  cursor: pointer;
+.hero-note {
+  margin-top: 12px;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: .07em;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  text-shadow: 0 1px 4px rgba(0,0,0,.75);
+  color: rgba(232,240,255,.64);
+  text-shadow: 0 6px 18px rgba(0,0,0,.75);
 }
-.hero-link:hover { border-color: rgba(239,43,45,.48); color: #fff; background: rgba(239,43,45,.12); }
-.runde-tabs {
-  position: relative; z-index: 1;
-  display: flex;
-  gap: 0;
-  overflow-x: auto;
-  border-bottom: 1px solid var(--border);
-  background: rgba(13,19,32,.96);
-  padding: 0 16px;
-}
-.runde-tab {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 14px 16px;
-  color: var(--muted);
-  border: none;
-  border-bottom: 3px solid transparent;
-  white-space: nowrap;
-  background: transparent;
-  cursor: pointer;
-  transition: all .2s;
-}
-.runde-tab:hover { color: var(--text); }
-.runde-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-.runde-tab.locked { color: #40506d; }
-.progress-bar-wrap {
-  position: relative; z-index: 1;
-  background: rgba(13,19,32,.96);
-  border-bottom: 1px solid var(--border);
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.progress-bar-wrap .label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 900;
-  color: var(--muted);
-  white-space: nowrap;
-  text-transform: uppercase;
-}
-.progress-bar { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-.progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width .3s; width: 0%; }
-.progress-count { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 900; color: var(--accent); white-space: nowrap; }
-.container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 24px 16px 80px; }
-.navn-wrap {
-  background: var(--card);
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 22px; }
+.front-actions { display: flex; justify-content: center; margin: 0 0 26px; }
+.btn, button {
   border: 1.5px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 18px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: end;
-}
-.field label {
-  display: block;
+  background: rgba(13,19,32,.82);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 9px 15px;
+  cursor: pointer;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 12px;
   font-weight: 900;
-  letter-spacing: .1em;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: background .18s, color .18s, border-color .18s, transform .18s;
+}
+.btn:hover, button:hover { border-color: rgba(239,43,45,.55); background: rgba(239,43,45,.12); transform: translateY(-1px); }
+.btn.primary, button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn.primary:hover, button.primary:hover { background: #ff3b3d; }
+.nav {
+  position: relative; z-index: 2;
+  display: flex; justify-content: center; gap: 0;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(6,9,18,.72);
+  backdrop-filter: blur(10px);
+  overflow-x: auto;
+}
+.nav-tab {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: 14px 20px; color: var(--muted);
+  border: 0; border-bottom: 3px solid transparent;
+  cursor: pointer; white-space: nowrap; transition: all .2s;
+  border-radius: 0; background: transparent;
+}
+.nav-tab:hover { color: var(--text); background: transparent; transform: none; }
+.nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.nav-link-only { color: var(--accent); }
+.nav-link-only:hover { color: #fff; border-bottom-color: rgba(239,43,45,.45); }
+.container { position: relative; z-index: 1; max-width: 940px; margin: 0 auto; padding: 32px 16px 80px; }
+.stats { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 0 0 24px; }
+.stat {
+  background: linear-gradient(180deg, rgba(17,26,46,.98), rgba(13,19,32,.96));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 14px;
+  min-height: 82px;
+}
+.compact-stats {
+  margin-top: -14px;
+  margin-bottom: 18px;
+}
+.compact-stats .stat {
+  min-height: 68px;
+  padding: 12px 13px;
+}
+.stat-num { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 36px; line-height: 1; color: var(--accent); }
+.stat-label { color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.seksjon { display: none; }
+.seksjon.active { display: block; }
+.section-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 18px; }
+.section-intro h2 { font-family: 'Bebas Neue', sans-serif; font-size: 46px; line-height: 1; color: var(--accent); }
+.section-intro p { color: var(--muted); font-size: 13px; margin-top: 6px; max-width: 620px; }
+#section-stilling > .section-intro { display: none; }
+.oppdatert { color: var(--muted); font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.podium { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 8px; margin-bottom: 32px; align-items: end; }
+.podium-plass { border-radius: 10px 10px 0 0; padding: 20px 12px 16px; text-align: center; position: relative; page-break-inside: avoid; }
+.podium-plass.p1 { background: linear-gradient(180deg, rgba(255,214,0,.15), rgba(255,214,0,.05)); border: 1.5px solid rgba(255,214,0,.3); min-height: 160px; }
+.podium-plass.p2 { background: linear-gradient(180deg, rgba(176,190,197,.1), rgba(176,190,197,.03)); border: 1.5px solid rgba(176,190,197,.2); min-height: 130px; }
+.podium-plass.p3 { background: linear-gradient(180deg, rgba(255,138,101,.1), rgba(255,138,101,.03)); border: 1.5px solid rgba(255,138,101,.2); min-height: 110px; }
+.podium-medal { font-size: 28px; margin-bottom: 8px; }
+.podium-navn { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 900; text-transform: uppercase; word-break: break-word; }
+.podium-poeng { font-family: 'Bebas Neue', sans-serif; font-size: 34px; line-height: 1; margin-top: 4px; }
+.podium-plass.p1 .podium-poeng { color: var(--gold); }
+.podium-plass.p2 .podium-poeng { color: var(--silver); }
+.podium-plass.p3 .podium-poeng { color: var(--bronze); }
+.table-card, .panel-card, .kampoversikt-liste, .delivery-list {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.stilling-header, .stilling-rad {
+  display: grid;
+  grid-template-columns: 44px minmax(0,1fr) 64px 64px 64px 80px;
+  gap: 8px;
+  align-items: center;
+}
+.stilling-header { padding: 9px 16px; font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+.stilling-rad { padding: 14px 16px; border-bottom: 1px solid rgba(30,45,74,.6); transition: background .15s; }
+.stilling-rad:last-child { border-bottom: none; }
+.stilling-rad:hover { background: rgba(239,43,45,.045); }
+.plass-num { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--muted); text-align: center; }
+.plass-num.p1 { color: var(--gold); } .plass-num.p2 { color: var(--silver); } .plass-num.p3 { color: var(--bronze); }
+.rad-navn { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 900; text-transform: uppercase; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rad-tall { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; text-align: right; color: var(--muted); }
+.rad-totalt { font-family: 'Bebas Neue', sans-serif; font-size: 24px; text-align: right; color: var(--gold); }
+.kamp-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.filter-btn { background: transparent; color: var(--muted); border: 1.5px solid var(--border); border-radius: 999px; padding: 7px 13px; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.filter-btn.active, .filter-btn:hover { color: #fff; background: var(--accent); border-color: var(--accent); transform: none; }
+.kampdato-gruppe { margin-bottom: 24px; }
+.kampdato-tittel { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; padding-left: 2px; }
+.kampoversikt-rad { display: grid; grid-template-columns: 72px minmax(0,1fr) 76px minmax(0,1fr) 86px; gap: 10px; align-items: center; padding: 12px 14px; border-bottom: 1px solid rgba(30,45,74,.55); transition: background .15s; }
+.kampoversikt-rad:last-child { border-bottom: none; }
+.kampoversikt-rad:nth-child(odd) { background: var(--surface); }
+.kampoversikt-rad:nth-child(even) { background: var(--card); }
+.kampoversikt-rad:hover { background: rgba(239,43,45,.055); }
+.kampoversikt-tid { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 900; letter-spacing: .06em; color: var(--muted); }
+.kampoversikt-lag { display: flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 900; text-transform: uppercase; color: var(--text); min-width: 0; }
+.kampoversikt-lag.borte { justify-content: flex-end; text-align: right; }
+.kampoversikt-lag span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kampoversikt-score { font-family: 'Bebas Neue', sans-serif; font-size: 24px; line-height: 1; color: var(--gold); text-align: center; white-space: nowrap; }
+.kampoversikt-score.venter { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 900; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+.kampoversikt-status { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; text-align: right; color: var(--muted); }
+.kampoversikt-status.open { color: var(--accent); }
+.kampoversikt-status.live { color: var(--danger); }
+.kampoversikt-status.ferdig { color: var(--success); }
+.tips-box { grid-column: 1 / -1; margin-top: -3px; padding-top: 10px; border-top: 1px solid rgba(30,45,74,.55); display: grid; gap: 6px; }
+.tipline { display: grid; grid-template-columns: minmax(0,1fr) auto auto; gap: 10px; color: var(--muted); font-size: 13px; }
+.tipline strong { color: var(--text); font-family: 'Bebas Neue', sans-serif; font-size: 18px; }
+.tipline .poeng { color: var(--gold); min-width: 28px; text-align: right; }
+.delivery-list { display: grid; }
+.delivery-row { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; padding: 13px 15px; border-bottom: 1px solid rgba(30,45,74,.55); align-items: center; }
+.delivery-row:last-child { border-bottom: 0; }
+.delivery-name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 900; text-transform: uppercase; }
+.delivery-rounds { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.delivery-total { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold); }
+.empty { padding: 34px 22px; text-align: center; color: var(--muted); background: rgba(13,19,32,.7); border: 1px solid var(--border); border-radius: 12px; }
+.source-note { margin-top: 26px; color: var(--muted); font-size: 12px; text-align: center; }
+
+/* ── DETALJER / BONUSSTATUS ── */
+.bonus-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.bonus-status-card {
+  background: linear-gradient(180deg, rgba(17,26,46,.98), rgba(13,19,32,.94));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 13px;
+  min-height: 96px;
+}
+.bonus-status-label {
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.bonus-status-value {
+  margin-top: 7px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  line-height: 1.05;
+  font-weight: 900;
+  color: var(--text);
+  text-transform: uppercase;
+}
+.bonus-status-sub {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+.bonus-round-list {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 22px;
+}
+.bonus-round-row {
+  display: grid;
+  grid-template-columns: 130px minmax(0,1fr) auto;
+  gap: 12px;
+  align-items: center;
+  background: rgba(17,26,46,.86);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 13px;
+}
+.bonus-round-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.bonus-round-meta {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.details-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0 14px;
+}
+.details-table-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.details-header,
+.details-score-row {
+  display: grid;
+  grid-template-columns: 44px minmax(0,1fr) 88px 110px 110px 88px;
+  gap: 8px;
+  align-items: center;
+}
+.details-header {
+  padding: 9px 16px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 7px;
+  border-bottom: 1px solid var(--border);
 }
-input, select {
+.details-score-row {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(30,45,74,.6);
+  transition: background .15s;
+}
+.details-score-row:last-child { border-bottom: none; }
+.details-score-row:hover { background: rgba(239,43,45,.045); }
+.details-score-name {
+  min-width: 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--accent);
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.details-score-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-align: right;
+  color: var(--text);
+}
+.details-score-total {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+  line-height: 1;
+  color: var(--gold);
+  text-align: right;
+}
+.details-section-title {
+  margin: 22px 0 10px;
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+/* ── LOKAL PROFIL OG MODALER ── */
+.profil-linje {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  color: rgba(232,240,255,.72);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0,0,0,.75);
+}
+.profil-linje strong { color: var(--text); font-size: 12px; font-weight: 900; }
+.profil-linje button {
+  padding: 5px 9px;
+  font-size: 9px;
+  line-height: 1.2;
+  background: rgba(6,9,18,.32);
+  border-color: rgba(239,43,45,.36);
+  color: var(--accent);
+  text-shadow: none;
+}
+.stilling-rad.clickable,
+.delivery-row.clickable { cursor: pointer; }
+.stilling-rad.clickable:hover,
+.delivery-row.clickable:hover { background: rgba(239,43,45,.07); }
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(2,5,12,.76);
+  backdrop-filter: blur(8px);
+}
+.modal-backdrop.vis { display: flex; }
+.modal-card {
+  width: min(760px, 100%);
+  max-height: min(86vh, 900px);
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(17,26,46,.98), rgba(9,14,25,.98));
+  border: 1px solid rgba(239,43,45,.28);
+  border-radius: 16px;
+  box-shadow: 0 24px 90px rgba(0,0,0,.55);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  line-height: .95;
+  color: var(--accent);
+}
+.modal-subtitle {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.modal-close {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+}
+.modal-body { padding: 18px 20px 20px; }
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  padding: 0 20px 18px;
+}
+.profile-select,
+.profile-input {
   width: 100%;
   background: var(--surface);
   border: 1.5px solid var(--border);
-  border-radius: 7px;
-  padding: 10px 11px;
+  border-radius: 9px;
   color: var(--text);
+  padding: 11px 12px;
   font-family: 'Barlow', sans-serif;
   font-size: 15px;
   outline: none;
 }
-input:focus, select:focus { border-color: var(--accent); }
-option { background: var(--surface); color: var(--text); }
-button, .btn {
-  border-radius: 7px;
-  padding: 10px 14px;
-  cursor: pointer;
-  white-space: nowrap;
+.profile-select:focus,
+.profile-input:focus { border-color: var(--accent); }
+.profile-form-grid { display: grid; gap: 12px; }
+.profile-help { color: var(--muted); font-size: 13px; line-height: 1.45; }
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.mini-stat {
+  background: rgba(13,19,32,.78);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 12px 11px;
+}
+.mini-stat strong {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--gold);
+}
+.mini-stat span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.detail-section + .detail-section { margin-top: 18px; }
+.detail-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 12px;
   font-weight: 900;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  transition: all .2s;
-  border: 1.5px solid var(--border);
-  background: rgba(13,19,32,.88);
-  color: var(--text);
-}
-button:hover, .btn:hover { border-color: rgba(239,43,45,.55); background: rgba(239,43,45,.12); }
-button.primary, .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-button.primary:hover, .btn.primary:hover { background: #ff3b3d; }
-button:disabled { opacity: .45; cursor: not-allowed; }
-.message { margin-bottom: 16px; }
-.notice {
-  padding: 12px 14px;
-  border-radius: 9px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  background: rgba(13,19,32,.8);
-  font-size: 13px;
-  line-height: 1.45;
-}
-.notice.ok { color: #b9f6ca; border-color: rgba(0,230,118,.35); background: rgba(0,230,118,.08); }
-.notice.err { color: #ff9a9a; border-color: rgba(255,90,90,.38); background: rgba(255,90,90,.09); }
-.runde-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
-.runde-tag {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 900;
   letter-spacing: .12em;
   text-transform: uppercase;
-  background: var(--accent);
-  color: #fff;
-  padding: 3px 10px;
-  border-radius: 3px;
 }
-.runde-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 900; text-transform: uppercase; }
-.runde-header .poeng-info { margin-left: auto; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; color: var(--muted); }
-.runde-header .poeng-info span { color: var(--accent); font-weight: 900; }
-.runde-oppsummering {
-  margin: 0 0 14px;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
-  color: var(--muted);
-  font-size: 13px;
-}
-.runde-oppsummering strong { color: var(--text); }
-.kamp-kort {
-  background: var(--card);
-  border: 1.5px solid var(--border);
-  border-radius: 11px;
-  padding: 0;
-  margin-bottom: 10px;
-  overflow: hidden;
-  transition: border-color .2s, opacity .2s;
-}
-.kamp-kort:hover { border-color: #344766; }
-.kamp-kort.locked-kamp { opacity: .72; background: var(--locked); }
-.kamp-status {
-  padding: 7px 14px;
-  border-bottom: 1px solid var(--border);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  font-family: 'Barlow Condensed', sans-serif;
-}
-.kamp-status.open { color: var(--accent); background: rgba(239,43,45,.06); }
-.kamp-status.saved { color: var(--gold); background: rgba(255,214,0,.055); }
-.kamp-status.locked { color: var(--muted); background: rgba(122,138,170,.05); }
-.lag-rad {
+.detail-row {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0,1fr) auto auto;
+  gap: 10px;
   align-items: center;
-  padding: 12px 16px;
-  transition: background .15s;
-  gap: 12px;
+  padding: 10px 2px;
+  border-bottom: 1px solid rgba(30,45,74,.45);
+  font-size: 13px;
+  color: var(--muted);
 }
-.lag-rad + .lag-rad { border-top: 1px solid var(--border); }
-.lag-rad:hover { background: rgba(255,255,255,.03); }
-.lag-rad.valgt { background: rgba(239,43,45,.09); }
-.lag-rad.valgt .lag-navn { color: var(--accent); }
-.lag-navn {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 19px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: .02em;
-}
-.lag-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
-.score-wrap { display: flex; align-items: center; gap: 6px; }
-.score-input-felt {
-  width: 42px; height: 42px;
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: 6px;
+.detail-row:last-child { border-bottom: 0; }
+.detail-main {
+  min-width: 0;
   color: var(--text);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 900;
-  text-align: center;
-  outline: none;
-  transition: border-color .2s;
-  -moz-appearance: textfield;
-  padding: 0;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.score-input-felt::-webkit-inner-spin-button, .score-input-felt::-webkit-outer-spin-button { -webkit-appearance: none; }
-.score-input-felt:focus { border-color: var(--accent); }
-.score-input-felt.filled { border-color: rgba(239,43,45,.50); }
-.score-input-felt:disabled { cursor: not-allowed; opacity: .55; }
-.score-sep { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 900; color: var(--muted); }
-
-/* ── BONUSSPØRSMÅL ── */
-.bonus-panel {
-  background: linear-gradient(135deg, rgba(255,214,0,.07), rgba(239,43,45,.035));
-  border: 1.5px solid rgba(255,214,0,.25);
-  border-radius: 12px;
-  padding: 16px;
-  margin: 0 0 14px;
+.detail-sub { color: var(--muted); font-size: 11px; margin-top: 2px; text-transform: none; font-family: 'Barlow', sans-serif; font-weight: 500; }
+.detail-score {
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--text);
+  font-size: 22px;
+  white-space: nowrap;
 }
-.bonus-panel.helhet {
-  border-color: rgba(239,43,45,.32);
-  background: linear-gradient(135deg, rgba(239,43,45,.085), rgba(255,214,0,.035));
+.detail-points {
+  min-width: 42px;
+  text-align: right;
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--gold);
+  font-size: 24px;
 }
-.bonus-heading { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
-.bonus-heading h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; text-transform: uppercase; }
-.bonus-heading span { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 900; color: var(--gold); white-space: nowrap; }
-.bonus-intro { font-size: 12px; color: var(--muted); line-height: 1.45; margin-top: 3px; }
-.bonus-grid { display: grid; gap: 12px; }
-.bonus-field label { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; color: var(--text); }
-.bonus-status { font-size: 11px; color: var(--muted); margin-top: 8px; }
-.bonus-status.open { color: var(--accent); }
-.bonus-status.locked { color: var(--red); }
-@media (max-width: 640px) {
-  .bonus-heading { display: block; }
-  .bonus-heading span { display: block; margin-top: 5px; }
-  .bonus-panel { padding: 14px; }
-}
-
-.lever-wrap { margin-top: 24px; display: grid; gap: 10px; }
-.btn-lever {
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 8px;
+  color: var(--muted);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 17px;
+  font-size: 10px;
   font-weight: 900;
   letter-spacing: .08em;
   text-transform: uppercase;
-  padding: 14px 40px;
-  border-radius: 7px;
-  border: none;
-  background: var(--accent);
-  color: #fff;
-  width: 100%;
+  white-space: nowrap;
 }
-.btn-lever:hover { background: #ff3b3d; transform: translateY(-1px); }
-.helper-note { color: var(--muted); font-size: 12px; text-align: center; }
-.empty {
-  text-align: center;
-  padding: 48px 24px;
-  color: var(--muted);
-  background: var(--card);
+.status-chip.ok { color: var(--success); border-color: rgba(0,230,118,.32); background: rgba(0,230,118,.06); }
+.status-chip.warn { color: var(--gold); border-color: rgba(255,214,0,.3); background: rgba(255,214,0,.06); }
+.status-chip.bad { color: var(--danger); border-color: rgba(255,90,90,.32); background: rgba(255,90,90,.06); }
+.modal-empty {
+  padding: 18px;
   border: 1px solid var(--border);
   border-radius: 12px;
+  background: rgba(13,19,32,.52);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
 }
-.empty .ikon { font-size: 42px; margin-bottom: 12px; }
-.empty h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
-@media (max-width: 620px) {
-  .hero { min-height: 270px; padding: 34px 14px 26px; }
-  .hero-link { top: 11px; right: 11px; font-size: 9px; padding: 5px 8px; }
-  .runde-tabs { padding: 0 8px; }
-  .runde-tab { padding: 12px 10px; font-size: 11px; }
-  .container { padding: 18px 12px 70px; }
-  .navn-wrap { grid-template-columns: 1fr; }
-  .runde-header { align-items: flex-start; }
-  .runde-header .poeng-info { margin-left: 0; }
-  .lag-navn { font-size: 16px; }
-  .lag-rad { padding: 12px 12px; }
-  .score-input-felt { width: 40px; height: 40px; }
+@media (max-width: 760px) {
+  .profil-linje { top: 10px; right: 10px; gap: 7px; font-size: 9px; }
+  .profil-linje strong { font-size: 10px; }
+  .profil-linje button { padding: 4px 7px; font-size: 8px; }
+  .modal-card { max-height: 90vh; border-radius: 14px; }
+  .modal-title { font-size: 32px; }
+  .modal-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .detail-row { grid-template-columns: minmax(0,1fr) auto; }
+  .detail-points { grid-column: 2; }
+}
+
+@media (max-width: 760px) {
+  .hero { min-height: 520px; padding: 42px 18px 44px; background-position: center top; }
+  .hero h1 { font-size: clamp(62px, 19vw, 96px); }
+  .hero-sub { letter-spacing: .16em; font-size: 15px; }
+  .hero-note { font-size: 10px; letter-spacing: .12em; }
+  .nav { justify-content: flex-start; padding: 0 12px; }
+  .nav-tab { padding: 13px 13px; font-size: 12px; }
+  .stats { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .compact-stats { margin-top: 0; }
+  .compact-stats .stat { min-height: 74px; }
+  .section-intro { display: block; }
+  .section-intro h2 { font-size: 38px; }
+  .oppdatert { margin-top: 8px; display: block; }
+  .podium { grid-template-columns: 1fr; align-items: stretch; }
+  .podium-plass.p1, .podium-plass.p2, .podium-plass.p3 { min-height: 0; border-radius: 12px; }
+  .stilling-header { display: none; }
+  .stilling-rad { grid-template-columns: 36px minmax(0,1fr) 52px; }
+  .stilling-rad .rad-tall { display: none; }
+  .kamp-filter { flex-wrap: nowrap; overflow-x: auto; margin-left: -16px; margin-right: -16px; padding: 0 16px 5px; scrollbar-width: none; }
+  .kamp-filter::-webkit-scrollbar { display: none; }
+  .filter-btn { flex: 0 0 auto; }
+  .kampoversikt-liste { border: 0; background: transparent; overflow: visible; }
+  .kampoversikt-rad { display: block; padding: 12px 14px; margin-bottom: 10px; border: 1px solid var(--border); border-radius: 14px; background: var(--card) !important; }
+  .kampoversikt-tid { display: flex; justify-content: space-between; margin-bottom: 10px; }
+  .kampoversikt-status { float: right; }
+  .kampoversikt-lag { font-size: 18px; min-height: 28px; }
+  .kampoversikt-lag.borte { justify-content: flex-start; text-align: left; }
+  .kampoversikt-score { text-align: left; margin: 5px 0; font-size: 30px; }
+  .tipline { grid-template-columns: minmax(0,1fr) auto; }
+  .tipline .poeng { display: none; }
+}
+
+@media (max-width: 760px) {
+  .bonus-status-grid { grid-template-columns: 1fr; }
+  .bonus-round-row { grid-template-columns: 1fr auto; }
+  .bonus-round-meta { grid-column: 1 / -1; }
+  .details-filter { flex-wrap: nowrap; overflow-x: auto; margin-left: -16px; margin-right: -16px; padding: 0 16px 5px; scrollbar-width: none; }
+  .details-filter::-webkit-scrollbar { display: none; }
+  .details-filter .filter-btn { flex: 0 0 auto; }
+  .details-header { display: none; }
+  .details-score-row { grid-template-columns: 34px minmax(0,1fr) 68px; }
+  .details-score-row .details-score-num:nth-of-type(1),
+  .details-score-row .details-score-num:nth-of-type(2),
+  .details-score-row .details-score-num:nth-of-type(3) { display: none; }
 }
 </style>
 </head>
 <body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
 <header class="hero">
-  <a class="hero-link" href="index.html">← Forsiden</a>
-  <div class="badge">⚽ Nussebassene · Lever tips</div>
-  <h1>Tipp <span>utslaget</span></h1>
-  <p>Resultatet etter 90 minutter teller. Ekstraomganger og straffer teller ikke.</p>
+  <div class="profil-linje" id="profileLine" aria-label="Lokal brukerprofil">
+    <span id="profileText">Ingen bruker valgt</span>
+    <button type="button" onclick="openProfileModal()" id="profileButton">Velg bruker</button>
+  </div>
+  <h1>VM <span class="year">2026</span></h1>
+  <div class="hero-sub">Tippekonkurranse · USA / Canada / Mexico</div>
+  <div class="hero-note">Nussebassene · Kun utslagsrunder · 90 minutter</div>
 </header>
-<div class="runde-tabs" id="rundeTabs"></div>
-<div class="progress-bar-wrap">
-  <span class="label">Fullført</span>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-  <span class="progress-count" id="progressCount">0 / 0</span>
-</div>
+<nav class="nav" aria-label="Hovedmeny">
+  <button class="nav-tab active" data-section="stilling">Stilling</button>
+  <button class="nav-tab" data-section="kamper">Kamper</button>
+  <button class="nav-tab" data-section="detaljer">Detaljer</button>
+  <button class="nav-tab" data-section="innlevering">Innlevering</button>
+  <a class="nav-tab nav-link-only" href="tipping.html">Lever tips</a>
+</nav>
 <main class="container">
-  <div id="message" class="message"></div>
-  <section class="navn-wrap">
-    <div class="field">
-      <label for="participant">Ditt navn</label>
-      <input id="participant" autocomplete="name" placeholder="Skriv navn" />
+  <section class="seksjon active" id="section-stilling">
+    <div class="section-intro">
+      <div><h2>Stilling</h2><p>Poeng beregnes først når kampen er ferdig. Tips skjules før avspark.</p></div>
+      <div class="oppdatert" id="generatedAt">Ikke oppdatert ennå</div>
     </div>
-    <button type="button" id="saveNameBtn">Lagre navn</button>
+    <div id="podium"></div>
+    <section class="stats compact-stats" aria-label="Nøkkeltall">
+      <div class="stat"><span class="stat-num" id="statMatches">0</span><span class="stat-label">kamper</span></div>
+      <div class="stat"><span class="stat-num" id="statOpen">0</span><span class="stat-label">åpne</span></div>
+      <div class="stat"><span class="stat-num" id="statFinished">0</span><span class="stat-label">ferdige</span></div>
+      <div class="stat"><span class="stat-num" id="statPlayers">0</span><span class="stat-label">deltakere</span></div>
+    </section>
+    <div class="front-actions">
+      <a class="btn primary" href="tipping.html">Lever tips</a>
+    </div>
+    <div id="leaderboard"></div>
   </section>
-  <section id="roundContent"></section>
-  <section class="lever-wrap">
-    <button type="button" id="submitBtn" class="btn-lever">Lever tips</button>
-    <div class="helper-note">Du kan levere på nytt frem til avspark. Siste fil overskriver for samme navn og runde.</div>
-  </section>
-</main>
-<script>
-const CONFIG = window.NUSSEBASSENE_CONFIG || {};
-const DATA = window.NUSSEBASSENE_DATA || {};
-const status = DATA.status || { matches: [], top_scorers: [] };
-const allMatches = Array.isArray(status.matches) ? status.matches.slice() : [];
-const resultater = DATA.resultater || {};
-const roundLabels = { r32: 'Runde av 32', r16: 'Runde av 16', qf: 'Kvartfinale', sf: 'Semifinale', final: 'Finale' };
-const roundShort = { r32: 'R32', r16: 'R16', qf: 'QF', sf: 'SF', final: 'Finale' };
-const rounds = ['r32','r16','qf','sf','final'];
-const BONUS_POINTS_ROUND = Number(resultater?.regler?.poeng_rundebonus || 5);
-const BONUS_POINTS_OVERALL = Number(resultater?.regler?.poeng_helhetsbonus || 10);
-const BONUS_SPORSMAL = {
-  r32: { id:'antall_uavgjort', tekst:'Hvor mange kamper ender uavgjort i løpet av de første 90 minuttene, inkludert tilleggstid?', min:0, max:16 },
-  r16: { id:'antall_nullen', tekst:'Hvor mange lag holder nullen i løpet av de første 90 minuttene, inkludert tilleggstid?', min:0, max:16 },
-  qf: { id:'antall_ettmaalsseier', tekst:'Hvor mange kamper avgjøres med ett mål i løpet av de første 90 minuttene, inkludert tilleggstid?', min:0, max:4 },
-  sf: { id:'totale_maal', tekst:'Hvor mange mål scores totalt i semifinalene i løpet av de første 90 minuttene, inkludert tilleggstid?', min:0, max:40 },
-  final: { id:'begge_lag_scorer', tekst:'Scorer begge lag i finalen i løpet av de første 90 minuttene, inkludert tilleggstid?', type:'ja_nei' }
-};
-const HELHETSBONUS_TEKST = {
-  flest_maal_lag:'Hvilket lag scorer flest mål fra 32-delsfinalene til og med finalen i løpet av de første 90 minuttene, inkludert tilleggstid?',
-  totale_maal_utslag:'Hvor mange mål scores totalt fra 32-delsfinalene til og med finalen i løpet av de første 90 minuttene, inkludert tilleggstid?',
-  golden_boot:'Hvem vinner FIFA Golden Boot?'
-};
-// Midlertidig unntak fordi appen ble åpnet etter første R32-avspark.
-// Gjelder kun R32-bonus/helhetsbonus og utløper ved midnatt norsk tid 29.06.2026.
-const R32_BONUS_UTVIDET_FRIST_UTC = Date.parse('2026-06-29T21:59:59.999Z');
-let activeRound = rounds.find(r => allMatches.some(m => m.runde === r && m.tippe_status === 'åpen')) || rounds.find(r => allMatches.some(m => m.runde === r)) || 'r32';
-const participantInput = document.getElementById('participant');
-participantInput.value = localStorage.getItem('nussebassene_participant') || '';
 
+  <section class="seksjon" id="section-kamper">
+    <div class="section-intro">
+      <div><h2>Kamper</h2><p>FIFA Calendar er kampgrunnlaget. football-data.org brukes bare som kontroll/fallback for resultat.</p></div>
+      <div class="oppdatert" id="matchesUpdated">Ikke oppdatert ennå</div>
+    </div>
+    <div class="kamp-filter" id="kampFilter"></div>
+    <div id="matches"></div>
+  </section>
+
+  <section class="seksjon" id="section-detaljer">
+    <div class="section-intro">
+      <div><h2>Detaljer</h2><p>Bonusstatus, foreløpige bonusverdier og mer detaljert poengfordeling.</p></div>
+      <div class="oppdatert" id="detailsUpdated">Ikke oppdatert ennå</div>
+    </div>
+    <div id="detailsContent"></div>
+  </section>
+
+  <section class="seksjon" id="section-innlevering">
+    <div class="section-intro">
+      <div><h2>Innlevering</h2><p>Oversikt over hvem som har levert tips per runde.</p></div>
+      <div class="oppdatert" id="deliveryUpdated">Ikke oppdatert ennå</div>
+    </div>
+    <div id="deliveries"></div>
+  </section>
+
+  <p class="source-note">Datakilder: FIFA Calendar som primærkilde. football-data.org som kontroll/resultatfallback der FIFA mangler ferdig resultat.</p>
+</main>
+
+<div class="modal-backdrop" id="appModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-subtitle" id="modalSubtitle"></div>
+      </div>
+      <button type="button" class="modal-close" onclick="closeModal()" aria-label="Lukk">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-actions" id="modalActions"></div>
+  </div>
+</div>
+
+<script>
+const DATA = window.NUSSEBASSENE_DATA || {};
+const status = DATA.status || { matches: [] };
+const resultater = DATA.resultater || { leaderboard: [], matches: [] };
+const innlevering = DATA.innleveringsstatus || { deltakere: [] };
+const matches = Array.isArray(status.matches) ? status.matches.slice() : [];
+const resultMatches = Array.isArray(resultater.matches) ? resultater.matches : [];
+const roundLabels = { r32: 'R32', r16: 'R16', qf: 'Kvart', sf: 'Semi', final: 'Finale' };
+const roundOrder = ['alle','r32','r16','qf','sf','final'];
+let activeMatchFilter = 'alle';
 function esc(value) { return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
 function fmtTime(iso) {
   if (!iso) return 'Ukjent tid';
   try { return new Intl.DateTimeFormat('no-NO', { weekday:'short', day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' }).format(new Date(iso)); }
   catch { return iso; }
 }
+function fmtDate(iso) {
+  if (!iso) return 'Ukjent dato';
+  try { return new Intl.DateTimeFormat('no-NO', { weekday:'long', day:'2-digit', month:'long' }).format(new Date(iso)); }
+  catch { return iso; }
+}
 function statusText(m) {
+  const s = m.tippe_status || (m.ferdig ? 'ferdig' : 'ukjent');
+  if (s === 'åpen') return 'Åpen';
+  if (s === 'startet') return 'Startet';
+  if (s === 'ferdig') return 'Ferdig';
+  if (s === 'venter_lag') return 'Venter lag';
+  if (s === 'låst') return 'Låst';
+  return s;
+}
+function statusClass(m) {
   const s = m.tippe_status || '';
-  if (s === 'åpen') return 'Åpen for tipping';
-  if (s === 'startet') return 'Kampen har startet';
-  if (s === 'ferdig') return 'Ferdigspilt';
-  if (s === 'venter_lag') return 'Venter på lag';
-  return 'Ikke åpen';
+  if (s === 'åpen') return 'open';
+  if (s === 'ferdig' || m.ferdig) return 'ferdig';
+  if (s === 'startet') return 'live';
+  return '';
 }
-function matchOpen(m) { return m.tippe_status === 'åpen' && m.tippebar === true; }
-function storageKey(matchId, side) { return `nussebassene_tip_${matchId}_${side}`; }
-function bonusStorageKey(round) { return `nussebassene_bonus_${round}`; }
-function helhetStorageKey(key) { return `nussebassene_helhet_${key}`; }
-function showMessage(text, type = '') {
-  const el = document.getElementById('message');
-  if (!text) { el.innerHTML = ''; return; }
-  el.innerHTML = `<div class="notice ${type}">${esc(text)}</div>`;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+function matchResult(m) {
+  const r = m.resultat || (resultMatches.find(x => x.id === m.id) || {}).resultat;
+  if (!r) return null;
+  const h = r.home_score ?? r.hjemme ?? r.home;
+  const a = r.away_score ?? r.borte ?? r.away;
+  if (h === undefined || a === undefined || h === null || a === null) return null;
+  return `${h}–${a}`;
 }
-function parseKickoff(m) {
-  const t = Date.parse(m?.utcDate || '');
-  return Number.isFinite(t) ? t : null;
+function resultTips(matchId) {
+  const rm = resultMatches.find(x => x.id === matchId);
+  return Array.isArray(rm?.tips) ? rm.tips : [];
 }
-function firstKickoff(round) {
-  const times = allMatches.filter(m => m.runde === round).map(parseKickoff).filter(t => t !== null);
-  return times.length ? Math.min(...times) : null;
+function canShowTips(m) { return m.vis_tips === true || ['startet','ferdig'].includes(m.tippe_status); }
+function renderNav() {
+  document.querySelectorAll('.nav-tab').forEach(btn => btn.addEventListener('click', () => {
+    if (!btn.dataset.section) return;
+    document.querySelectorAll('.nav-tab[data-section]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.seksjon').forEach(s => s.classList.remove('active'));
+    document.getElementById(`section-${btn.dataset.section}`)?.classList.add('active');
+  }));
 }
-function bonusDeadline(round) {
-  if (round === 'r32' && Number.isFinite(R32_BONUS_UTVIDET_FRIST_UTC) && Date.now() < R32_BONUS_UTVIDET_FRIST_UTC) {
-    return R32_BONUS_UTVIDET_FRIST_UTC;
-  }
-  return firstKickoff(round);
+function renderStats() {
+  document.getElementById('statMatches').textContent = matches.length;
+  document.getElementById('statOpen').textContent = matches.filter(m => m.tippe_status === 'åpen').length;
+  document.getElementById('statFinished').textContent = matches.filter(m => m.ferdig || m.tippe_status === 'ferdig').length;
+  document.getElementById('statPlayers').textContent = (resultater.leaderboard || []).length || (innlevering.deltakere || []).length;
+  const stamp = resultater.generated_at || status.generated_at || innlevering.generated_at;
+  const text = stamp ? `Oppdatert ${fmtTime(stamp)}` : 'Ikke oppdatert ennå';
+  document.getElementById('generatedAt').textContent = text;
+  document.getElementById('matchesUpdated').textContent = status.generated_at ? `Oppdatert ${fmtTime(status.generated_at)}` : text;
+  document.getElementById('deliveryUpdated').textContent = innlevering.generated_at ? `Oppdatert ${fmtTime(innlevering.generated_at)}` : text;
+  document.getElementById('detailsUpdated').textContent = resultater.generated_at ? `Oppdatert ${fmtTime(resultater.generated_at)}` : text;
 }
-function bonusOpen(round) {
-  const frist = bonusDeadline(round);
-  return frist !== null && Date.now() < frist;
+function renderPodium() {
+  const board = resultater.leaderboard || [];
+  const el = document.getElementById('podium');
+  if (!board.length) { el.innerHTML = ''; return; }
+  const order = [board[1], board[0], board[2]];
+  const cls = ['p2','p1','p3'];
+  const medal = ['🥈','🥇','🥉'];
+  el.innerHTML = `<div class="podium">${order.map((p,i) => p ? `<div class="podium-plass ${cls[i]}"><div class="podium-medal">${medal[i]}</div><div class="podium-navn">${esc(p.deltaker)}</div><div class="podium-poeng">${Number(p.poeng || 0)}</div></div>` : `<div></div>`).join('')}</div>`;
 }
-function formatBonusFrist(round) {
-  const frist = bonusDeadline(round);
-  if (frist === null) return 'Avventer bekreftet avsparkstid';
-  const prefix = round === 'r32' && frist === R32_BONUS_UTVIDET_FRIST_UTC ? 'Utvidet bonusfrist: ' : 'Stenger ';
-  return prefix + new Date(frist).toLocaleString('no-NO', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
+function renderLeaderboard() {
+  const board = resultater.leaderboard || [];
+  const el = document.getElementById('leaderboard');
+  if (!board.length) { el.innerHTML = '<div class="empty">Ingen poeng ennå. Stilling fylles når første kamp er ferdig og poengregning er kjørt.</div>'; return; }
+  el.innerHTML = `<div class="table-card"><div class="stilling-header"><div>#</div><div>Deltaker</div><div>Eksakt</div><div>Utfall</div><div>Bonus</div><div>Poeng</div></div>${board.map((p,i) => `<div class="stilling-rad clickable" data-participant="${esc(p.deltaker)}" title="Vis detaljer for ${esc(p.deltaker)}"><div class="plass-num p${i+1 <= 3 ? i+1 : ''}">${i+1}</div><div class="rad-navn">${esc(p.deltaker)}</div><div class="rad-tall">${Number(p.exact || 0)}</div><div class="rad-tall">${Number(p.outcome || 0)}</div><div class="rad-tall">${Number(p.bonus_poeng || 0)}</div><div class="rad-totalt">${Number(p.poeng || 0)}</div></div>`).join('')}</div>`;
+  el.querySelectorAll('[data-participant]').forEach(row => row.addEventListener('click', () => openParticipantDetails(row.dataset.participant)));
 }
-function knownR32Teams() {
-  const lag = new Set();
-  for (const m of allMatches.filter(x => x.runde === 'r32')) {
-    [m.hjemme, m.borte].forEach(navn => {
-      const n = String(navn || '').trim();
-      if (n && !/^(W\d+|[123][A-L]|TBD|Winner|Runner)/i.test(n) && !n.includes('/')) lag.add(n);
-    });
-  }
-  return [...lag].sort((a,b) => a.localeCompare(b, 'no'));
-}
-function scorerNames() {
-  const scorers = Array.isArray(status.top_scorers) ? status.top_scorers : [];
-  return scorers.map(s => s.player || s.name || s.spiller).filter(Boolean);
-}
-function renderTabs() {
-  const el = document.getElementById('rundeTabs');
-  el.innerHTML = rounds.map(r => {
-    const count = allMatches.filter(m => m.runde === r).length;
-    const open = allMatches.some(m => m.runde === r && matchOpen(m));
-    return `<button type="button" class="runde-tab ${r === activeRound ? 'active' : ''} ${count ? '' : 'locked'}" data-round="${r}">${roundShort[r]}${open ? ' <span style="color:var(--success)">●</span>' : ''}</button>`;
+function renderFilter() {
+  const el = document.getElementById('kampFilter');
+  el.innerHTML = roundOrder.map(r => {
+    const label = r === 'alle' ? 'Alle' : roundLabels[r];
+    const count = r === 'alle' ? matches.length : matches.filter(m => m.runde === r).length;
+    return `<button type="button" class="filter-btn ${r === activeMatchFilter ? 'active' : ''}" data-round="${r}">${label} ${count ? `(${count})` : ''}</button>`;
   }).join('');
-  el.querySelectorAll('.runde-tab').forEach(btn => btn.addEventListener('click', () => { activeRound = btn.dataset.round; renderTabs(); renderRound(); }));
+  el.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', () => { activeMatchFilter = btn.dataset.round; renderFilter(); renderMatches(); }));
 }
-function updateProgress(matches) {
-  const openMatches = matches.filter(matchOpen);
-  let filled = 0;
-  for (const m of openMatches) {
-    const home = document.querySelector(`[data-match-id="${CSS.escape(m.id)}"] [data-side="home"]`)?.value;
-    const away = document.querySelector(`[data-match-id="${CSS.escape(m.id)}"] [data-side="away"]`)?.value;
-    if (home !== '' && away !== '') filled++;
+function renderMatches() {
+  const el = document.getElementById('matches');
+  let list = matches.slice().sort((a,b) => String(a.utcDate || '').localeCompare(String(b.utcDate || '')) || Number(a.match_no || 0) - Number(b.match_no || 0));
+  if (activeMatchFilter !== 'alle') list = list.filter(m => m.runde === activeMatchFilter);
+  if (!list.length) { el.innerHTML = '<div class="empty">Ingen kamper er hentet ennå. Kjør oppdater.yml når API-oppsettet er klart.</div>'; return; }
+  const groups = new Map();
+  for (const m of list) {
+    const key = m.utcDate ? new Date(m.utcDate).toISOString().slice(0,10) : 'ukjent';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(m);
   }
-  const total = openMatches.length;
-  document.getElementById('progressCount').textContent = `${filled} / ${total}`;
-  document.getElementById('progressFill').style.width = total ? `${Math.round((filled / total) * 100)}%` : '0%';
+  el.innerHTML = Array.from(groups.entries()).map(([date, group]) => `<div class="kampdato-gruppe"><div class="kampdato-tittel">${date === 'ukjent' ? 'Ukjent dato' : esc(fmtDate(group[0].utcDate))}</div><div class="kampoversikt-liste">${group.map(m => {
+    const score = matchResult(m);
+    const tips = canShowTips(m) ? resultTips(m.id) : [];
+    return `<article class="kampoversikt-rad"><div class="kampoversikt-tid">${esc(fmtTime(m.utcDate))}</div><div class="kampoversikt-lag"><span>${esc(m.hjemme || 'TBD')}</span></div><div class="kampoversikt-score ${score ? '' : 'venter'}">${score || 'Venter'}</div><div class="kampoversikt-lag borte"><span>${esc(m.borte || 'TBD')}</span></div><div class="kampoversikt-status ${statusClass(m)}">${esc(statusText(m))}</div>${tips.length ? `<div class="tips-box">${tips.map(t => `<div class="tipline"><span>${esc(t.deltaker)}</span><strong>${esc(t.home_score)}–${esc(t.away_score)}</strong><span class="poeng">${Number(t.poeng || 0)}p</span></div>`).join('')}</div>` : (canShowTips(m) ? '' : '<div class="tips-box"><div class="tipline"><span>Tips vises etter avspark</span><strong>–</strong><span></span></div></div>')}</article>`;
+  }).join('')}</div></div>`).join('');
 }
-function renderRound() {
-  const el = document.getElementById('roundContent');
-  const matches = allMatches.filter(m => m.runde === activeRound).sort((a,b) => String(a.utcDate || '').localeCompare(String(b.utcDate || '')) || Number(a.match_no || 0) - Number(b.match_no || 0));
-  if (!matches.length) {
-    el.innerHTML = `<div class="empty"><div class="ikon">🔒</div><h3>Ingen kamper ennå</h3><p>Denne runden fylles automatisk når FIFA Calendar leverer kampoppsettet.</p></div>`;
-    updateProgress([]);
-    updateSubmitButton(matches);
-    return;
-  }
-  const openCount = matches.filter(matchOpen).length;
-  const bonusInfo = activeRound === 'r32' && bonusOpen('r32') && bonusDeadline('r32') === R32_BONUS_UTVIDET_FRIST_UTC
-    ? ' Bonus for R32 har utvidet frist ut dagen norsk tid.'
-    : ' Bonus låses ved første avspark i aktuell runde.';
-  el.innerHTML = `<div class="runde-header"><span class="runde-tag">${esc(roundShort[activeRound])}</span><h2>${esc(roundLabels[activeRound])}</h2><div class="poeng-info"><span>${openCount}</span> åpne</div></div><div class="runde-oppsummering"><strong>${openCount} av ${matches.length}</strong> kamper er åpne for tipping.${bonusInfo}</div>${activeRound === 'r32' ? renderOverallBonus() : ''}${renderRoundBonus(activeRound)}${matches.map(m => renderMatchCard(m)).join('')}`;
-  for (const input of el.querySelectorAll('.score-input-felt')) {
-    input.addEventListener('input', () => { input.classList.toggle('filled', input.value !== ''); localStorage.setItem(storageKey(input.dataset.matchId, input.dataset.side), input.value); updateProgress(matches); updateSubmitButton(matches); });
-    input.classList.toggle('filled', input.value !== '');
-  }
-  for (const input of el.querySelectorAll('[data-bonus-round],[data-helhet-key]')) {
-    input.addEventListener('input', () => { saveBonusInput(input); updateSubmitButton(matches); });
-    input.addEventListener('change', () => { saveBonusInput(input); updateSubmitButton(matches); });
-  }
-  updateProgress(matches);
-  updateSubmitButton(matches);
-}
-function renderOverallBonus() {
-  const open = bonusOpen('r32');
-  const disabled = open ? '' : 'disabled';
-  const teams = knownR32Teams().map(lag => `<option value="${esc(lag)}" ${localStorage.getItem(helhetStorageKey('flest_maal_lag')) === lag ? 'selected' : ''}>${esc(lag)}</option>`).join('');
-  const players = scorerNames().map(navn => `<option value="${esc(navn)}"></option>`).join('');
-  const totalValue = localStorage.getItem(helhetStorageKey('totale_maal_utslag')) || '';
-  const gb = localStorage.getItem(helhetStorageKey('golden_boot')) || '';
-  return `<div class="bonus-panel helhet"><div class="bonus-heading"><div><h3>Bonus · hele utslagsfasen</h3><div class="bonus-intro">Tre spørsmål som gjelder fra 32-delsfinalene til og med finalen.</div></div><span>${BONUS_POINTS_OVERALL} poeng per spørsmål</span></div><div class="bonus-grid"><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.flest_maal_lag)}</label><select data-helhet-key="flest_maal_lag" ${disabled}><option value="">— Velg lag —</option>${teams}</select></div><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.totale_maal_utslag)}</label><select data-helhet-key="totale_maal_utslag" ${disabled}><option value="">— Velg intervall —</option><option value="0_46" ${totalValue === '0_46' ? 'selected' : ''}>0–46 mål</option><option value="47_77" ${totalValue === '47_77' ? 'selected' : ''}>47–77 mål</option><option value="78_pluss" ${totalValue === '78_pluss' ? 'selected' : ''}>78 mål eller flere</option></select></div><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.golden_boot)}</label><input data-helhet-key="golden_boot" list="nussebassene-scorers" value="${esc(gb)}" placeholder="Skriv eller velg spiller" ${disabled}><datalist id="nussebassene-scorers">${players}</datalist></div></div><div class="bonus-status ${open ? 'open' : 'locked'}">${open ? formatBonusFrist('r32') : 'Bonus er stengt'}</div></div>`;
-}
-function renderRoundBonus(round) {
-  const cfg = BONUS_SPORSMAL[round];
-  const open = bonusOpen(round);
-  const disabled = open ? '' : 'disabled';
-  const saved = localStorage.getItem(bonusStorageKey(round)) || '';
-  const input = cfg.type === 'ja_nei'
-    ? `<select data-bonus-round="${round}" ${disabled}><option value="">— Velg —</option><option value="ja" ${saved === 'ja' ? 'selected' : ''}>Ja</option><option value="nei" ${saved === 'nei' ? 'selected' : ''}>Nei</option></select>`
-    : `<input data-bonus-round="${round}" type="number" min="${cfg.min}" max="${cfg.max}" value="${esc(saved)}" placeholder="Svar" ${disabled}>`;
-  return `<div class="bonus-panel"><div class="bonus-heading"><div><h3>Rundebonus</h3><div class="bonus-intro">${esc(cfg.tekst)}</div></div><span>${BONUS_POINTS_ROUND} poeng</span></div><div class="bonus-field">${input}</div><div class="bonus-status ${open ? 'open' : 'locked'}">${open ? formatBonusFrist(round) : 'Bonus er stengt'}</div></div>`;
-}
-function saveBonusInput(input) {
-  if (input.dataset.bonusRound) localStorage.setItem(bonusStorageKey(input.dataset.bonusRound), input.value);
-  if (input.dataset.helhetKey) localStorage.setItem(helhetStorageKey(input.dataset.helhetKey), input.value);
-}
-function renderMatchCard(m) {
-  const open = matchOpen(m);
-  const disabled = open ? '' : 'disabled';
-  const statusClass = open ? 'open' : (m.tippe_status === 'ferdig' ? 'saved' : 'locked');
-  const homeVal = localStorage.getItem(storageKey(m.id, 'home')) || '';
-  const awayVal = localStorage.getItem(storageKey(m.id, 'away')) || '';
-  return `<article class="kamp-kort ${open ? '' : 'locked-kamp'}" data-match-id="${esc(m.id)}"><div class="kamp-status ${statusClass}">${esc(m.id)} · ${esc(statusText(m))} · ${esc(fmtTime(m.utcDate))}</div><div class="lag-rad"><div><div class="lag-navn">${esc(m.hjemme || 'TBD')}</div><div class="lag-meta">Hjemme · ${esc(m.fifa_event_id ? 'FIFA ' + m.fifa_event_id : 'FIFA Calendar')}</div></div><div class="score-wrap"><input class="score-input-felt" type="number" min="0" max="30" inputmode="numeric" data-match-id="${esc(m.id)}" data-side="home" value="${esc(homeVal)}" ${disabled} aria-label="${esc(m.hjemme || 'Hjemme')}"></div></div><div class="lag-rad"><div><div class="lag-navn">${esc(m.borte || 'TBD')}</div><div class="lag-meta">Borte · 90 minutter</div></div><div class="score-wrap"><span class="score-sep">–</span><input class="score-input-felt" type="number" min="0" max="30" inputmode="numeric" data-match-id="${esc(m.id)}" data-side="away" value="${esc(awayVal)}" ${disabled} aria-label="${esc(m.borte || 'Borte')}"></div></div></article>`;
-}
-function collectTips() {
-  const matches = allMatches.filter(m => m.runde === activeRound && matchOpen(m));
-  const tips = [];
-  for (const match of matches) {
-    const card = document.querySelector(`[data-match-id="${CSS.escape(match.id)}"]`);
-    if (!card) continue;
-    const home = card.querySelector('[data-side="home"]').value;
-    const away = card.querySelector('[data-side="away"]').value;
-    if (home === '' && away === '') continue;
-    if (home === '' || away === '') throw new Error(`Fyll inn begge tall for ${match.id}.`);
-    const homeScore = Number(home);
-    const awayScore = Number(away);
-    if (!Number.isInteger(homeScore) || !Number.isInteger(awayScore) || homeScore < 0 || awayScore < 0 || homeScore > 30 || awayScore > 30) throw new Error(`Ugyldig resultat på ${match.id}.`);
-    tips.push({ match_id: match.id, match_no: match.match_no, fifa_event_id: match.fifa_event_id, hjemme_snapshot: match.hjemme, borte_snapshot: match.borte, home_score: homeScore, away_score: awayScore });
-  }
-  return tips;
-}
-function collectRoundBonus() {
-  const cfg = BONUS_SPORSMAL[activeRound];
-  if (!bonusOpen(activeRound)) return null;
-  const value = localStorage.getItem(bonusStorageKey(activeRound));
-  if (value === null || value === '') return null;
-  if (cfg.type === 'ja_nei') return { id: cfg.id, svar: value };
-  const n = Number(value);
-  if (!Number.isInteger(n) || n < cfg.min || n > cfg.max) throw new Error(`Ugyldig rundebonus. Svar må være mellom ${cfg.min} og ${cfg.max}.`);
-  return { id: cfg.id, svar: n };
-}
-function collectOverallBonus() {
-  if (activeRound !== 'r32' || !bonusOpen('r32')) return {};
-  const out = {};
-  for (const key of Object.keys(HELHETSBONUS_TEKST)) {
-    const value = (localStorage.getItem(helhetStorageKey(key)) || '').trim();
-    if (value) out[key] = value;
-  }
-  return out;
-}
-function countBonusPayload(roundBonus, overall) {
-  return (roundBonus ? 1 : 0) + Object.keys(overall || {}).length;
-}
-function updateSubmitButton(matches) {
-  const btn = document.getElementById('submitBtn');
-  if (!btn) return;
-  let tips = 0;
-  try { tips = collectTips().length; } catch { tips = 0; }
-  let roundBonus = null, overall = {};
-  try { roundBonus = collectRoundBonus(); overall = collectOverallBonus(); } catch { /* ignorer i knapp */ }
-  const bonusCount = countBonusPayload(roundBonus, overall);
-  const total = tips + bonusCount;
-  btn.disabled = total === 0;
-  btn.textContent = total ? `Lever tips og bonus (${total})` : 'Lever tips';
-}
-function lagNaturligListe(items) {
-  const verdier = items.filter(Boolean);
-  if (verdier.length <= 1) return verdier.join('');
-  if (verdier.length === 2) return verdier.join(' og ');
-  return verdier.slice(0, -1).join(', ') + ' og ' + verdier[verdier.length - 1];
+function renderDeliveries() {
+  const el = document.getElementById('deliveries');
+  const participants = innlevering.deltakere || [];
+  if (!participants.length) { el.innerHTML = '<div class="empty">Ingen innleveringer ennå.</div>'; return; }
+  el.innerHTML = `<div class="delivery-list">${participants.map(p => {
+    const rounds = Object.entries(p.rounds || {}).map(([round, r]) => {
+      const bonus = (r.rundebonus ? ' + bonus' : '') + (Number(r.helhetsbonus || 0) ? ` + helhet ${Number(r.helhetsbonus || 0)}/3` : '');
+      return `${roundLabels[round] || round}: ${Number(r.levert || 0)}/${Number(r.mulige || 0)}${bonus}`;
+    }).join(' · ');
+    return `<div class="delivery-row clickable" data-participant="${esc(p.deltaker)}" title="Vis detaljer for ${esc(p.deltaker)}"><div><div class="delivery-name">${esc(p.deltaker)}</div><div class="delivery-rounds">${esc(rounds || 'Ingen runder')}</div></div><div class="delivery-total">${Number(p.total_levert || 0)}<span style="display:block;font-family:'Barlow',sans-serif;font-size:10px;color:var(--muted);line-height:1">+${Number(p.total_bonus || 0)} bonus</span></div></div>`;
+  }).join('')}</div>`;
+  el.querySelectorAll('[data-participant]').forEach(row => row.addEventListener('click', () => openParticipantDetails(row.dataset.participant)));
 }
 
-async function submitTips() {
-  showMessage('');
-  const participant = participantInput.value.trim();
-  if (!participant) { showMessage('Skriv inn deltaker først.', 'err'); return; }
-  localStorage.setItem('nussebassene_participant', participant);
-  let tips, bonus, helhetsbonus;
-  try {
-    tips = collectTips();
-    bonus = collectRoundBonus();
-    helhetsbonus = collectOverallBonus();
-  } catch (err) { showMessage(err.message, 'err'); return; }
-  if (!tips.length && !bonus && !Object.keys(helhetsbonus).length) { showMessage('Ingen tips eller bonus å levere for denne runden.', 'err'); return; }
-  const baseUrl = (CONFIG.apiBaseUrl || '').replace(/\/$/, '');
-  const submitPath = CONFIG.submitPath || '/api/submit-tip';
-  if (!baseUrl) { showMessage('Mangler apiBaseUrl i app-config.js. Sett den til Vercel-domenet før innsending kan testes.', 'err'); return; }
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true; btn.textContent = 'Leverer...';
-  try {
-    const response = await fetch(`${baseUrl}${submitPath}`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...(CONFIG.submitToken ? { 'x-submit-token': CONFIG.submitToken } : {}) }, body: JSON.stringify({ participant, round: activeRound, tips, bonus, helhetsbonus, submitted_at: new Date().toISOString() }) });
-    const data = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(data.error || `Innsending feilet med status ${response.status}.`);
-    const parts = [];
-    if (tips.length) parts.push(`${tips.length} kamptips`);
-    if (bonus) parts.push('1 rundebonus');
-    const helhetCount = Object.keys(helhetsbonus).length;
-    if (helhetCount) parts.push(`${helhetCount} helhetsbonus${helhetCount === 1 ? '' : 'er'}`);
-    const levertTekst = lagNaturligListe(parts);
-    showMessage(`Tips lagret! ${levertTekst} er levert. Poeng og innleveringsstatus oppdateres automatisk om kort tid.`, 'ok');
-  } catch (err) { showMessage(err.message || 'Innsending feilet.', 'err'); }
-  finally { btn.disabled = false; renderRound(); }
+let activeDetailsFilter = 'alle';
+const detailFilterOrder = ['alle','r32','r16','qf','sf','final','bonus'];
+const roundBonusShort = {
+  r32: 'Uavgjorte kamper',
+  r16: 'Lag som holder nullen',
+  qf: 'Ettmålsseiere',
+  sf: 'Totalt antall mål',
+  final: 'Begge lag scorer'
+};
+function numericResult(m) {
+  const r = m?.resultat_90min || m?.football_data_regular_time || m?.resultat || (resultMatches.find(x => x.id === m?.id) || {}).resultat;
+  if (!r) return null;
+  const h = r.home_score ?? r.hjemme ?? r.home;
+  const a = r.away_score ?? r.borte ?? r.away;
+  if (h === undefined || a === undefined || h === null || a === null) return null;
+  const home = Number(h);
+  const away = Number(a);
+  if (!Number.isFinite(home) || !Number.isFinite(away)) return null;
+  return { home, away };
 }
-document.getElementById('saveNameBtn').addEventListener('click', () => { localStorage.setItem('nussebassene_participant', participantInput.value.trim()); showMessage('Navn lagret på denne enheten.', 'ok'); });
-document.getElementById('submitBtn').addEventListener('click', submitTips);
-renderTabs(); renderRound();
+function finishedWithResult(m) { return Boolean((m?.ferdig || m?.tippe_status === 'ferdig') && numericResult(m)); }
+function roundMatches(round) { return matches.filter(m => m.runde === round); }
+function finishedRoundMatches(round) { return roundMatches(round).filter(finishedWithResult); }
+function plural(n, one, many) { return Number(n) === 1 ? one : many; }
+function roundCurrentValue(round) {
+  const finished = finishedRoundMatches(round);
+  if (!finished.length) return null;
+  const results = finished.map(numericResult).filter(Boolean);
+  if (round === 'r32') return results.filter(r => r.home === r.away).length;
+  if (round === 'r16') return results.reduce((sum, r) => sum + (r.home === 0 ? 1 : 0) + (r.away === 0 ? 1 : 0), 0);
+  if (round === 'qf') return results.filter(r => Math.abs(r.home - r.away) === 1).length;
+  if (round === 'sf') return results.reduce((sum, r) => sum + r.home + r.away, 0);
+  if (round === 'final') {
+    const r = results[0];
+    return r ? (r.home > 0 && r.away > 0 ? 'Ja' : 'Nei') : null;
+  }
+  return null;
+}
+function roundProgressText(round) {
+  const total = roundMatches(round).length;
+  const finished = finishedRoundMatches(round).length;
+  const value = roundCurrentValue(round);
+  const valueText = value === null ? 'Ingen foreløpig verdi' : `Foreløpig: ${value}`;
+  return `${valueText} · ${finished} av ${total} ${plural(total, 'kamp', 'kamper')}`;
+}
+function roundState(round) {
+  const total = roundMatches(round).length;
+  const finished = finishedRoundMatches(round).length;
+  if (!total || finished === 0) return { label: 'Ikke startet', cls: '' };
+  if (finished < total) return { label: 'Pågår', cls: 'warn' };
+  return { label: 'Ferdig', cls: 'ok' };
+}
+function currentKnockoutSummary() {
+  const goalsByTeam = new Map();
+  let totalGoals = 0;
+  let finished = 0;
+  for (const m of matches) {
+    if (!finishedWithResult(m)) continue;
+    const r = numericResult(m);
+    if (!r) continue;
+    finished += 1;
+    totalGoals += r.home + r.away;
+    const home = String(m.hjemme || 'TBD').trim();
+    const away = String(m.borte || 'TBD').trim();
+    if (home) goalsByTeam.set(home, (goalsByTeam.get(home) || 0) + r.home);
+    if (away) goalsByTeam.set(away, (goalsByTeam.get(away) || 0) + r.away);
+  }
+  const maxTeamGoals = goalsByTeam.size ? Math.max(...goalsByTeam.values()) : 0;
+  const leadingTeams = [...goalsByTeam.entries()].filter(([,goals]) => goals === maxTeamGoals && goals > 0).map(([team, goals]) => ({team, goals}));
+  return { finished, total: matches.length, totalGoals, leadingTeams };
+}
+function formatLeadingTeams(leaders) {
+  if (!leaders?.length) return 'Ingen foreløpig verdi';
+  return leaders.slice(0,3).map(x => `${x.team} · ${x.goals} ${plural(x.goals, 'mål', 'mål')}`).join(', ') + (leaders.length > 3 ? ` +${leaders.length - 3}` : '');
+}
+function currentGoldenBoot() {
+  const rows = Array.isArray(status.top_scorers) ? status.top_scorers.filter(s => s && s.player && Number.isFinite(Number(s.goals))) : [];
+  if (!rows.length) return { leaders: [], max: 0 };
+  const max = Math.max(...rows.map(s => Number(s.goals)));
+  return { leaders: rows.filter(s => Number(s.goals) === max), max };
+}
+function formatGoldenBoot() {
+  const gb = currentGoldenBoot();
+  if (!gb.leaders.length) return 'Ingen foreløpig verdi';
+  return gb.leaders.slice(0,3).map(s => `${s.player} · ${Number(s.goals)} ${plural(s.goals, 'mål', 'mål')}`).join(', ') + (gb.leaders.length > 3 ? ` +${gb.leaders.length - 3}` : '');
+}
+function intervalText(value) {
+  const map = { '0_46': '0–46 mål', '47_77': '47–77 mål', '78_pluss': '78 mål eller flere' };
+  return map[value] || value || 'Ikke beregnet';
+}
+function renderDetailsFilter() {
+  return `<div class="details-filter">${detailFilterOrder.map(f => {
+    const label = f === 'alle' ? 'Alle' : f === 'bonus' ? 'Bonus' : roundLabels[f];
+    return `<button type="button" class="filter-btn ${activeDetailsFilter === f ? 'active' : ''}" data-detail-filter="${f}">${label}</button>`;
+  }).join('')}</div>`;
+}
+function detailValuesForPlayer(p) {
+  const filter = activeDetailsFilter;
+  if (filter === 'bonus') {
+    const roundBonus = Number(p.rundebonus_poeng ?? 0);
+    const overallBonus = Number(p.helhetsbonus_poeng ?? 0);
+    const bonusTotal = Number(p.bonus_poeng ?? (roundBonus + overallBonus));
+    return { kamp: 0, roundBonus, overallBonus, total: bonusTotal };
+  }
+  if (filter !== 'alle') {
+    const r = p.per_round?.[filter] || {};
+    return { kamp: Number(r.kamp_poeng || 0), roundBonus: Number(r.bonus_poeng || 0), overallBonus: 0, total: Number(r.poeng || 0) };
+  }
+  const roundBonus = Number(p.rundebonus_poeng ?? 0);
+  const overallBonus = Number(p.helhetsbonus_poeng ?? 0);
+  return { kamp: Number(p.kamp_poeng || 0), roundBonus, overallBonus, total: Number(p.poeng || 0) };
+}
+function renderDetailScoreTable() {
+  const board = (resultater.leaderboard || []).slice().sort((a,b) => {
+    const av = detailValuesForPlayer(a);
+    const bv = detailValuesForPlayer(b);
+    return bv.total - av.total || Number(b.exact || 0) - Number(a.exact || 0) || String(a.deltaker || '').localeCompare(String(b.deltaker || ''), 'no');
+  });
+  if (!board.length) return '<div class="empty">Ingen deltakere å vise ennå.</div>';
+  return `<div class="details-table-card"><div class="details-header"><div>#</div><div>Navn</div><div>Kamp</div><div>Rundebonus</div><div>Helhetsbonus</div><div>Totalt</div></div>${board.map((p, i) => {
+    const v = detailValuesForPlayer(p);
+    return `<div class="details-score-row clickable" data-participant="${esc(p.deltaker)}" title="Vis detaljer for ${esc(p.deltaker)}"><div class="plass-num p${i+1 <= 3 ? i+1 : ''}">${i+1}</div><div class="details-score-name">${esc(p.deltaker)}</div><div class="details-score-num">${v.kamp}</div><div class="details-score-num">${v.roundBonus}</div><div class="details-score-num">${v.overallBonus}</div><div class="details-score-total">${v.total}</div></div>`;
+  }).join('')}</div>`;
+}
+function renderDetails() {
+  const el = document.getElementById('detailsContent');
+  if (!el) return;
+  const summary = currentKnockoutSummary();
+  const totalSub = `${summary.finished} av ${summary.total} ${plural(summary.total, 'kamp', 'kamper')} ferdig`;
+  const helhet = resultater.bonus?.helhet || {};
+  const helhetFasit = helhet.fasit || {};
+  const totalGoalsText = helhetFasit.totale_maal_utslag_verdi !== undefined ? `${helhetFasit.totale_maal_utslag_verdi} mål` : `${summary.totalGoals} mål`;
+  const interval = helhetFasit.totale_maal_utslag ? `Kategori: ${intervalText(helhetFasit.totale_maal_utslag)}` : 'Foreløpig kategori beregnes etter ferdige kamper';
+  const teamLeaders = helhetFasit.flest_maal_lag ? helhetFasit.flest_maal_lag.map(team => ({ team, goals: '' })) : summary.leadingTeams;
+  const teamLeaderText = helhetFasit.flest_maal_lag ? helhetFasit.flest_maal_lag.join(', ') : formatLeadingTeams(teamLeaders);
+  const goldenText = helhetFasit.golden_boot ? `${Array.isArray(helhetFasit.golden_boot) ? helhetFasit.golden_boot.join(', ') : helhetFasit.golden_boot}${helhetFasit.golden_boot_goals ? ` · ${helhetFasit.golden_boot_goals} mål` : ''}` : formatGoldenBoot();
+  const roundsHtml = ['r32','r16','qf','sf','final'].map(round => {
+    const state = roundState(round);
+    return `<div class="bonus-round-row"><div class="bonus-round-name">${esc(roundLabels[round] || round)}</div><div class="bonus-round-meta">${esc(roundBonusShort[round])} · ${esc(roundProgressText(round))}</div><span class="status-chip ${state.cls}">${esc(state.label)}</span></div>`;
+  }).join('');
+  el.innerHTML = `
+    <div class="bonus-status-grid">
+      <div class="bonus-status-card"><div class="bonus-status-label">Flest mål · utslagsfasen</div><div class="bonus-status-value">${esc(teamLeaderText)}</div><div class="bonus-status-sub">${esc(totalSub)}</div></div>
+      <div class="bonus-status-card"><div class="bonus-status-label">Totalt antall mål</div><div class="bonus-status-value">${esc(totalGoalsText)}</div><div class="bonus-status-sub">${esc(interval)} · ${esc(totalSub)}</div></div>
+      <div class="bonus-status-card"><div class="bonus-status-label">Golden Boot</div><div class="bonus-status-value">${esc(goldenText)}</div><div class="bonus-status-sub">Foreløpig. Kilde: FIFA/football-data via status.json</div></div>
+    </div>
+    <div class="bonus-round-list">${roundsHtml}</div>
+    <div class="details-section-title">Detaljert poengfordeling</div>
+    ${renderDetailsFilter()}
+    ${renderDetailScoreTable()}
+  `;
+  el.querySelectorAll('[data-detail-filter]').forEach(btn => btn.addEventListener('click', () => { activeDetailsFilter = btn.dataset.detailFilter; renderDetails(); }));
+  el.querySelectorAll('[data-participant]').forEach(row => row.addEventListener('click', () => openParticipantDetails(row.dataset.participant)));
+}
+
+const PROFILE_KEY = 'nussebassene_viewer_name';
+const RECAP_PREFIX = 'nussebassene_recap_seen_';
+let viewerName = localStorage.getItem(PROFILE_KEY) || '';
+function normalizeName(name) { return String(name || '').trim().replace(/\s+/g, ' ').toLocaleLowerCase('no'); }
+function participantNames() {
+  const names = new Set();
+  (resultater.leaderboard || []).forEach(p => p?.deltaker && names.add(p.deltaker));
+  Object.values(resultater.deltakere || {}).forEach(p => p?.deltaker && names.add(p.deltaker));
+  (innlevering.deltakere || []).forEach(p => p?.deltaker && names.add(p.deltaker));
+  (resultater.matches || []).forEach(m => (m.tips || []).forEach(t => t?.deltaker && names.add(t.deltaker)));
+  return Array.from(names).sort((a,b) => a.localeCompare(b, 'no'));
+}
+function getPlayer(name) {
+  const key = normalizeName(name);
+  const fromMap = Object.values(resultater.deltakere || {}).find(p => normalizeName(p?.deltaker) === key);
+  const fromBoard = (resultater.leaderboard || []).find(p => normalizeName(p?.deltaker) === key);
+  return fromMap || fromBoard || null;
+}
+function getDelivery(name) {
+  const key = normalizeName(name);
+  return (innlevering.deltakere || []).find(p => normalizeName(p?.deltaker) === key) || null;
+}
+function visibleTipsFor(name) {
+  const key = normalizeName(name);
+  const rows = [];
+  (resultater.matches || []).forEach(m => {
+    (m.tips || []).forEach(t => {
+      if (normalizeName(t.deltaker) === key) rows.push({ match: m, tip: t });
+    });
+  });
+  return rows.sort((a,b) => String(a.match.utcDate || '').localeCompare(String(b.match.utcDate || '')));
+}
+function openModal(title, subtitle, bodyHtml, actionsHtml='') {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalSubtitle').textContent = subtitle || '';
+  document.getElementById('modalBody').innerHTML = bodyHtml || '';
+  document.getElementById('modalActions').innerHTML = actionsHtml || '<button type="button" class="primary" onclick="closeModal()">Lukk</button>';
+  const modal = document.getElementById('appModal');
+  modal.classList.add('vis');
+  modal.setAttribute('aria-hidden', 'false');
+}
+function closeModal() {
+  const modal = document.getElementById('appModal');
+  modal.classList.remove('vis');
+  modal.setAttribute('aria-hidden', 'true');
+}
+document.addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
+document.getElementById('appModal')?.addEventListener('click', event => { if (event.target?.id === 'appModal') closeModal(); });
+function renderProfile() {
+  const text = document.getElementById('profileText');
+  const button = document.getElementById('profileButton');
+  if (!text || !button) return;
+  if (viewerName) {
+    text.innerHTML = `Innlogget: <strong>${esc(viewerName)}</strong>`;
+    button.textContent = 'Bytt bruker';
+  } else {
+    text.textContent = 'Ingen bruker valgt';
+    button.textContent = 'Velg bruker';
+  }
+}
+function openProfileModal() {
+  const names = participantNames();
+  const options = names.map(name => `<option value="${esc(name)}" ${normalizeName(name) === normalizeName(viewerName) ? 'selected' : ''}>${esc(name)}</option>`).join('');
+  const body = `<div class="profile-form-grid">
+    <div class="profile-help">Velg hvem du er. Valget lagres bare lokalt i nettleseren og brukes til personlig status på forsiden.</div>
+    <select class="profile-select" id="profileSelect"><option value="">— Velg deltaker —</option>${options}</select>
+    <input class="profile-input" id="profileManual" placeholder="Skriv navn hvis du ikke ligger i listen" value="${names.some(n => normalizeName(n) === normalizeName(viewerName)) ? '' : esc(viewerName)}">
+  </div>`;
+  const actions = `<button type="button" onclick="clearViewer()">Fjern valg</button><button type="button" class="primary" onclick="saveViewerFromModal()">Lagre</button>`;
+  openModal('Velg bruker', 'Personlig visning', body, actions);
+}
+function saveViewerFromModal() {
+  const selected = document.getElementById('profileSelect')?.value || '';
+  const manual = document.getElementById('profileManual')?.value || '';
+  const name = (selected || manual).trim();
+  if (!name) return;
+  viewerName = name;
+  localStorage.setItem(PROFILE_KEY, viewerName);
+  renderProfile();
+  closeModal();
+  openPersonalRecap(true);
+}
+function clearViewer() {
+  viewerName = '';
+  localStorage.removeItem(PROFILE_KEY);
+  renderProfile();
+  closeModal();
+}
+function roundDeliveryHtml(delivery) {
+  if (!delivery) return '<div class="modal-empty">Ingen innlevering registrert for denne deltakeren ennå.</div>';
+  const rows = Object.entries(delivery.rounds || {}).map(([round, r]) => {
+    const komplett = r.komplett ? '<span class="status-chip ok">Komplett</span>' : Number(r.levert || 0) ? '<span class="status-chip warn">Delvis</span>' : '<span class="status-chip bad">Ikke levert</span>';
+    const bonus = `${r.rundebonus ? 'Rundebonus levert' : 'Ingen rundebonus'}${Number(r.helhetsbonus || 0) ? ` · helhet ${Number(r.helhetsbonus || 0)}/3` : ''}`;
+    return `<div class="detail-row"><div><div class="detail-main">${esc(roundLabels[round] || round)}</div><div class="detail-sub">${Number(r.levert || 0)} av ${Number(r.mulige || 0)} kamper · ${esc(bonus)}</div></div>${komplett}<div class="detail-points">${Number(r.levert || 0)}</div></div>`;
+  }).join('');
+  return rows || '<div class="modal-empty">Ingen runder registrert.</div>';
+}
+function playerMiniStats(player, delivery) {
+  const totalLevert = Number(delivery?.total_levert || player?.tips_levert || 0);
+  const totalBonus = Number(delivery?.total_bonus || 0);
+  return `<div class="modal-grid">
+    <div class="mini-stat"><strong>${Number(player?.poeng || 0)}</strong><span>poeng</span></div>
+    <div class="mini-stat"><strong>${Number(player?.kamp_poeng || 0)}</strong><span>kamp</span></div>
+    <div class="mini-stat"><strong>${Number(player?.bonus_poeng || 0)}</strong><span>bonus</span></div>
+    <div class="mini-stat"><strong>${totalLevert}</strong><span>tips levert</span></div>
+  </div>`;
+}
+function formatResultObject(result) {
+  if (!result) return 'Venter';
+  const h = result.home_score ?? result.hjemme ?? result.home;
+  const a = result.away_score ?? result.borte ?? result.away;
+  return h === undefined || a === undefined || h === null || a === null ? 'Venter' : `${h}–${a}`;
+}
+function visibleTipsHtml(name) {
+  const rows = visibleTipsFor(name);
+  if (!rows.length) return '<div class="modal-empty">Ingen synlige kamptips ennå. Tips for kamper som ikke har startet vises ikke her.</div>';
+  return rows.map(({match, tip}) => `<div class="detail-row"><div><div class="detail-main">${esc(match.hjemme || 'TBD')} – ${esc(match.borte || 'TBD')}</div><div class="detail-sub">${esc(roundLabels[match.runde] || match.runde || '')} · resultat ${esc(formatResultObject(match.resultat))}</div></div><div class="detail-score">${esc(tip.home_score)}–${esc(tip.away_score)}</div><div class="detail-points">${tip.poeng === null || tip.poeng === undefined ? '–' : Number(tip.poeng) + 'p'}</div></div>`).join('');
+}
+function perRoundHtml(player) {
+  const perRound = player?.per_round || {};
+  const rows = Object.entries(perRound).filter(([,r]) => Number(r.tips || 0) || Number(r.poeng || 0) || Number(r.bonus_poeng || 0)).map(([round, r]) => `<div class="detail-row"><div><div class="detail-main">${esc(roundLabels[round] || round)}</div><div class="detail-sub">${Number(r.tips || 0)} tips · kamp ${Number(r.kamp_poeng || 0)}p · bonus ${Number(r.bonus_poeng || 0)}p</div></div><span class="status-chip">runde</span><div class="detail-points">${Number(r.poeng || 0)}p</div></div>`).join('');
+  return rows || '<div class="modal-empty">Ingen rundepoeng ennå.</div>';
+}
+function bonusHtml(player) {
+  const bonus = player?.bonus || {};
+  const roundRows = Object.entries(bonus.rounds || {}).map(([round, b]) => `<div class="detail-row"><div><div class="detail-main">${esc(roundLabels[round] || round)} · rundebonus</div><div class="detail-sub">Svar: ${esc(b.svar)} · fasit: ${b.fasit === null || b.fasit === undefined ? 'ikke beregnet' : esc(b.fasit)}</div></div><span class="status-chip ${b.riktig === true ? 'ok' : b.riktig === false ? 'bad' : 'warn'}">${b.beregnet ? (b.riktig ? 'Riktig' : 'Feil') : 'Venter'}</span><div class="detail-points">${b.poeng === null || b.poeng === undefined ? '–' : Number(b.poeng) + 'p'}</div></div>`).join('');
+  const labels = { flest_maal_lag: 'Flest mål lag', totale_maal_utslag: 'Totale mål', golden_boot: 'Golden Boot' };
+  const helhetRows = Object.entries(bonus.helhet || {}).map(([key, b]) => `<div class="detail-row"><div><div class="detail-main">Helhet · ${esc(labels[key] || key)}</div><div class="detail-sub">Svar: ${esc(b.svar)} · fasit: ${Array.isArray(b.fasit) ? esc(b.fasit.join(', ')) : b.fasit === null || b.fasit === undefined ? 'ikke beregnet' : esc(b.fasit)}</div></div><span class="status-chip ${b.riktig === true ? 'ok' : b.riktig === false ? 'bad' : 'warn'}">${b.beregnet ? (b.riktig ? 'Riktig' : 'Feil') : 'Venter'}</span><div class="detail-points">${b.poeng === null || b.poeng === undefined ? '–' : Number(b.poeng) + 'p'}</div></div>`).join('');
+  return roundRows || helhetRows ? roundRows + helhetRows : '<div class="modal-empty">Ingen bonuspoeng beregnet ennå.</div>';
+}
+function openParticipantDetails(name) {
+  const player = getPlayer(name);
+  const delivery = getDelivery(name);
+  const displayName = player?.deltaker || delivery?.deltaker || name;
+  const body = `${playerMiniStats(player, delivery)}
+    <div class="detail-section"><div class="detail-title"><span>Runder</span><span>Poeng</span></div>${perRoundHtml(player)}</div>
+    <div class="detail-section"><div class="detail-title"><span>Innlevering</span><span>Status</span></div>${roundDeliveryHtml(delivery)}</div>
+    <div class="detail-section"><div class="detail-title"><span>Kamptips</span><span>Synlige etter avspark</span></div>${visibleTipsHtml(displayName)}</div>
+    <div class="detail-section"><div class="detail-title"><span>Bonus</span><span>5p / 10p</span></div>${bonusHtml(player)}</div>`;
+  openModal(displayName, 'Deltakerdetaljer', body, `<button type="button" onclick="setViewerFromDetails(decodeURIComponent('${encodeURIComponent(displayName)}'))">Bruk som meg</button><button type="button" class="primary" onclick="closeModal()">Lukk</button>`);
+}
+function setViewerFromDetails(name) {
+  viewerName = name;
+  localStorage.setItem(PROFILE_KEY, viewerName);
+  renderProfile();
+  closeModal();
+  openPersonalRecap(true);
+}
+function openPersonalRecap(manual=false) {
+  if (!viewerName) { openProfileModal(); return; }
+  const player = getPlayer(viewerName);
+  const delivery = getDelivery(viewerName);
+  const openMatches = matches.filter(m => m.tippe_status === 'åpen');
+  const nextOpen = openMatches.slice().sort((a,b) => String(a.utcDate || '').localeCompare(String(b.utcDate || ''))).slice(0, 6);
+  const openHtml = nextOpen.length ? nextOpen.map(m => `<div class="detail-row"><div><div class="detail-main">${esc(m.hjemme || 'TBD')} – ${esc(m.borte || 'TBD')}</div><div class="detail-sub">${esc(roundLabels[m.runde] || m.runde || '')} · ${esc(fmtTime(m.utcDate))}</div></div><a class="status-chip warn" href="tipping.html?runde=${encodeURIComponent(m.runde || '')}&kamp=${encodeURIComponent(m.match_no || '')}">Tipp</a><div class="detail-points">M${esc(m.match_no || '')}</div></div>`).join('') : '<div class="modal-empty">Ingen åpne kamper akkurat nå.</div>';
+  const body = `${playerMiniStats(player, delivery)}
+    <div class="detail-section"><div class="detail-title"><span>Din innlevering</span><span>Status</span></div>${roundDeliveryHtml(delivery)}</div>
+    <div class="detail-section"><div class="detail-title"><span>Åpne kamper nå</span><span>${openMatches.length} åpne</span></div>${openHtml}</div>
+    <div class="detail-section"><div class="detail-title"><span>Dine synlige tips</span><span>Etter avspark</span></div>${visibleTipsHtml(viewerName)}</div>`;
+  openModal(`Hei ${viewerName}`, 'Personlig status', body, `<button type="button" onclick="openProfileModal()">Bytt bruker</button><a class="btn primary" href="tipping.html">Lever tips</a><button type="button" onclick="closeModal()">Lukk</button>`);
+  const key = RECAP_PREFIX + normalizeName(viewerName);
+  if (!manual) localStorage.setItem(key, String(Date.now()));
+}
+function maybeShowPersonalRecap() {
+  if (!viewerName) return;
+  const key = RECAP_PREFIX + normalizeName(viewerName);
+  const last = Number(localStorage.getItem(key) || 0);
+  if (!last || Date.now() - last > 5 * 60 * 60 * 1000) {
+    window.setTimeout(() => openPersonalRecap(false), 650);
+  }
+}
+
+renderProfile(); renderNav(); renderStats(); renderPodium(); renderLeaderboard(); renderFilter(); renderMatches(); renderDetails(); renderDeliveries(); maybeShowPersonalRecap();
 </script>
 </body>
 </html>
