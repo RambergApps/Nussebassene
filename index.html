@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nussebassene tipping</title>
+  <script src="data/data.js"></script>
+  <style>
+    :root {
+      --bg: #071522;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.13);
+      --text: #f5fbff;
+      --muted: #9fb3c8;
+      --accent: #34d399;
+      --accent2: #38bdf8;
+      --danger: #fb7185;
+      --warn: #fbbf24;
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.26), transparent 35%),
+        radial-gradient(circle at top right, rgba(52, 211, 153, 0.20), transparent 28%),
+        linear-gradient(135deg, #05111d 0%, #0a1f32 52%, #061018 100%);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand::after {
+      content: "";
+      position: absolute;
+      inset: auto -70px -90px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(52, 211, 153, 0.18);
+      filter: blur(4px);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(34px, 6vw, 62px);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+    }
+
+    .sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #04111c;
+      border: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .stamp {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      background: var(--panel);
+    }
+
+    .stat .num {
+      display: block;
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: -0.05em;
+    }
+
+    .stat .label { color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 13px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .rank {
+      width: 42px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .points {
+      text-align: right;
+      font-weight: 950;
+      font-size: 18px;
+    }
+
+    .list {
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .match, .delivery {
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.055);
+    }
+
+    .match-top, .delivery-top {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .teams {
+      font-weight: 900;
+      letter-spacing: -0.015em;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pill.open { color: #062017; background: var(--accent); border-color: transparent; }
+    .pill.started { color: #071522; background: var(--warn); border-color: transparent; }
+    .pill.finished { color: #06111c; background: var(--accent2); border-color: transparent; }
+    .pill.closed { color: #fff; background: rgba(251,113,133,0.24); border-color: rgba(251,113,133,0.45); }
+
+    .tips {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tipline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .empty {
+      padding: 28px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .hero-actions { justify-content: flex-start; }
+      .cards { grid-template-columns: 1fr; }
+      th:nth-child(3), td:nth-child(3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="brand">
+        <h1>Nussebassene</h1>
+        <p class="sub">Utslagsrunder, automatisk kampoppsett, automatisk resultatoppdatering og poengberegning.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="tipping.html">Lever tips</a>
+        <button class="btn" type="button" onclick="location.reload()">Oppdater</button>
+      </div>
+    </section>
+
+    <section class="cards">
+      <div class="stat"><span class="num" id="statMatches">0</span><span class="label">kamper i appen</span></div>
+      <div class="stat"><span class="num" id="statOpen">0</span><span class="label">åpne for tipping</span></div>
+      <div class="stat"><span class="num" id="statPlayers">0</span><span class="label">deltakere</span></div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Stilling</h2>
+          <span class="stamp" id="generatedAt">Ikke oppdatert ennå</span>
+        </div>
+        <div id="leaderboard"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Innlevering</h2>
+          <span class="stamp">per runde</span>
+        </div>
+        <div class="list" id="deliveries"></div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top: 18px;">
+      <div class="panel-head">
+        <h2>Kamper</h2>
+        <span class="stamp">tips skjules før avspark</span>
+      </div>
+      <div class="list" id="matches"></div>
+    </section>
+
+    <p class="footer-note">Datakilder: FIFA Calendar som kampgrunnlag og football-data.org som kontroll/resultatkilde.</p>
+  </main>
+
+  <script>
+    const DATA = window.NUSSEBASSENE_DATA || {};
+    const status = DATA.status || { matches: [] };
+    const resultater = DATA.resultater || { leaderboard: [], matches: [] };
+    const innlevering = DATA.innleveringsstatus || { deltakere: [] };
+    const matches = Array.isArray(status.matches) ? status.matches : [];
+
+    const roundLabels = { r32: 'R32', r16: 'R16', qf: 'Kvart', sf: 'Semi', final: 'Finale' };
+
+    function fmtTime(iso) {
+      if (!iso) return 'Ukjent tid';
+      try {
+        return new Intl.DateTimeFormat('no-NO', {
+          weekday: 'short', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'
+        }).format(new Date(iso));
+      } catch { return iso; }
+    }
+
+    function esc(value) {
+      return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    }
+
+    function statusClass(s) {
+      if (s === 'åpen') return 'open';
+      if (s === 'ferdig') return 'finished';
+      if (s === 'startet') return 'started';
+      return 'closed';
+    }
+
+    function renderStats() {
+      document.getElementById('statMatches').textContent = matches.length;
+      document.getElementById('statOpen').textContent = matches.filter(m => m.tippe_status === 'åpen').length;
+      document.getElementById('statPlayers').textContent = (resultater.leaderboard || []).length || (innlevering.deltakere || []).length;
+      document.getElementById('generatedAt').textContent = DATA.resultater?.generated_at ? `Oppdatert ${fmtTime(DATA.resultater.generated_at)}` : 'Ikke oppdatert ennå';
+    }
+
+    function renderLeaderboard() {
+      const board = resultater.leaderboard || [];
+      const el = document.getElementById('leaderboard');
+      if (!board.length) {
+        el.innerHTML = '<div class="empty">Ingen poeng ennå.</div>';
+        return;
+      }
+      el.innerHTML = `
+        <table>
+          <thead><tr><th>#</th><th>Deltaker</th><th>Riktige</th><th style="text-align:right">Poeng</th></tr></thead>
+          <tbody>${board.map((p, i) => `
+            <tr>
+              <td class="rank">${i + 1}</td>
+              <td><strong>${esc(p.deltaker)}</strong></td>
+              <td>${Number(p.exact || 0)} eksakt / ${Number(p.outcome || 0)} utfall</td>
+              <td class="points">${Number(p.poeng || 0)}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>`;
+    }
+
+    function renderDeliveries() {
+      const el = document.getElementById('deliveries');
+      const participants = innlevering.deltakere || [];
+      if (!participants.length) {
+        el.innerHTML = '<div class="empty">Ingen innleveringer ennå.</div>';
+        return;
+      }
+      el.innerHTML = participants.map(p => {
+        const rounds = Object.entries(p.rounds || {}).map(([round, r]) => `${roundLabels[round] || round}: ${r.levert}/${r.mulige}`).join(' · ');
+        return `<div class="delivery"><div class="delivery-top"><strong>${esc(p.deltaker)}</strong><span class="pill">${esc(p.total_levert)} tips</span></div><div class="meta">${esc(rounds)}</div></div>`;
+      }).join('');
+    }
+
+    function matchTipsHtml(matchId) {
+      const rMatch = (resultater.matches || []).find(m => m.id === matchId);
+      const tips = rMatch?.tips || [];
+      if (!tips.length) return '';
+      return `<div class="tips">${tips.map(t => `<div class="tipline"><span>${esc(t.deltaker)}</span><strong>${esc(t.home_score)}-${esc(t.away_score)}</strong></div>`).join('')}</div>`;
+    }
+
+    function renderMatches() {
+      const el = document.getElementById('matches');
+      if (!matches.length) {
+        el.innerHTML = '<div class="empty">Ingen kamper er hentet ennå. Kjør oppdater.yml når API-oppsettet er klart.</div>';
+        return;
+      }
+      el.innerHTML = matches.map(m => {
+        const score = m.ferdig && m.resultat ? ` · ${m.resultat.home_score}-${m.resultat.away_score}` : '';
+        const showTips = m.vis_tips === true || ['startet', 'ferdig'].includes(m.tippe_status);
+        return `<article class="match">
+          <div class="match-top">
+            <div>
+              <div class="teams">${esc(m.hjemme || 'TBD')} – ${esc(m.borte || 'TBD')}${esc(score)}</div>
+              <div class="meta">${esc(m.id)} · ${esc(roundLabels[m.runde] || m.runde)} · ${fmtTime(m.utcDate)}</div>
+            </div>
+            <span class="pill ${statusClass(m.tippe_status)}">${esc(m.tippe_status || 'ukjent')}</span>
+          </div>
+          ${showTips ? matchTipsHtml(m.id) : '<div class="meta">Tips vises etter avspark.</div>'}
+        </article>`;
+      }).join('');
+    }
+
+    renderStats();
+    renderLeaderboard();
+    renderDeliveries();
+    renderMatches();
+  </script>
+</body>
+</html>
