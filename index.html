@@ -166,7 +166,7 @@ a { color: inherit; text-decoration: none; }
 }
 .stilling-header, .stilling-rad {
   display: grid;
-  grid-template-columns: 44px minmax(0,1fr) 72px 72px 80px;
+  grid-template-columns: 44px minmax(0,1fr) 64px 64px 64px 80px;
   gap: 8px;
   align-items: center;
 }
@@ -376,7 +376,7 @@ function renderLeaderboard() {
   const board = resultater.leaderboard || [];
   const el = document.getElementById('leaderboard');
   if (!board.length) { el.innerHTML = '<div class="empty">Ingen poeng ennå. Stilling fylles når første kamp er ferdig og poengregning er kjørt.</div>'; return; }
-  el.innerHTML = `<div class="table-card"><div class="stilling-header"><div>#</div><div>Deltaker</div><div>Eksakt</div><div>Utfall</div><div>Poeng</div></div>${board.map((p,i) => `<div class="stilling-rad"><div class="plass-num p${i+1 <= 3 ? i+1 : ''}">${i+1}</div><div class="rad-navn">${esc(p.deltaker)}</div><div class="rad-tall">${Number(p.exact || 0)}</div><div class="rad-tall">${Number(p.outcome || 0)}</div><div class="rad-totalt">${Number(p.poeng || 0)}</div></div>`).join('')}</div>`;
+  el.innerHTML = `<div class="table-card"><div class="stilling-header"><div>#</div><div>Deltaker</div><div>Eksakt</div><div>Utfall</div><div>Bonus</div><div>Poeng</div></div>${board.map((p,i) => `<div class="stilling-rad"><div class="plass-num p${i+1 <= 3 ? i+1 : ''}">${i+1}</div><div class="rad-navn">${esc(p.deltaker)}</div><div class="rad-tall">${Number(p.exact || 0)}</div><div class="rad-tall">${Number(p.outcome || 0)}</div><div class="rad-tall">${Number(p.bonus_poeng || 0)}</div><div class="rad-totalt">${Number(p.poeng || 0)}</div></div>`).join('')}</div>`;
 }
 function renderFilter() {
   const el = document.getElementById('kampFilter');
@@ -409,8 +409,11 @@ function renderDeliveries() {
   const participants = innlevering.deltakere || [];
   if (!participants.length) { el.innerHTML = '<div class="empty">Ingen innleveringer ennå.</div>'; return; }
   el.innerHTML = `<div class="delivery-list">${participants.map(p => {
-    const rounds = Object.entries(p.rounds || {}).map(([round, r]) => `${roundLabels[round] || round}: ${Number(r.levert || 0)}/${Number(r.mulige || 0)}`).join(' · ');
-    return `<div class="delivery-row"><div><div class="delivery-name">${esc(p.deltaker)}</div><div class="delivery-rounds">${esc(rounds || 'Ingen runder')}</div></div><div class="delivery-total">${Number(p.total_levert || 0)}</div></div>`;
+    const rounds = Object.entries(p.rounds || {}).map(([round, r]) => {
+      const bonus = (r.rundebonus ? ' + bonus' : '') + (Number(r.helhetsbonus || 0) ? ` + helhet ${Number(r.helhetsbonus || 0)}/3` : '');
+      return `${roundLabels[round] || round}: ${Number(r.levert || 0)}/${Number(r.mulige || 0)}${bonus}`;
+    }).join(' · ');
+    return `<div class="delivery-row"><div><div class="delivery-name">${esc(p.deltaker)}</div><div class="delivery-rounds">${esc(rounds || 'Ingen runder')}</div></div><div class="delivery-total">${Number(p.total_levert || 0)}<span style="display:block;font-family:'Barlow',sans-serif;font-size:10px;color:var(--muted);line-height:1">+${Number(p.total_bonus || 0)} bonus</span></div></div>`;
   }).join('')}</div>`;
 }
 renderNav(); renderStats(); renderPodium(); renderLeaderboard(); renderFilter(); renderMatches(); renderDeliveries();
