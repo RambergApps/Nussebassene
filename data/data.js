@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-29T21:52:05Z",
+    "generated_at": "2026-06-29T22:00:52Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -1471,7 +1471,7 @@ window.NUSSEBASSENE_DATA = {
         "team": "Paraguay",
         "team_id": 761,
         "goals": 1,
-        "assists": null,
+        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1688,7 +1688,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-29T21:52:05Z",
+    "generated_at": "2026-06-29T22:00:52Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2459,7 +2459,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-29T21:52:05Z",
+    "generated_at": "2026-06-29T22:00:52Z",
     "rounds": {
       "r32": {
         "mulige": 16,
