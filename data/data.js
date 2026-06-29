@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-29T23:30:48Z",
+    "generated_at": "2026-06-29T23:45:29Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -319,7 +319,7 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "r16",
-        "hjemme": "TBD",
+        "hjemme": "Paraguay",
         "borte": "TBD",
         "utcDate": "2026-07-04T21:00:00Z",
         "fifa_status": "1",
@@ -1688,7 +1688,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-29T23:30:48Z",
+    "generated_at": "2026-06-29T23:45:29Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2044,7 +2044,7 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "r16",
-        "hjemme": "TBD",
+        "hjemme": "Paraguay",
         "borte": "TBD",
         "utcDate": "2026-07-04T21:00:00Z",
         "fifa_status": "1",
@@ -2459,7 +2459,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-29T23:30:48Z",
+    "generated_at": "2026-06-29T23:45:29Z",
     "rounds": {
       "r32": {
         "mulige": 16,
