@@ -1,454 +1,513 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lever tips · Nussebassene</title>
-  <script src="app-config.js"></script>
-  <script src="data/data.js"></script>
-  <style>
-    :root {
-      --bg: #071522;
-      --panel: rgba(255, 255, 255, 0.08);
-      --panel-strong: rgba(255, 255, 255, 0.13);
-      --text: #f5fbff;
-      --muted: #9fb3c8;
-      --accent: #34d399;
-      --accent2: #38bdf8;
-      --danger: #fb7185;
-      --warn: #fbbf24;
-      --border: rgba(255, 255, 255, 0.14);
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.26), transparent 35%),
-        radial-gradient(circle at top right, rgba(52, 211, 153, 0.20), transparent 28%),
-        linear-gradient(135deg, #05111d 0%, #0a1f32 52%, #061018 100%);
-      color: var(--text);
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .wrap {
-      width: min(980px, calc(100% - 28px));
-      margin: 0 auto;
-      padding: 28px 0 56px;
-    }
-
-    .top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(32px, 6vw, 58px);
-      letter-spacing: -0.06em;
-      line-height: 0.94;
-    }
-
-    .btn, button {
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      min-height: 44px;
-      padding: 0 18px;
-      background: var(--panel);
-      color: var(--text);
-      font-weight: 900;
-      cursor: pointer;
-      font: inherit;
-    }
-
-    button.primary, .btn.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #04111c;
-      border: none;
-    }
-
-    button:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-    }
-
-    .panel {
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: var(--panel);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-
-    .panel-pad { padding: 18px; }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    input, select {
-      width: 100%;
-      min-height: 46px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.09);
-      color: var(--text);
-      padding: 0 14px;
-      font: inherit;
-      outline: none;
-    }
-
-    option { color: #06111c; }
-
-    .formgrid {
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 14px;
-      align-items: end;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      padding: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .tab {
-      min-height: 40px;
-      padding: 0 15px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
-    }
-
-    .tab.active {
-      background: var(--accent);
-      color: #04111c;
-      border-color: transparent;
-    }
-
-    .matches {
-      display: grid;
-      gap: 12px;
-      padding: 14px;
-    }
-
-    .match {
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: rgba(255,255,255,0.055);
-      padding: 15px;
-    }
-
-    .match-top {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .teams {
-      font-weight: 950;
-      letter-spacing: -0.02em;
-      font-size: 18px;
-    }
-
-    .meta {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .scorebox {
-      display: grid;
-      grid-template-columns: 72px 12px 72px;
-      gap: 8px;
-      align-items: center;
-      justify-content: end;
-    }
-
-    .scorebox input {
-      text-align: center;
-      font-size: 22px;
-      font-weight: 950;
-      padding: 0;
-    }
-
-    .dash {
-      color: var(--muted);
-      font-weight: 900;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      min-height: 26px;
-      padding: 0 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .pill.open { color: #062017; background: var(--accent); border-color: transparent; }
-    .pill.started { color: #071522; background: var(--warn); border-color: transparent; }
-    .pill.finished { color: #06111c; background: var(--accent2); border-color: transparent; }
-    .pill.closed { color: #fff; background: rgba(251,113,133,0.24); border-color: rgba(251,113,133,0.45); }
-
-    .actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      padding: 16px;
-      border-top: 1px solid var(--border);
-    }
-
-    .notice {
-      padding: 13px 16px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      margin-bottom: 16px;
-      color: var(--muted);
-      background: rgba(255,255,255,0.055);
-    }
-
-    .notice.ok { color: #d1fae5; border-color: rgba(52,211,153,0.35); background: rgba(52,211,153,0.13); }
-    .notice.err { color: #ffe4e6; border-color: rgba(251,113,133,0.45); background: rgba(251,113,133,0.13); }
-
-    .empty {
-      padding: 28px;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    @media (max-width: 740px) {
-      .top, .formgrid, .match-top { grid-template-columns: 1fr; display: grid; }
-      .scorebox { justify-content: start; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nussebassene — Lever tips</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="app-config.js"></script>
+<script src="data/data.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #060912;
+  --surface: #0d1320;
+  --card:    #111a2e;
+  --card2:   #152035;
+  --border:  #1e2d4a;
+  --accent:  #ef2b2d;
+  --gold:    #ffd600;
+  --red:     #ff5a5a;
+  --success: #00e676;
+  --text:    #e8f0ff;
+  --muted:   #6b7fa8;
+  --locked:  #0b101c;
+}
+body {
+  font-family: 'Barlow', sans-serif;
+  background:
+    radial-gradient(ellipse at 50% -180px, rgba(239,43,45,.10) 0%, transparent 58%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(239,43,45,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,43,45,.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+a { color: inherit; text-decoration: none; }
+.hero {
+  position: relative; z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(6,9,18,.28), rgba(6,9,18,.92)),
+    linear-gradient(135deg, rgba(8,13,24,.72) 0%, rgba(18,21,40,.7) 52%, rgba(9,13,24,.9) 100%),
+    url('Haaland.png');
+  background-size: cover;
+  background-position: center 18%;
+  border-bottom: 1px solid var(--border);
+  padding: 38px 24px 32px;
+  text-align: center;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.hero .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(239,43,45,.12);
+  border: 1px solid rgba(239,43,45,.32);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 13px;
+  text-shadow: 0 1px 8px rgba(0,0,0,.75);
+}
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(50px, 11vw, 98px);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: .9;
+  letter-spacing: .02em;
+  text-shadow: 0 12px 34px rgba(0,0,0,.68);
+}
+.hero h1 span { color: var(--accent); }
+.hero p {
+  margin-top: 9px;
+  color: rgba(232,240,255,.86);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(13px, 2.5vw, 17px);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  max-width: 720px;
+}
+.hero-link {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  border: 1px solid rgba(232,240,255,.22);
+  background: rgba(6,9,18,.32);
+  color: rgba(232,240,255,.82);
+  border-radius: 999px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0,0,0,.75);
+}
+.hero-link:hover { border-color: rgba(239,43,45,.48); color: #fff; background: rgba(239,43,45,.12); }
+.runde-tabs {
+  position: relative; z-index: 1;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  background: rgba(13,19,32,.96);
+  padding: 0 16px;
+}
+.runde-tab {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 14px 16px;
+  color: var(--muted);
+  border: none;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  background: transparent;
+  cursor: pointer;
+  transition: all .2s;
+}
+.runde-tab:hover { color: var(--text); }
+.runde-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.runde-tab.locked { color: #40506d; }
+.progress-bar-wrap {
+  position: relative; z-index: 1;
+  background: rgba(13,19,32,.96);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.progress-bar-wrap .label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--muted);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.progress-bar { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width .3s; width: 0%; }
+.progress-count { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 900; color: var(--accent); white-space: nowrap; }
+.container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 24px 16px 80px; }
+.navn-wrap {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+.field label {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+input, select {
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  padding: 10px 11px;
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+input:focus, select:focus { border-color: var(--accent); }
+option { background: var(--surface); color: var(--text); }
+button, .btn {
+  border-radius: 7px;
+  padding: 10px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: all .2s;
+  border: 1.5px solid var(--border);
+  background: rgba(13,19,32,.88);
+  color: var(--text);
+}
+button:hover, .btn:hover { border-color: rgba(239,43,45,.55); background: rgba(239,43,45,.12); }
+button.primary, .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+button.primary:hover, .btn.primary:hover { background: #ff3b3d; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+.message { margin-bottom: 16px; }
+.notice {
+  padding: 12px 14px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: rgba(13,19,32,.8);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.notice.ok { color: #b9f6ca; border-color: rgba(0,230,118,.35); background: rgba(0,230,118,.08); }
+.notice.err { color: #ff9a9a; border-color: rgba(255,90,90,.38); background: rgba(255,90,90,.09); }
+.runde-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+.runde-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+.runde-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 900; text-transform: uppercase; }
+.runde-header .poeng-info { margin-left: auto; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; color: var(--muted); }
+.runde-header .poeng-info span { color: var(--accent); font-weight: 900; }
+.runde-oppsummering {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 13px;
+}
+.runde-oppsummering strong { color: var(--text); }
+.kamp-kort {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 11px;
+  padding: 0;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: border-color .2s, opacity .2s;
+}
+.kamp-kort:hover { border-color: #344766; }
+.kamp-kort.locked-kamp { opacity: .72; background: var(--locked); }
+.kamp-status {
+  padding: 7px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+.kamp-status.open { color: var(--accent); background: rgba(239,43,45,.06); }
+.kamp-status.saved { color: var(--gold); background: rgba(255,214,0,.055); }
+.kamp-status.locked { color: var(--muted); background: rgba(122,138,170,.05); }
+.lag-rad {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 12px 16px;
+  transition: background .15s;
+  gap: 12px;
+}
+.lag-rad + .lag-rad { border-top: 1px solid var(--border); }
+.lag-rad:hover { background: rgba(255,255,255,.03); }
+.lag-rad.valgt { background: rgba(239,43,45,.09); }
+.lag-rad.valgt .lag-navn { color: var(--accent); }
+.lag-navn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 19px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+.lag-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.score-wrap { display: flex; align-items: center; gap: 6px; }
+.score-input-felt {
+  width: 42px; height: 42px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  text-align: center;
+  outline: none;
+  transition: border-color .2s;
+  -moz-appearance: textfield;
+  padding: 0;
+}
+.score-input-felt::-webkit-inner-spin-button, .score-input-felt::-webkit-outer-spin-button { -webkit-appearance: none; }
+.score-input-felt:focus { border-color: var(--accent); }
+.score-input-felt.filled { border-color: rgba(239,43,45,.50); }
+.score-input-felt:disabled { cursor: not-allowed; opacity: .55; }
+.score-sep { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 900; color: var(--muted); }
+.lever-wrap { margin-top: 24px; display: grid; gap: 10px; }
+.btn-lever {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 14px 40px;
+  border-radius: 7px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  width: 100%;
+}
+.btn-lever:hover { background: #ff3b3d; transform: translateY(-1px); }
+.helper-note { color: var(--muted); font-size: 12px; text-align: center; }
+.empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.empty .ikon { font-size: 42px; margin-bottom: 12px; }
+.empty h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
+@media (max-width: 620px) {
+  .hero { min-height: 270px; padding: 34px 14px 26px; }
+  .hero-link { top: 11px; right: 11px; font-size: 9px; padding: 5px 8px; }
+  .runde-tabs { padding: 0 8px; }
+  .runde-tab { padding: 12px 10px; font-size: 11px; }
+  .container { padding: 18px 12px 70px; }
+  .navn-wrap { grid-template-columns: 1fr; }
+  .runde-header { align-items: flex-start; }
+  .runde-header .poeng-info { margin-left: 0; }
+  .lag-navn { font-size: 16px; }
+  .lag-rad { padding: 12px 12px; }
+  .score-input-felt { width: 40px; height: 40px; }
+}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <div class="top">
-      <div>
-        <h1>Lever tips</h1>
-        <div class="meta">Kun utslagsrunder. Tips kan endres frem til avspark.</div>
-      </div>
-      <a class="btn" href="index.html">Til forsiden</a>
+<header class="hero">
+  <a class="hero-link" href="index.html">← Forsiden</a>
+  <div class="badge">⚽ Nussebassene · Lever tips</div>
+  <h1>Tipp <span>utslaget</span></h1>
+  <p>Resultatet etter 90 minutter teller. Ekstraomganger og straffer teller ikke.</p>
+</header>
+<div class="runde-tabs" id="rundeTabs"></div>
+<div class="progress-bar-wrap">
+  <span class="label">Fullført</span>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-count" id="progressCount">0 / 0</span>
+</div>
+<main class="container">
+  <div id="message" class="message"></div>
+  <section class="navn-wrap">
+    <div class="field">
+      <label for="participant">Ditt navn</label>
+      <input id="participant" autocomplete="name" placeholder="Skriv navn" />
     </div>
-
-    <div id="message"></div>
-
-    <section class="panel">
-      <div class="panel-pad formgrid">
-        <div>
-          <label for="participant">Deltaker</label>
-          <input id="participant" autocomplete="name" placeholder="Skriv navn" />
-        </div>
-        <button class="primary" type="button" id="saveNameBtn">Lagre navn</button>
-      </div>
-    </section>
-
-    <section class="panel">
-      <div class="tabs" id="tabs"></div>
-      <div class="matches" id="matches"></div>
-      <div class="actions">
-        <button type="button" id="submitBtn" class="primary">Lever tips</button>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    const CONFIG = window.NUSSEBASSENE_CONFIG || {};
-    const DATA = window.NUSSEBASSENE_DATA || {};
-    const status = DATA.status || { matches: [] };
-    const allMatches = Array.isArray(status.matches) ? status.matches : [];
-    const roundLabels = { r32: 'R32', r16: 'R16', qf: 'Kvartfinale', sf: 'Semifinale', final: 'Finale' };
-    const rounds = ['r32', 'r16', 'qf', 'sf', 'final'];
-    let activeRound = rounds.find(r => allMatches.some(m => m.runde === r && m.tippe_status === 'åpen')) || rounds.find(r => allMatches.some(m => m.runde === r)) || 'r32';
-
-    const participantInput = document.getElementById('participant');
-    participantInput.value = localStorage.getItem('nussebassene_participant') || '';
-
-    function esc(value) {
-      return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-    }
-
-    function fmtTime(iso) {
-      if (!iso) return 'Ukjent tid';
-      try {
-        return new Intl.DateTimeFormat('no-NO', {
-          weekday: 'short', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'
-        }).format(new Date(iso));
-      } catch { return iso; }
-    }
-
-    function statusClass(s) {
-      if (s === 'åpen') return 'open';
-      if (s === 'ferdig') return 'finished';
-      if (s === 'startet') return 'started';
-      return 'closed';
-    }
-
-    function showMessage(text, type = '') {
-      const el = document.getElementById('message');
-      if (!text) {
-        el.innerHTML = '';
-        return;
-      }
-      el.innerHTML = `<div class="notice ${type}">${esc(text)}</div>`;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function renderTabs() {
-      const el = document.getElementById('tabs');
-      el.innerHTML = rounds.map(r => {
-        const count = allMatches.filter(m => m.runde === r).length;
-        return `<button type="button" class="tab ${r === activeRound ? 'active' : ''}" data-round="${r}">${roundLabels[r]} ${count ? `(${count})` : ''}</button>`;
-      }).join('');
-      el.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
-        activeRound = btn.dataset.round;
-        renderTabs();
-        renderMatches();
-      }));
-    }
-
-    function renderMatches() {
-      const el = document.getElementById('matches');
-      const matches = allMatches.filter(m => m.runde === activeRound);
-      if (!matches.length) {
-        el.innerHTML = '<div class="empty">Ingen kamper i denne runden ennå.</div>';
-        return;
-      }
-      el.innerHTML = matches.map(m => {
-        const open = m.tippe_status === 'åpen' && m.tippebar === true;
-        const disabled = open ? '' : 'disabled';
-        return `<article class="match" data-match-id="${esc(m.id)}">
-          <div class="match-top">
-            <div>
-              <div class="teams">${esc(m.hjemme || 'TBD')} – ${esc(m.borte || 'TBD')}</div>
-              <div class="meta">${esc(m.id)} · ${fmtTime(m.utcDate)} · <span class="pill ${statusClass(m.tippe_status)}">${esc(m.tippe_status || 'ukjent')}</span></div>
-            </div>
-            <div class="scorebox">
-              <input type="number" min="0" max="30" inputmode="numeric" ${disabled} data-side="home" aria-label="${esc(m.hjemme || 'Hjemme')}" />
-              <span class="dash">–</span>
-              <input type="number" min="0" max="30" inputmode="numeric" ${disabled} data-side="away" aria-label="${esc(m.borte || 'Borte')}" />
-            </div>
-          </div>
-          ${open ? '' : '<div class="meta">Denne kampen kan ikke tippes nå.</div>'}
-        </article>`;
-      }).join('');
-    }
-
-    function collectTips() {
-      const matches = allMatches.filter(m => m.runde === activeRound && m.tippe_status === 'åpen' && m.tippebar === true);
-      const tips = [];
-      for (const match of matches) {
-        const card = document.querySelector(`[data-match-id="${CSS.escape(match.id)}"]`);
-        if (!card) continue;
-        const home = card.querySelector('[data-side="home"]').value;
-        const away = card.querySelector('[data-side="away"]').value;
-        if (home === '' && away === '') continue;
-        if (home === '' || away === '') throw new Error(`Fyll inn begge tall for ${match.id}.`);
-        const homeScore = Number(home);
-        const awayScore = Number(away);
-        if (!Number.isInteger(homeScore) || !Number.isInteger(awayScore) || homeScore < 0 || awayScore < 0 || homeScore > 30 || awayScore > 30) {
-          throw new Error(`Ugyldig resultat på ${match.id}.`);
-        }
-        tips.push({
-          match_id: match.id,
-          match_no: match.match_no,
-          fifa_event_id: match.fifa_event_id,
-          hjemme_snapshot: match.hjemme,
-          borte_snapshot: match.borte,
-          home_score: homeScore,
-          away_score: awayScore
-        });
-      }
-      return tips;
-    }
-
-    async function submitTips() {
-      showMessage('');
-      const participant = participantInput.value.trim();
-      if (!participant) {
-        showMessage('Skriv inn deltaker først.', 'err');
-        return;
-      }
-      localStorage.setItem('nussebassene_participant', participant);
-      let tips;
-      try {
-        tips = collectTips();
-      } catch (err) {
-        showMessage(err.message, 'err');
-        return;
-      }
-      if (!tips.length) {
-        showMessage('Ingen tips å levere for denne runden.', 'err');
-        return;
-      }
-
-      const baseUrl = (CONFIG.apiBaseUrl || '').replace(/\/$/, '');
-      if (!baseUrl) {
-        showMessage('Mangler apiBaseUrl i app-config.js. Sett den til Vercel-domenet før innsending kan testes.', 'err');
-        return;
-      }
-
-      const btn = document.getElementById('submitBtn');
-      btn.disabled = true;
-      btn.textContent = 'Leverer...';
-      try {
-        const response = await fetch(`${baseUrl}/api/submit-tip`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(CONFIG.submitToken ? { 'x-submit-token': CONFIG.submitToken } : {})
-          },
-          body: JSON.stringify({
-            participant,
-            round: activeRound,
-            tips,
-            submitted_at: new Date().toISOString()
-          })
-        });
-        const data = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(data.error || `Innsending feilet med status ${response.status}.`);
-        showMessage(`Tips levert for ${participant}. Fil: ${data.path || 'ukjent'}`, 'ok');
-      } catch (err) {
-        showMessage(err.message || 'Innsending feilet.', 'err');
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Lever tips';
-      }
-    }
-
-    document.getElementById('saveNameBtn').addEventListener('click', () => {
-      localStorage.setItem('nussebassene_participant', participantInput.value.trim());
-      showMessage('Navn lagret på denne enheten.', 'ok');
-    });
-    document.getElementById('submitBtn').addEventListener('click', submitTips);
-
-    renderTabs();
-    renderMatches();
-  </script>
+    <button type="button" id="saveNameBtn">Lagre navn</button>
+  </section>
+  <section id="roundContent"></section>
+  <section class="lever-wrap">
+    <button type="button" id="submitBtn" class="btn-lever">Lever tips</button>
+    <div class="helper-note">Du kan levere på nytt frem til avspark. Siste fil overskriver for samme navn og runde.</div>
+  </section>
+</main>
+<script>
+const CONFIG = window.NUSSEBASSENE_CONFIG || {};
+const DATA = window.NUSSEBASSENE_DATA || {};
+const status = DATA.status || { matches: [] };
+const allMatches = Array.isArray(status.matches) ? status.matches.slice() : [];
+const roundLabels = { r32: 'R32', r16: 'R16', qf: 'Kvartfinale', sf: 'Semifinale', final: 'Finale' };
+const roundShort = { r32: 'R32', r16: 'R16', qf: 'QF', sf: 'SF', final: 'Finale' };
+const rounds = ['r32','r16','qf','sf','final'];
+let activeRound = rounds.find(r => allMatches.some(m => m.runde === r && m.tippe_status === 'åpen')) || rounds.find(r => allMatches.some(m => m.runde === r)) || 'r32';
+const participantInput = document.getElementById('participant');
+participantInput.value = localStorage.getItem('nussebassene_participant') || '';
+function esc(value) { return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
+function fmtTime(iso) {
+  if (!iso) return 'Ukjent tid';
+  try { return new Intl.DateTimeFormat('no-NO', { weekday:'short', day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' }).format(new Date(iso)); }
+  catch { return iso; }
+}
+function statusText(m) {
+  const s = m.tippe_status || '';
+  if (s === 'åpen') return 'Åpen for tipping';
+  if (s === 'startet') return 'Kampen har startet';
+  if (s === 'ferdig') return 'Ferdigspilt';
+  if (s === 'venter_lag') return 'Venter på lag';
+  return 'Ikke åpen';
+}
+function matchOpen(m) { return m.tippe_status === 'åpen' && m.tippebar === true; }
+function storageKey(matchId, side) { return `nussebassene_tip_${matchId}_${side}`; }
+function showMessage(text, type = '') {
+  const el = document.getElementById('message');
+  if (!text) { el.innerHTML = ''; return; }
+  el.innerHTML = `<div class="notice ${type}">${esc(text)}</div>`;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function renderTabs() {
+  const el = document.getElementById('rundeTabs');
+  el.innerHTML = rounds.map(r => {
+    const count = allMatches.filter(m => m.runde === r).length;
+    const open = allMatches.some(m => m.runde === r && matchOpen(m));
+    return `<button type="button" class="runde-tab ${r === activeRound ? 'active' : ''} ${count ? '' : 'locked'}" data-round="${r}">${roundShort[r]}${open ? ' <span style="color:var(--success)">●</span>' : ''}</button>`;
+  }).join('');
+  el.querySelectorAll('.runde-tab').forEach(btn => btn.addEventListener('click', () => { activeRound = btn.dataset.round; renderTabs(); renderRound(); }));
+}
+function updateProgress(matches) {
+  const openMatches = matches.filter(matchOpen);
+  let filled = 0;
+  for (const m of openMatches) {
+    const home = document.querySelector(`[data-match-id="${CSS.escape(m.id)}"] [data-side="home"]`)?.value;
+    const away = document.querySelector(`[data-match-id="${CSS.escape(m.id)}"] [data-side="away"]`)?.value;
+    if (home !== '' && away !== '') filled++;
+  }
+  const total = openMatches.length;
+  document.getElementById('progressCount').textContent = `${filled} / ${total}`;
+  document.getElementById('progressFill').style.width = total ? `${Math.round((filled / total) * 100)}%` : '0%';
+}
+function renderRound() {
+  const el = document.getElementById('roundContent');
+  const matches = allMatches.filter(m => m.runde === activeRound).sort((a,b) => String(a.utcDate || '').localeCompare(String(b.utcDate || '')) || Number(a.match_no || 0) - Number(b.match_no || 0));
+  if (!matches.length) {
+    el.innerHTML = `<div class="empty"><div class="ikon">🔒</div><h3>Ingen kamper ennå</h3><p>Denne runden fylles automatisk når FIFA Calendar leverer kampoppsettet.</p></div>`;
+    updateProgress([]);
+    document.getElementById('submitBtn').disabled = true;
+    return;
+  }
+  const openCount = matches.filter(matchOpen).length;
+  el.innerHTML = `<div class="runde-header"><span class="runde-tag">${esc(roundShort[activeRound])}</span><h2>${esc(roundLabels[activeRound])}</h2><div class="poeng-info"><span>${openCount}</span> åpne</div></div><div class="runde-oppsummering"><strong>${openCount} av ${matches.length}</strong> kamper er åpne for tipping. Låste kamper kan ikke endres.</div>${matches.map(m => renderMatchCard(m)).join('')}`;
+  for (const input of el.querySelectorAll('.score-input-felt')) {
+    input.addEventListener('input', () => { input.classList.toggle('filled', input.value !== ''); localStorage.setItem(storageKey(input.dataset.matchId, input.dataset.side), input.value); updateProgress(matches); });
+    input.classList.toggle('filled', input.value !== '');
+  }
+  updateProgress(matches);
+  document.getElementById('submitBtn').disabled = openCount === 0;
+}
+function renderMatchCard(m) {
+  const open = matchOpen(m);
+  const disabled = open ? '' : 'disabled';
+  const statusClass = open ? 'open' : (m.tippe_status === 'ferdig' ? 'saved' : 'locked');
+  const homeVal = localStorage.getItem(storageKey(m.id, 'home')) || '';
+  const awayVal = localStorage.getItem(storageKey(m.id, 'away')) || '';
+  return `<article class="kamp-kort ${open ? '' : 'locked-kamp'}" data-match-id="${esc(m.id)}"><div class="kamp-status ${statusClass}">${esc(m.id)} · ${esc(statusText(m))} · ${esc(fmtTime(m.utcDate))}</div><div class="lag-rad"><div><div class="lag-navn">${esc(m.hjemme || 'TBD')}</div><div class="lag-meta">Hjemme · ${esc(m.fifa_event_id ? 'FIFA ' + m.fifa_event_id : 'FIFA Calendar')}</div></div><div class="score-wrap"><input class="score-input-felt" type="number" min="0" max="30" inputmode="numeric" data-match-id="${esc(m.id)}" data-side="home" value="${esc(homeVal)}" ${disabled} aria-label="${esc(m.hjemme || 'Hjemme')}"></div></div><div class="lag-rad"><div><div class="lag-navn">${esc(m.borte || 'TBD')}</div><div class="lag-meta">Borte · 90 minutter</div></div><div class="score-wrap"><span class="score-sep">–</span><input class="score-input-felt" type="number" min="0" max="30" inputmode="numeric" data-match-id="${esc(m.id)}" data-side="away" value="${esc(awayVal)}" ${disabled} aria-label="${esc(m.borte || 'Borte')}"></div></div></article>`;
+}
+function collectTips() {
+  const matches = allMatches.filter(m => m.runde === activeRound && matchOpen(m));
+  const tips = [];
+  for (const match of matches) {
+    const card = document.querySelector(`[data-match-id="${CSS.escape(match.id)}"]`);
+    if (!card) continue;
+    const home = card.querySelector('[data-side="home"]').value;
+    const away = card.querySelector('[data-side="away"]').value;
+    if (home === '' && away === '') continue;
+    if (home === '' || away === '') throw new Error(`Fyll inn begge tall for ${match.id}.`);
+    const homeScore = Number(home);
+    const awayScore = Number(away);
+    if (!Number.isInteger(homeScore) || !Number.isInteger(awayScore) || homeScore < 0 || awayScore < 0 || homeScore > 30 || awayScore > 30) throw new Error(`Ugyldig resultat på ${match.id}.`);
+    tips.push({ match_id: match.id, match_no: match.match_no, fifa_event_id: match.fifa_event_id, hjemme_snapshot: match.hjemme, borte_snapshot: match.borte, home_score: homeScore, away_score: awayScore });
+  }
+  return tips;
+}
+async function submitTips() {
+  showMessage('');
+  const participant = participantInput.value.trim();
+  if (!participant) { showMessage('Skriv inn deltaker først.', 'err'); return; }
+  localStorage.setItem('nussebassene_participant', participant);
+  let tips;
+  try { tips = collectTips(); } catch (err) { showMessage(err.message, 'err'); return; }
+  if (!tips.length) { showMessage('Ingen tips å levere for denne runden.', 'err'); return; }
+  const baseUrl = (CONFIG.apiBaseUrl || '').replace(/\/$/, '');
+  const submitPath = CONFIG.submitPath || '/api/submit-tip';
+  if (!baseUrl) { showMessage('Mangler apiBaseUrl i app-config.js. Sett den til Vercel-domenet før innsending kan testes.', 'err'); return; }
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Leverer...';
+  try {
+    const response = await fetch(`${baseUrl}${submitPath}`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...(CONFIG.submitToken ? { 'x-submit-token': CONFIG.submitToken } : {}) }, body: JSON.stringify({ participant, round: activeRound, tips, submitted_at: new Date().toISOString() }) });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error || `Innsending feilet med status ${response.status}.`);
+    showMessage(`Tips levert for ${participant}. Fil: ${data.path || 'ukjent'}`, 'ok');
+  } catch (err) { showMessage(err.message || 'Innsending feilet.', 'err'); }
+  finally { btn.disabled = false; btn.textContent = 'Lever tips'; }
+}
+document.getElementById('saveNameBtn').addEventListener('click', () => { localStorage.setItem('nussebassene_participant', participantInput.value.trim()); showMessage('Navn lagret på denne enheten.', 'ok'); });
+document.getElementById('submitBtn').addEventListener('click', submitTips);
+renderTabs(); renderRound();
+</script>
 </body>
 </html>
