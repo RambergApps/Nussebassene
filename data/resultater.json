@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T20:26:41Z",
+  "generated_at": "2026-06-29T20:30:42Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -93,7 +93,17 @@
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
-      "tips": []
+      "tips": [
+        {
+          "deltaker": "Alexander",
+          "home_score": 3,
+          "away_score": 0,
+          "poeng": null,
+          "exact": null,
+          "outcome": null,
+          "submitted_at": "2026-06-29T12:47:22.449Z"
+        }
+      ]
     },
     {
       "id": "M75",
