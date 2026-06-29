@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T07:55:09Z",
+  "generated_at": "2026-06-29T09:15:17Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -7,20 +7,68 @@
   "regler": {
     "regel": "90 minutter",
     "poeng_exact": 3,
-    "poeng_outcome": 1
+    "poeng_outcome": 1,
+    "poeng_rundebonus": 5,
+    "poeng_helhetsbonus": 10,
+    "bonus_sporsmal": {
+      "r32": {
+        "id": "antall_uavgjort",
+        "tekst": "Hvor mange kamper ender uavgjort i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "type": "number"
+      },
+      "r16": {
+        "id": "antall_nullen",
+        "tekst": "Hvor mange lag holder nullen i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "type": "number"
+      },
+      "qf": {
+        "id": "antall_ettmaalsseier",
+        "tekst": "Hvor mange kamper avgjøres med ett mål i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "type": "number"
+      },
+      "sf": {
+        "id": "totale_maal",
+        "tekst": "Hvor mange mål scores totalt i semifinalene i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "type": "number"
+      },
+      "final": {
+        "id": "begge_lag_scorer",
+        "tekst": "Scorer begge lag i finalen i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "type": "ja_nei"
+      }
+    },
+    "helhetsbonus_sporsmal": {
+      "flest_maal_lag": "Hvilket lag scorer flest mål fra 32-delsfinalene til og med finalen i løpet av de første 90 minuttene, inkludert tilleggstid?",
+      "totale_maal_utslag": "Hvor mange mål scores totalt fra 32-delsfinalene til og med finalen i løpet av de første 90 minuttene, inkludert tilleggstid?",
+      "golden_boot": "Hvem vinner FIFA Golden Boot?"
+    },
+    "totale_maal_intervaller": {
+      "0_46": [
+        0,
+        46
+      ],
+      "47_77": [
+        47,
+        77
+      ],
+      "78_pluss": [
+        78,
+        null
+      ]
+    }
   },
   "matches": [
     {
       "id": "M73",
       "match_no": 73,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537417,
       "runde": "r32",
       "hjemme": "South Africa",
       "borte": "Canada",
       "utcDate": "2026-06-28T19:00:00Z",
       "fifa_status": "0",
-      "fd_status": null,
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
@@ -35,13 +83,13 @@
       "id": "M74",
       "match_no": 74,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537415,
       "runde": "r32",
       "hjemme": "Germany",
       "borte": "Paraguay",
       "utcDate": "2026-06-29T20:30:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -51,13 +99,13 @@
       "id": "M75",
       "match_no": 75,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537418,
       "runde": "r32",
       "hjemme": "Netherlands",
       "borte": "Morocco",
       "utcDate": "2026-06-30T01:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -67,13 +115,13 @@
       "id": "M76",
       "match_no": 76,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537423,
       "runde": "r32",
       "hjemme": "Brazil",
       "borte": "Japan",
       "utcDate": "2026-06-29T17:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -83,13 +131,13 @@
       "id": "M77",
       "match_no": 77,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537416,
       "runde": "r32",
       "hjemme": "France",
       "borte": "Sweden",
       "utcDate": "2026-06-30T21:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -115,13 +163,13 @@
       "id": "M79",
       "match_no": 79,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537425,
       "runde": "r32",
       "hjemme": "Mexico",
       "borte": "Ecuador",
       "utcDate": "2026-07-01T01:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -131,13 +179,13 @@
       "id": "M80",
       "match_no": 80,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537426,
       "runde": "r32",
       "hjemme": "England",
       "borte": "Congo DR",
       "utcDate": "2026-07-01T16:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -163,13 +211,13 @@
       "id": "M82",
       "match_no": 82,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537422,
       "runde": "r32",
       "hjemme": "Belgium",
       "borte": "Senegal",
       "utcDate": "2026-07-01T20:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -179,13 +227,13 @@
       "id": "M83",
       "match_no": 83,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537419,
       "runde": "r32",
       "hjemme": "Portugal",
       "borte": "Croatia",
       "utcDate": "2026-07-02T23:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -195,13 +243,13 @@
       "id": "M84",
       "match_no": 84,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537420,
       "runde": "r32",
       "hjemme": "Spain",
       "borte": "Austria",
       "utcDate": "2026-07-02T19:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -211,13 +259,13 @@
       "id": "M85",
       "match_no": 85,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537429,
       "runde": "r32",
       "hjemme": "Switzerland",
       "borte": "Algeria",
       "utcDate": "2026-07-03T03:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -227,13 +275,13 @@
       "id": "M86",
       "match_no": 86,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537427,
       "runde": "r32",
       "hjemme": "Argentina",
       "borte": "Cabo Verde",
       "utcDate": "2026-07-03T22:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -243,13 +291,13 @@
       "id": "M87",
       "match_no": 87,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537430,
       "runde": "r32",
       "hjemme": "Colombia",
       "borte": "Ghana",
       "utcDate": "2026-07-04T01:30:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -259,13 +307,13 @@
       "id": "M88",
       "match_no": 88,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537428,
       "runde": "r32",
       "hjemme": "Australia",
       "borte": "Egypt",
       "utcDate": "2026-07-03T18:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -512,10 +560,161 @@
       "tips": []
     }
   ],
-  "deltakere": {},
-  "leaderboard": [],
+  "bonus": {
+    "runder": {
+      "r32": {
+        "id": "antall_uavgjort",
+        "tekst": "Hvor mange kamper ender uavgjort i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "poeng": 5,
+        "fasit": null,
+        "beregnet": false
+      },
+      "r16": {
+        "id": "antall_nullen",
+        "tekst": "Hvor mange lag holder nullen i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "poeng": 5,
+        "fasit": null,
+        "beregnet": false
+      },
+      "qf": {
+        "id": "antall_ettmaalsseier",
+        "tekst": "Hvor mange kamper avgjøres med ett mål i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "poeng": 5,
+        "fasit": null,
+        "beregnet": false
+      },
+      "sf": {
+        "id": "totale_maal",
+        "tekst": "Hvor mange mål scores totalt i semifinalene i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "poeng": 5,
+        "fasit": null,
+        "beregnet": false
+      },
+      "final": {
+        "id": "begge_lag_scorer",
+        "tekst": "Scorer begge lag i finalen i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "poeng": 5,
+        "fasit": null,
+        "beregnet": false
+      }
+    },
+    "helhet": {
+      "sporsmal": {
+        "flest_maal_lag": "Hvilket lag scorer flest mål fra 32-delsfinalene til og med finalen i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "totale_maal_utslag": "Hvor mange mål scores totalt fra 32-delsfinalene til og med finalen i løpet av de første 90 minuttene, inkludert tilleggstid?",
+        "golden_boot": "Hvem vinner FIFA Golden Boot?"
+      },
+      "poeng": 10,
+      "fasit": null,
+      "beregnet": false
+    }
+  },
+  "deltakere": {
+    "test": {
+      "deltaker": "test",
+      "poeng": 0,
+      "kamp_poeng": 0,
+      "bonus_poeng": 0,
+      "rundebonus_poeng": 0,
+      "helhetsbonus_poeng": 0,
+      "exact": 0,
+      "outcome": 0,
+      "tips_levert": 1,
+      "bonus_riktig": 0,
+      "per_round": {
+        "r32": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 1
+        },
+        "r16": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "qf": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "sf": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "final": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        }
+      },
+      "bonus": {
+        "rounds": {},
+        "helhet": {}
+      },
+      "plass": 1
+    }
+  },
+  "leaderboard": [
+    {
+      "deltaker": "test",
+      "poeng": 0,
+      "kamp_poeng": 0,
+      "bonus_poeng": 0,
+      "rundebonus_poeng": 0,
+      "helhetsbonus_poeng": 0,
+      "exact": 0,
+      "outcome": 0,
+      "tips_levert": 1,
+      "bonus_riktig": 0,
+      "per_round": {
+        "r32": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 1
+        },
+        "r16": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "qf": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "sf": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "final": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        }
+      },
+      "bonus": {
+        "rounds": {},
+        "helhet": {}
+      },
+      "plass": 1
+    }
+  ],
   "summary": {
-    "tips_total": 0,
+    "tips_total": 1,
+    "bonus_total": 0,
+    "helhetsbonus_total": 0,
     "kamper_total": 31,
     "kamper_ferdig": 1
   }
