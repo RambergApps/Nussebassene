@@ -318,6 +318,34 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 .score-input-felt.filled { border-color: rgba(239,43,45,.50); }
 .score-input-felt:disabled { cursor: not-allowed; opacity: .55; }
 .score-sep { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 900; color: var(--muted); }
+
+/* ── BONUSSPØRSMÅL ── */
+.bonus-panel {
+  background: linear-gradient(135deg, rgba(255,214,0,.07), rgba(239,43,45,.035));
+  border: 1.5px solid rgba(255,214,0,.25);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0 0 14px;
+}
+.bonus-panel.helhet {
+  border-color: rgba(239,43,45,.32);
+  background: linear-gradient(135deg, rgba(239,43,45,.085), rgba(255,214,0,.035));
+}
+.bonus-heading { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+.bonus-heading h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; text-transform: uppercase; }
+.bonus-heading span { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 900; color: var(--gold); white-space: nowrap; }
+.bonus-intro { font-size: 12px; color: var(--muted); line-height: 1.45; margin-top: 3px; }
+.bonus-grid { display: grid; gap: 12px; }
+.bonus-field label { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; color: var(--text); }
+.bonus-status { font-size: 11px; color: var(--muted); margin-top: 8px; }
+.bonus-status.open { color: var(--accent); }
+.bonus-status.locked { color: var(--red); }
+@media (max-width: 640px) {
+  .bonus-heading { display: block; }
+  .bonus-heading span { display: block; margin-top: 5px; }
+  .bonus-panel { padding: 14px; }
+}
+
 .lever-wrap { margin-top: 24px; display: grid; gap: 10px; }
 .btn-lever {
   font-family: 'Barlow Condensed', sans-serif;
@@ -390,14 +418,30 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 <script>
 const CONFIG = window.NUSSEBASSENE_CONFIG || {};
 const DATA = window.NUSSEBASSENE_DATA || {};
-const status = DATA.status || { matches: [] };
+const status = DATA.status || { matches: [], top_scorers: [] };
 const allMatches = Array.isArray(status.matches) ? status.matches.slice() : [];
-const roundLabels = { r32: 'R32', r16: 'R16', qf: 'Kvartfinale', sf: 'Semifinale', final: 'Finale' };
+const resultater = DATA.resultater || {};
+const roundLabels = { r32: 'Runde av 32', r16: 'Runde av 16', qf: 'Kvartfinale', sf: 'Semifinale', final: 'Finale' };
 const roundShort = { r32: 'R32', r16: 'R16', qf: 'QF', sf: 'SF', final: 'Finale' };
 const rounds = ['r32','r16','qf','sf','final'];
+const BONUS_POINTS_ROUND = Number(resultater?.regler?.poeng_rundebonus || 5);
+const BONUS_POINTS_OVERALL = Number(resultater?.regler?.poeng_helhetsbonus || 10);
+const BONUS_SPORSMAL = {
+  r32: { id:'antall_uavgjort', tekst:'Hvor mange kamper ender uavgjort i løpet av de første 90 minuttene, inkludert tilleggstid?', min:0, max:16 },
+  r16: { id:'antall_nullen', tekst:'Hvor mange lag holder nullen i løpet av de første 90 minuttene, inkludert tilleggstid?', min:0, max:16 },
+  qf: { id:'antall_ettmaalsseier', tekst:'Hvor mange kamper avgjøres med ett mål i løpet av de første 90 minuttene, inkludert tilleggstid?', min:0, max:4 },
+  sf: { id:'totale_maal', tekst:'Hvor mange mål scores totalt i semifinalene i løpet av de første 90 minuttene, inkludert tilleggstid?', min:0, max:40 },
+  final: { id:'begge_lag_scorer', tekst:'Scorer begge lag i finalen i løpet av de første 90 minuttene, inkludert tilleggstid?', type:'ja_nei' }
+};
+const HELHETSBONUS_TEKST = {
+  flest_maal_lag:'Hvilket lag scorer flest mål fra 32-delsfinalene til og med finalen i løpet av de første 90 minuttene, inkludert tilleggstid?',
+  totale_maal_utslag:'Hvor mange mål scores totalt fra 32-delsfinalene til og med finalen i løpet av de første 90 minuttene, inkludert tilleggstid?',
+  golden_boot:'Hvem vinner FIFA Golden Boot?'
+};
 let activeRound = rounds.find(r => allMatches.some(m => m.runde === r && m.tippe_status === 'åpen')) || rounds.find(r => allMatches.some(m => m.runde === r)) || 'r32';
 const participantInput = document.getElementById('participant');
 participantInput.value = localStorage.getItem('nussebassene_participant') || '';
+
 function esc(value) { return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
 function fmtTime(iso) {
   if (!iso) return 'Ukjent tid';
@@ -414,11 +458,44 @@ function statusText(m) {
 }
 function matchOpen(m) { return m.tippe_status === 'åpen' && m.tippebar === true; }
 function storageKey(matchId, side) { return `nussebassene_tip_${matchId}_${side}`; }
+function bonusStorageKey(round) { return `nussebassene_bonus_${round}`; }
+function helhetStorageKey(key) { return `nussebassene_helhet_${key}`; }
 function showMessage(text, type = '') {
   const el = document.getElementById('message');
   if (!text) { el.innerHTML = ''; return; }
   el.innerHTML = `<div class="notice ${type}">${esc(text)}</div>`;
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function parseKickoff(m) {
+  const t = Date.parse(m?.utcDate || '');
+  return Number.isFinite(t) ? t : null;
+}
+function firstKickoff(round) {
+  const times = allMatches.filter(m => m.runde === round).map(parseKickoff).filter(t => t !== null);
+  return times.length ? Math.min(...times) : null;
+}
+function bonusOpen(round) {
+  const frist = firstKickoff(round);
+  return frist !== null && Date.now() < frist;
+}
+function formatBonusFrist(round) {
+  const frist = firstKickoff(round);
+  if (frist === null) return 'Avventer bekreftet avsparkstid';
+  return 'Stenger ' + new Date(frist).toLocaleString('no-NO', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
+}
+function knownR32Teams() {
+  const lag = new Set();
+  for (const m of allMatches.filter(x => x.runde === 'r32')) {
+    [m.hjemme, m.borte].forEach(navn => {
+      const n = String(navn || '').trim();
+      if (n && !/^(W\d+|[123][A-L]|TBD|Winner|Runner)/i.test(n) && !n.includes('/')) lag.add(n);
+    });
+  }
+  return [...lag].sort((a,b) => a.localeCompare(b, 'no'));
+}
+function scorerNames() {
+  const scorers = Array.isArray(status.top_scorers) ? status.top_scorers : [];
+  return scorers.map(s => s.player || s.name || s.spiller).filter(Boolean);
 }
 function renderTabs() {
   const el = document.getElementById('rundeTabs');
@@ -447,17 +524,44 @@ function renderRound() {
   if (!matches.length) {
     el.innerHTML = `<div class="empty"><div class="ikon">🔒</div><h3>Ingen kamper ennå</h3><p>Denne runden fylles automatisk når FIFA Calendar leverer kampoppsettet.</p></div>`;
     updateProgress([]);
-    document.getElementById('submitBtn').disabled = true;
+    updateSubmitButton(matches);
     return;
   }
   const openCount = matches.filter(matchOpen).length;
-  el.innerHTML = `<div class="runde-header"><span class="runde-tag">${esc(roundShort[activeRound])}</span><h2>${esc(roundLabels[activeRound])}</h2><div class="poeng-info"><span>${openCount}</span> åpne</div></div><div class="runde-oppsummering"><strong>${openCount} av ${matches.length}</strong> kamper er åpne for tipping. Låste kamper kan ikke endres.</div>${matches.map(m => renderMatchCard(m)).join('')}`;
+  el.innerHTML = `<div class="runde-header"><span class="runde-tag">${esc(roundShort[activeRound])}</span><h2>${esc(roundLabels[activeRound])}</h2><div class="poeng-info"><span>${openCount}</span> åpne</div></div><div class="runde-oppsummering"><strong>${openCount} av ${matches.length}</strong> kamper er åpne for tipping. Bonus låses ved første avspark i aktuell runde.</div>${activeRound === 'r32' ? renderOverallBonus() : ''}${renderRoundBonus(activeRound)}${matches.map(m => renderMatchCard(m)).join('')}`;
   for (const input of el.querySelectorAll('.score-input-felt')) {
-    input.addEventListener('input', () => { input.classList.toggle('filled', input.value !== ''); localStorage.setItem(storageKey(input.dataset.matchId, input.dataset.side), input.value); updateProgress(matches); });
+    input.addEventListener('input', () => { input.classList.toggle('filled', input.value !== ''); localStorage.setItem(storageKey(input.dataset.matchId, input.dataset.side), input.value); updateProgress(matches); updateSubmitButton(matches); });
     input.classList.toggle('filled', input.value !== '');
   }
+  for (const input of el.querySelectorAll('[data-bonus-round],[data-helhet-key]')) {
+    input.addEventListener('input', () => { saveBonusInput(input); updateSubmitButton(matches); });
+    input.addEventListener('change', () => { saveBonusInput(input); updateSubmitButton(matches); });
+  }
   updateProgress(matches);
-  document.getElementById('submitBtn').disabled = openCount === 0;
+  updateSubmitButton(matches);
+}
+function renderOverallBonus() {
+  const open = bonusOpen('r32');
+  const disabled = open ? '' : 'disabled';
+  const teams = knownR32Teams().map(lag => `<option value="${esc(lag)}" ${localStorage.getItem(helhetStorageKey('flest_maal_lag')) === lag ? 'selected' : ''}>${esc(lag)}</option>`).join('');
+  const players = scorerNames().map(navn => `<option value="${esc(navn)}"></option>`).join('');
+  const totalValue = localStorage.getItem(helhetStorageKey('totale_maal_utslag')) || '';
+  const gb = localStorage.getItem(helhetStorageKey('golden_boot')) || '';
+  return `<div class="bonus-panel helhet"><div class="bonus-heading"><div><h3>Bonus · hele utslagsfasen</h3><div class="bonus-intro">Tre spørsmål som gjelder fra 32-delsfinalene til og med finalen.</div></div><span>${BONUS_POINTS_OVERALL} poeng per spørsmål</span></div><div class="bonus-grid"><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.flest_maal_lag)}</label><select data-helhet-key="flest_maal_lag" ${disabled}><option value="">— Velg lag —</option>${teams}</select></div><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.totale_maal_utslag)}</label><select data-helhet-key="totale_maal_utslag" ${disabled}><option value="">— Velg intervall —</option><option value="0_46" ${totalValue === '0_46' ? 'selected' : ''}>0–46 mål</option><option value="47_77" ${totalValue === '47_77' ? 'selected' : ''}>47–77 mål</option><option value="78_pluss" ${totalValue === '78_pluss' ? 'selected' : ''}>78 mål eller flere</option></select></div><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.golden_boot)}</label><input data-helhet-key="golden_boot" list="nussebassene-scorers" value="${esc(gb)}" placeholder="Skriv eller velg spiller" ${disabled}><datalist id="nussebassene-scorers">${players}</datalist></div></div><div class="bonus-status ${open ? 'open' : 'locked'}">${open ? formatBonusFrist('r32') : 'Tippingen er stengt'}</div></div>`;
+}
+function renderRoundBonus(round) {
+  const cfg = BONUS_SPORSMAL[round];
+  const open = bonusOpen(round);
+  const disabled = open ? '' : 'disabled';
+  const saved = localStorage.getItem(bonusStorageKey(round)) || '';
+  const input = cfg.type === 'ja_nei'
+    ? `<select data-bonus-round="${round}" ${disabled}><option value="">— Velg —</option><option value="ja" ${saved === 'ja' ? 'selected' : ''}>Ja</option><option value="nei" ${saved === 'nei' ? 'selected' : ''}>Nei</option></select>`
+    : `<input data-bonus-round="${round}" type="number" min="${cfg.min}" max="${cfg.max}" value="${esc(saved)}" placeholder="Svar" ${disabled}>`;
+  return `<div class="bonus-panel"><div class="bonus-heading"><div><h3>Rundebonus</h3><div class="bonus-intro">${esc(cfg.tekst)}</div></div><span>${BONUS_POINTS_ROUND} poeng</span></div><div class="bonus-field">${input}</div><div class="bonus-status ${open ? 'open' : 'locked'}">${open ? formatBonusFrist(round) : 'Tippingen er stengt'}</div></div>`;
+}
+function saveBonusInput(input) {
+  if (input.dataset.bonusRound) localStorage.setItem(bonusStorageKey(input.dataset.bonusRound), input.value);
+  if (input.dataset.helhetKey) localStorage.setItem(helhetStorageKey(input.dataset.helhetKey), input.value);
 }
 function renderMatchCard(m) {
   const open = matchOpen(m);
@@ -484,26 +588,69 @@ function collectTips() {
   }
   return tips;
 }
+function collectRoundBonus() {
+  const cfg = BONUS_SPORSMAL[activeRound];
+  if (!bonusOpen(activeRound)) return null;
+  const value = localStorage.getItem(bonusStorageKey(activeRound));
+  if (value === null || value === '') return null;
+  if (cfg.type === 'ja_nei') return { id: cfg.id, svar: value };
+  const n = Number(value);
+  if (!Number.isInteger(n) || n < cfg.min || n > cfg.max) throw new Error(`Ugyldig rundebonus. Svar må være mellom ${cfg.min} og ${cfg.max}.`);
+  return { id: cfg.id, svar: n };
+}
+function collectOverallBonus() {
+  if (activeRound !== 'r32' || !bonusOpen('r32')) return {};
+  const out = {};
+  for (const key of Object.keys(HELHETSBONUS_TEKST)) {
+    const value = (localStorage.getItem(helhetStorageKey(key)) || '').trim();
+    if (value) out[key] = value;
+  }
+  return out;
+}
+function countBonusPayload(roundBonus, overall) {
+  return (roundBonus ? 1 : 0) + Object.keys(overall || {}).length;
+}
+function updateSubmitButton(matches) {
+  const btn = document.getElementById('submitBtn');
+  if (!btn) return;
+  let tips = 0;
+  try { tips = collectTips().length; } catch { tips = 0; }
+  let roundBonus = null, overall = {};
+  try { roundBonus = collectRoundBonus(); overall = collectOverallBonus(); } catch { /* ignorer i knapp */ }
+  const bonusCount = countBonusPayload(roundBonus, overall);
+  const total = tips + bonusCount;
+  btn.disabled = total === 0;
+  btn.textContent = total ? `Lever tips og bonus (${total})` : 'Lever tips';
+}
 async function submitTips() {
   showMessage('');
   const participant = participantInput.value.trim();
   if (!participant) { showMessage('Skriv inn deltaker først.', 'err'); return; }
   localStorage.setItem('nussebassene_participant', participant);
-  let tips;
-  try { tips = collectTips(); } catch (err) { showMessage(err.message, 'err'); return; }
-  if (!tips.length) { showMessage('Ingen tips å levere for denne runden.', 'err'); return; }
+  let tips, bonus, helhetsbonus;
+  try {
+    tips = collectTips();
+    bonus = collectRoundBonus();
+    helhetsbonus = collectOverallBonus();
+  } catch (err) { showMessage(err.message, 'err'); return; }
+  if (!tips.length && !bonus && !Object.keys(helhetsbonus).length) { showMessage('Ingen tips eller bonus å levere for denne runden.', 'err'); return; }
   const baseUrl = (CONFIG.apiBaseUrl || '').replace(/\/$/, '');
   const submitPath = CONFIG.submitPath || '/api/submit-tip';
   if (!baseUrl) { showMessage('Mangler apiBaseUrl i app-config.js. Sett den til Vercel-domenet før innsending kan testes.', 'err'); return; }
   const btn = document.getElementById('submitBtn');
   btn.disabled = true; btn.textContent = 'Leverer...';
   try {
-    const response = await fetch(`${baseUrl}${submitPath}`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...(CONFIG.submitToken ? { 'x-submit-token': CONFIG.submitToken } : {}) }, body: JSON.stringify({ participant, round: activeRound, tips, submitted_at: new Date().toISOString() }) });
+    const response = await fetch(`${baseUrl}${submitPath}`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...(CONFIG.submitToken ? { 'x-submit-token': CONFIG.submitToken } : {}) }, body: JSON.stringify({ participant, round: activeRound, tips, bonus, helhetsbonus, submitted_at: new Date().toISOString() }) });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.error || `Innsending feilet med status ${response.status}.`);
-    showMessage(`Tips levert for ${participant}. Fil: ${data.path || 'ukjent'}`, 'ok');
+    const parts = [];
+    if (tips.length) parts.push(`${tips.length} kamptips`);
+    if (bonus) parts.push('1 rundebonus');
+    const helhetCount = Object.keys(helhetsbonus).length;
+    if (helhetCount) parts.push(`${helhetCount} helhetsbonus`);
+    showMessage(`${parts.join(', ')} levert for ${participant}. Fil: ${data.path || 'ukjent'}`, 'ok');
   } catch (err) { showMessage(err.message || 'Innsending feilet.', 'err'); }
-  finally { btn.disabled = false; btn.textContent = 'Lever tips'; }
+  finally { btn.disabled = false; renderRound(); }
 }
 document.getElementById('saveNameBtn').addEventListener('click', () => { localStorage.setItem('nussebassene_participant', participantInput.value.trim()); showMessage('Navn lagret på denne enheten.', 'ok'); });
 document.getElementById('submitBtn').addEventListener('click', submitTips);
