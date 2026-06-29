@@ -1,0 +1,17 @@
+{
+  "generated_at": null,
+  "fifa": {
+    "ok": false,
+    "url": null,
+    "count": 0,
+    "error": null
+  },
+  "football_data": {
+    "ok": false,
+    "count": 0,
+    "error": null
+  },
+  "warnings": [],
+  "discrepancies": [],
+  "fd_result_fallback_enabled": true
+}
