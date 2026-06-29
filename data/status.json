@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T19:00:52Z",
+  "generated_at": "2026-06-29T19:15:31Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -77,8 +77,8 @@
       "hjemme": "Brazil",
       "borte": "Japan",
       "utcDate": "2026-06-29T17:00:00Z",
-      "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
@@ -349,7 +349,7 @@
       "fifa_event_id": null,
       "fd_match_id": null,
       "runde": "r16",
-      "hjemme": "TBD",
+      "hjemme": "Brazil",
       "borte": "TBD",
       "utcDate": "2026-07-05T20:00:00Z",
       "fifa_status": "1",
