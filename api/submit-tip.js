@@ -9,6 +9,9 @@ const BONUS_SPORSMAL = {
 };
 const OVERALL_KEYS = new Set(['flest_maal_lag', 'totale_maal_utslag', 'golden_boot']);
 const TOTAL_GOALS_INTERVALS = new Set(['0_46', '47_77', '78_pluss']);
+// Midlertidig unntak fordi appen ble åpnet etter første R32-avspark.
+// Gjelder kun R32-rundebonus og helhetsbonus. Neste runde følger vanlig første-avspark-frist.
+const R32_BONUS_UTVIDET_FRIST_UTC = Date.parse('2026-06-29T21:59:59.999Z');
 
 function send(res, statusCode, payload, extraHeaders = {}) {
   res.statusCode = statusCode;
@@ -216,16 +219,23 @@ function firstKickoff(round, status) {
   return times.length ? Math.min(...times) : null;
 }
 
+function bonusDeadline(round, status) {
+  if (round === 'r32' && Number.isFinite(R32_BONUS_UTVIDET_FRIST_UTC) && Date.now() < R32_BONUS_UTVIDET_FRIST_UTC) {
+    return R32_BONUS_UTVIDET_FRIST_UTC;
+  }
+  return firstKickoff(round, status);
+}
+
 function assertRoundBonusOpen(round, status) {
-  const kickoff = firstKickoff(round, status);
-  if (!kickoff) throw new Error(`Rundebonus for ${round} mangler frist fordi avsparkstid ikke er klar.`);
-  if (kickoff <= Date.now()) throw new Error(`Rundebonus for ${round} er stengt.`);
+  const deadline = bonusDeadline(round, status);
+  if (!deadline) throw new Error(`Rundebonus for ${round} mangler frist fordi avsparkstid ikke er klar.`);
+  if (deadline <= Date.now()) throw new Error(`Rundebonus for ${round} er stengt.`);
 }
 
 function assertOverallBonusOpen(status) {
-  const kickoff = firstKickoff('r32', status);
-  if (!kickoff) throw new Error('Helhetsbonus mangler frist fordi R32 ikke har avsparkstid ennå.');
-  if (kickoff <= Date.now()) throw new Error('Helhetsbonus er stengt.');
+  const deadline = bonusDeadline('r32', status);
+  if (!deadline) throw new Error('Helhetsbonus mangler frist fordi R32 ikke har avsparkstid ennå.');
+  if (deadline <= Date.now()) throw new Error('Helhetsbonus er stengt.');
 }
 
 function validateAgainstStatus(round, tips, status) {
