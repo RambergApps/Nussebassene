@@ -71,12 +71,16 @@ def read_tip_files() -> list[dict[str, Any]]:
             data = read_json(path, {})
             participant = str(data.get("deltaker") or safe_participant_from_file(path)).strip()
             tips = data.get("tips") if isinstance(data.get("tips"), list) else []
+            bonus = data.get("bonus") if isinstance(data.get("bonus"), dict) else None
+            helhetsbonus = data.get("helhetsbonus") if isinstance(data.get("helhetsbonus"), dict) else {}
             files.append({
                 "deltaker": participant,
                 "runde": data.get("runde") or round_name,
                 "submitted_at": data.get("submitted_at"),
                 "path": str(path.relative_to(ROOT)),
                 "tips": tips,
+                "bonus": bonus,
+                "helhetsbonus": helhetsbonus,
             })
     return files
 
@@ -99,23 +103,26 @@ def main() -> int:
             "deltaker": participant,
             "total_levert": 0,
             "rounds": {
-                r: {"levert": 0, "mulige": len(possible_by_round[r]), "komplett": False, "submitted_at": None, "path": None}
+                r: {"levert": 0, "mulige": len(possible_by_round[r]), "komplett": False, "rundebonus": False, "helhetsbonus": 0, "submitted_at": None, "path": None}
                 for r in ROUNDS
             },
         })
         delivered_ids = {str(t.get("match_id") or t.get("id")) for t in file["tips"] if isinstance(t, dict)}
         valid_delivered = delivered_ids.intersection(possible_ids_by_round.get(round_name, set()))
-        p["rounds"].setdefault(round_name, {"levert": 0, "mulige": len(possible_by_round.get(round_name, [])), "komplett": False, "submitted_at": None, "path": None})
+        p["rounds"].setdefault(round_name, {"levert": 0, "mulige": len(possible_by_round.get(round_name, [])), "komplett": False, "rundebonus": False, "helhetsbonus": 0, "submitted_at": None, "path": None})
         p["rounds"][round_name].update({
             "levert": len(valid_delivered),
             "mulige": len(possible_by_round.get(round_name, [])),
             "komplett": len(possible_by_round.get(round_name, [])) > 0 and len(valid_delivered) >= len(possible_by_round.get(round_name, [])),
+            "rundebonus": bool(file.get("bonus")),
+            "helhetsbonus": len(file.get("helhetsbonus") or {}) if round_name == "r32" else 0,
             "submitted_at": file.get("submitted_at"),
             "path": file.get("path"),
         })
 
     for p in participants.values():
         p["total_levert"] = sum(r.get("levert", 0) for r in p["rounds"].values())
+        p["total_bonus"] = sum((1 if r.get("rundebonus") else 0) + int(r.get("helhetsbonus") or 0) for r in p["rounds"].values())
 
     payload = {
         "generated_at": now_iso(),
