@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-29T21:45:30Z",
+    "generated_at": "2026-06-29T21:52:05Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -50,7 +50,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -729,6 +729,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Kai Havertz",
+        "player_id": 171,
+        "team": "Germany",
+        "team_id": 759,
+        "goals": 3,
+        "assists": null,
+        "penalties": 1,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Matheus Cunha",
         "player_id": 30842,
         "team": "Brazil",
@@ -879,17 +890,6 @@ window.NUSSEBASSENE_DATA = {
         "goals": 2,
         "assists": null,
         "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Kai Havertz",
-        "player_id": 171,
-        "team": "Germany",
-        "team_id": 759,
-        "goals": 2,
-        "assists": null,
-        "penalties": 1,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
       },
@@ -1688,7 +1688,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-29T21:45:30Z",
+    "generated_at": "2026-06-29T21:52:05Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1782,7 +1782,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2459,7 +2459,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-29T21:45:30Z",
+    "generated_at": "2026-06-29T21:52:05Z",
     "rounds": {
       "r32": {
         "mulige": 16,
