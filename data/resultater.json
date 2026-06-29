@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T23:15:28Z",
+  "generated_at": "2026-06-29T23:30:48Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -88,8 +88,8 @@
       "hjemme": "Germany",
       "borte": "Paraguay",
       "utcDate": "2026-06-29T20:30:00Z",
-      "fifa_status": "3",
-      "fd_status": "PAUSED",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
