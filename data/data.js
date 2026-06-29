@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-29T09:15:17Z",
+    "generated_at": "2026-06-29T09:21:48Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -1678,7 +1678,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-29T09:15:17Z",
+    "generated_at": "2026-06-29T09:21:49Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2288,110 +2288,10 @@ window.NUSSEBASSENE_DATA = {
         "beregnet": false
       }
     },
-    "deltakere": {
-      "test": {
-        "deltaker": "test",
-        "poeng": 0,
-        "kamp_poeng": 0,
-        "bonus_poeng": 0,
-        "rundebonus_poeng": 0,
-        "helhetsbonus_poeng": 0,
-        "exact": 0,
-        "outcome": 0,
-        "tips_levert": 1,
-        "bonus_riktig": 0,
-        "per_round": {
-          "r32": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 1
-          },
-          "r16": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 0
-          },
-          "qf": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 0
-          },
-          "sf": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 0
-          },
-          "final": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 0
-          }
-        },
-        "bonus": {
-          "rounds": {},
-          "helhet": {}
-        },
-        "plass": 1
-      }
-    },
-    "leaderboard": [
-      {
-        "deltaker": "test",
-        "poeng": 0,
-        "kamp_poeng": 0,
-        "bonus_poeng": 0,
-        "rundebonus_poeng": 0,
-        "helhetsbonus_poeng": 0,
-        "exact": 0,
-        "outcome": 0,
-        "tips_levert": 1,
-        "bonus_riktig": 0,
-        "per_round": {
-          "r32": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 1
-          },
-          "r16": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 0
-          },
-          "qf": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 0
-          },
-          "sf": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 0
-          },
-          "final": {
-            "poeng": 0,
-            "kamp_poeng": 0,
-            "bonus_poeng": 0,
-            "tips": 0
-          }
-        },
-        "bonus": {
-          "rounds": {},
-          "helhet": {}
-        },
-        "plass": 1
-      }
-    ],
+    "deltakere": {},
+    "leaderboard": [],
     "summary": {
-      "tips_total": 1,
+      "tips_total": 0,
       "bonus_total": 0,
       "helhetsbonus_total": 0,
       "kamper_total": 31,
@@ -2399,7 +2299,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-29T09:15:17Z",
+    "generated_at": "2026-06-29T09:21:49Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2439,59 +2339,6 @@ window.NUSSEBASSENE_DATA = {
         "match_ids": []
       }
     },
-    "deltakere": [
-      {
-        "deltaker": "test",
-        "total_levert": 1,
-        "rounds": {
-          "r32": {
-            "levert": 1,
-            "mulige": 16,
-            "komplett": false,
-            "rundebonus": false,
-            "helhetsbonus": 0,
-            "submitted_at": "2026-06-29T09:15:03.899Z",
-            "path": "tippinger/r32/test.json"
-          },
-          "r16": {
-            "levert": 0,
-            "mulige": 0,
-            "komplett": false,
-            "rundebonus": false,
-            "helhetsbonus": 0,
-            "submitted_at": null,
-            "path": null
-          },
-          "qf": {
-            "levert": 0,
-            "mulige": 0,
-            "komplett": false,
-            "rundebonus": false,
-            "helhetsbonus": 0,
-            "submitted_at": null,
-            "path": null
-          },
-          "sf": {
-            "levert": 0,
-            "mulige": 0,
-            "komplett": false,
-            "rundebonus": false,
-            "helhetsbonus": 0,
-            "submitted_at": null,
-            "path": null
-          },
-          "final": {
-            "levert": 0,
-            "mulige": 0,
-            "komplett": false,
-            "rundebonus": false,
-            "helhetsbonus": 0,
-            "submitted_at": null,
-            "path": null
-          }
-        },
-        "total_bonus": 0
-      }
-    ]
+    "deltakere": []
   }
 };

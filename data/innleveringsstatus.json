@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T09:15:17Z",
+  "generated_at": "2026-06-29T09:21:49Z",
   "rounds": {
     "r32": {
       "mulige": 16,
@@ -39,58 +39,5 @@
       "match_ids": []
     }
   },
-  "deltakere": [
-    {
-      "deltaker": "test",
-      "total_levert": 1,
-      "rounds": {
-        "r32": {
-          "levert": 1,
-          "mulige": 16,
-          "komplett": false,
-          "rundebonus": false,
-          "helhetsbonus": 0,
-          "submitted_at": "2026-06-29T09:15:03.899Z",
-          "path": "tippinger/r32/test.json"
-        },
-        "r16": {
-          "levert": 0,
-          "mulige": 0,
-          "komplett": false,
-          "rundebonus": false,
-          "helhetsbonus": 0,
-          "submitted_at": null,
-          "path": null
-        },
-        "qf": {
-          "levert": 0,
-          "mulige": 0,
-          "komplett": false,
-          "rundebonus": false,
-          "helhetsbonus": 0,
-          "submitted_at": null,
-          "path": null
-        },
-        "sf": {
-          "levert": 0,
-          "mulige": 0,
-          "komplett": false,
-          "rundebonus": false,
-          "helhetsbonus": 0,
-          "submitted_at": null,
-          "path": null
-        },
-        "final": {
-          "levert": 0,
-          "mulige": 0,
-          "komplett": false,
-          "rundebonus": false,
-          "helhetsbonus": 0,
-          "submitted_at": null,
-          "path": null
-        }
-      },
-      "total_bonus": 0
-    }
-  ]
+  "deltakere": []
 }
