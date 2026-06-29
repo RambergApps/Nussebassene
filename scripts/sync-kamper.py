@@ -377,6 +377,51 @@ def fetch_football_data() -> tuple[list[dict[str, Any]], dict[str, Any]]:
         return [], {"ok": False, "count": 0, "error": str(exc), "url": url}
 
 
+
+def football_data_scorers_url() -> str:
+    base = os.getenv("FOOTBALL_DATA_BASE_URL", "https://api.football-data.org/v4").rstrip("/")
+    competition = os.getenv("FOOTBALL_DATA_COMPETITION", "WC")
+    # Toppscorerlisten er nødvendig for helhetsbonusen «FIFA Golden Boot».
+    # Limit kan overstyres hvis API-planen trenger lavere/høyere verdi.
+    limit = os.getenv("FOOTBALL_DATA_SCORERS_LIMIT", "100")
+    params = urlencode({"season": "2026", "limit": limit})
+    return f"{base}/competitions/{competition}/scorers?{params}"
+
+
+def parse_fd_scorer(row: dict[str, Any]) -> dict[str, Any] | None:
+    player = row.get("player") if isinstance(row.get("player"), dict) else {}
+    team = row.get("team") if isinstance(row.get("team"), dict) else {}
+    name = player.get("name") or player.get("shortName") or player.get("lastName")
+    if not name:
+        return None
+    goals = parse_int(row.get("goals"))
+    return {
+        "player": str(name),
+        "player_id": player.get("id"),
+        "team": team.get("name") or team.get("shortName") or team.get("tla"),
+        "team_id": team.get("id"),
+        "goals": int(goals or 0),
+        "assists": parse_int(row.get("assists")),
+        "penalties": parse_int(row.get("penalties")),
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source",
+    }
+
+
+def fetch_football_data_scorers() -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    token = os.getenv("FOOTBALL_DATA_TOKEN", "").strip()
+    if not token:
+        return [], {"ok": False, "count": 0, "error": "FOOTBALL_DATA_TOKEN mangler"}
+    url = football_data_scorers_url()
+    try:
+        payload = fetch_json(url, headers={"X-Auth-Token": token})
+        raw = payload.get("scorers", []) if isinstance(payload, dict) else []
+        scorers = [x for x in (parse_fd_scorer(row) for row in raw if isinstance(row, dict)) if x]
+        scorers.sort(key=lambda x: (-int(x.get("goals") or 0), str(x.get("player") or "").lower()))
+        return scorers, {"ok": True, "count": len(scorers), "error": None, "url": url}
+    except Exception as exc:  # noqa: BLE001 - logges i kontrollfil
+        return [], {"ok": False, "count": 0, "error": str(exc), "url": url}
+
 def fd_team(fd_match: dict[str, Any], side: str) -> str | None:
     obj = fd_match.get("homeTeam" if side == "home" else "awayTeam") or {}
     if isinstance(obj, dict):
@@ -590,6 +635,9 @@ def main() -> int:
         matches = previous_status.get("matches", [])
 
     fd_matches, fd_info = fetch_football_data()
+    top_scorers, fd_scorers_info = fetch_football_data_scorers()
+    if not top_scorers and isinstance(previous_status.get("top_scorers"), list):
+        top_scorers = previous_status.get("top_scorers", [])
     discrepancies: list[dict[str, Any]] = []
     if fd_matches and matches:
         matches, discrepancies = apply_football_data_control(matches, fd_matches)
@@ -616,12 +664,14 @@ def main() -> int:
             "result_priority": ["fifa_calendar", "football-data.org_fallback"],
         },
         "matches": final_matches,
+        "top_scorers": top_scorers,
     }
 
     kontroll = {
         "generated_at": now_iso(),
         "fifa": fifa_info,
         "football_data": fd_info,
+        "football_data_scorers": fd_scorers_info,
         "warnings": warnings,
         "discrepancies": discrepancies,
         "match_count": len(final_matches),
