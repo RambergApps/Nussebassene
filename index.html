@@ -832,7 +832,7 @@ a { color: inherit; text-decoration: none; }
   <button class="nav-tab" data-section="kamper">Kamper</button>
   <button class="nav-tab" data-section="detaljer">Detaljer</button>
   <button class="nav-tab" data-section="innlevering">Innlevering</button>
-  <a class="nav-tab nav-link-only" href="tipping.html">Lever tips</a>
+  <a class="nav-tab nav-link-only" href="tipping.html" data-tipping-link="1">Lever tips</a>
 </nav>
 <main class="container">
   <section class="seksjon active" id="section-stilling">
@@ -847,12 +847,12 @@ a { color: inherit; text-decoration: none; }
           <h2>Dagens kamper</h2>
           <p id="frontMatchesSub">Kampene som spilles i dag, norsk tid.</p>
         </div>
-        <a class="front-matches-link" href="tipping.html">Lever tips</a>
+        <a class="front-matches-link" href="tipping.html" data-tipping-link="1">Lever tips</a>
       </div>
       <div id="frontMatches" class="front-matches-list"></div>
     </section>
     <div class="front-actions">
-      <a class="btn primary" href="tipping.html">Lever tips</a>
+      <a class="btn primary" href="tipping.html" data-tipping-link="1">Lever tips</a>
     </div>
     <div id="leaderboard"></div>
   </section>
@@ -1265,8 +1265,9 @@ function renderDetails() {
 }
 
 const PROFILE_KEY = 'nussebassene_viewer_name';
+const TIPPING_PARTICIPANT_KEY = 'nussebassene_participant';
 const RECAP_PREFIX = 'nussebassene_recap_seen_';
-let viewerName = localStorage.getItem(PROFILE_KEY) || '';
+let viewerName = localStorage.getItem(PROFILE_KEY) || localStorage.getItem(TIPPING_PARTICIPANT_KEY) || '';
 function normalizeName(name) { return String(name || '').trim().replace(/\s+/g, ' ').toLocaleLowerCase('no'); }
 function participantNames() {
   const names = new Set();
@@ -1275,6 +1276,31 @@ function participantNames() {
   (innlevering.deltakere || []).forEach(p => p?.deltaker && names.add(p.deltaker));
   (resultater.matches || []).forEach(m => (m.tips || []).forEach(t => t?.deltaker && names.add(t.deltaker)));
   return Array.from(names).sort((a,b) => a.localeCompare(b, 'no'));
+}
+function persistViewerName(name) {
+  viewerName = String(name || '').trim();
+  if (viewerName) {
+    localStorage.setItem(PROFILE_KEY, viewerName);
+    localStorage.setItem(TIPPING_PARTICIPANT_KEY, viewerName);
+  } else {
+    localStorage.removeItem(PROFILE_KEY);
+    localStorage.removeItem(TIPPING_PARTICIPANT_KEY);
+  }
+}
+function tippingUrl(round='', kamp='') {
+  const params = new URLSearchParams();
+  if (viewerName) params.set('participant', viewerName);
+  if (round) params.set('runde', round);
+  if (kamp) params.set('kamp', kamp);
+  const query = params.toString();
+  return 'tipping.html' + (query ? '?' + query : '');
+}
+function updateTippingLinks() {
+  document.querySelectorAll('a[data-tipping-link], a[href^="tipping.html"]').forEach(link => {
+    const round = link.dataset?.runde || '';
+    const kamp = link.dataset?.kamp || '';
+    link.href = tippingUrl(round, kamp);
+  });
 }
 function getPlayer(name) {
   const key = normalizeName(name);
@@ -1323,6 +1349,7 @@ function renderProfile() {
     text.textContent = 'Ingen bruker valgt';
     button.textContent = 'Velg bruker';
   }
+  updateTippingLinks();
 }
 function openProfileModal() {
   const names = participantNames();
@@ -1340,15 +1367,13 @@ function saveViewerFromModal() {
   const manual = document.getElementById('profileManual')?.value || '';
   const name = (selected || manual).trim();
   if (!name) return;
-  viewerName = name;
-  localStorage.setItem(PROFILE_KEY, viewerName);
+  persistViewerName(name);
   renderProfile();
   closeModal();
   openPersonalRecap(true);
 }
 function clearViewer() {
-  viewerName = '';
-  localStorage.removeItem(PROFILE_KEY);
+  persistViewerName('');
   renderProfile();
   closeModal();
 }
@@ -1406,8 +1431,7 @@ function openParticipantDetails(name) {
   openModal(displayName, 'Deltakerdetaljer', body, `<button type="button" onclick="setViewerFromDetails(decodeURIComponent('${encodeURIComponent(displayName)}'))">Bruk som meg</button><button type="button" class="primary" onclick="closeModal()">Lukk</button>`);
 }
 function setViewerFromDetails(name) {
-  viewerName = name;
-  localStorage.setItem(PROFILE_KEY, viewerName);
+  persistViewerName(name);
   renderProfile();
   closeModal();
   openPersonalRecap(true);
@@ -1418,12 +1442,12 @@ function openPersonalRecap(manual=false) {
   const delivery = getDelivery(viewerName);
   const openMatches = matches.filter(m => m.tippe_status === 'åpen');
   const nextOpen = openMatches.slice().sort((a,b) => String(a.utcDate || '').localeCompare(String(b.utcDate || ''))).slice(0, 6);
-  const openHtml = nextOpen.length ? nextOpen.map(m => `<div class="detail-row"><div><div class="detail-main">${esc(m.hjemme || 'TBD')} – ${esc(m.borte || 'TBD')}</div><div class="detail-sub">${esc(roundLabels[m.runde] || m.runde || '')} · ${esc(fmtTime(m.utcDate))}</div></div><a class="status-chip warn" href="tipping.html?runde=${encodeURIComponent(m.runde || '')}&kamp=${encodeURIComponent(m.match_no || '')}">Tipp</a><div class="detail-points">M${esc(m.match_no || '')}</div></div>`).join('') : '<div class="modal-empty">Ingen åpne kamper akkurat nå.</div>';
+  const openHtml = nextOpen.length ? nextOpen.map(m => `<div class="detail-row"><div><div class="detail-main">${esc(m.hjemme || 'TBD')} – ${esc(m.borte || 'TBD')}</div><div class="detail-sub">${esc(roundLabels[m.runde] || m.runde || '')} · ${esc(fmtTime(m.utcDate))}</div></div><a class="status-chip warn" href="${tippingUrl(m.runde || '', m.match_no || '')}">Tipp</a><div class="detail-points">M${esc(m.match_no || '')}</div></div>`).join('') : '<div class="modal-empty">Ingen åpne kamper akkurat nå.</div>';
   const body = `${playerMiniStats(player, delivery)}
     <div class="detail-section"><div class="detail-title"><span>Din innlevering</span><span>Status</span></div>${roundDeliveryHtml(delivery)}</div>
     <div class="detail-section"><div class="detail-title"><span>Åpne kamper nå</span><span>${openMatches.length} åpne</span></div>${openHtml}</div>
     <div class="detail-section"><div class="detail-title"><span>Dine synlige tips</span><span>Etter avspark</span></div>${visibleTipsHtml(viewerName)}</div>`;
-  openModal(`Hei ${viewerName}`, 'Personlig status', body, `<button type="button" onclick="openProfileModal()">Bytt bruker</button><a class="btn primary" href="tipping.html">Lever tips</a><button type="button" onclick="closeModal()">Lukk</button>`);
+  openModal(`Hei ${viewerName}`, 'Personlig status', body, `<button type="button" onclick="openProfileModal()">Bytt bruker</button><a class="btn primary" href="${tippingUrl()}">Lever tips</a><button type="button" onclick="closeModal()">Lukk</button>`);
   const key = RECAP_PREFIX + normalizeName(viewerName);
   if (!manual) localStorage.setItem(key, String(Date.now()));
 }
