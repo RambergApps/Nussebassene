@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-29T11:15:32Z",
+    "generated_at": "2026-06-29T11:24:46Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -1678,7 +1678,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-29T11:15:32Z",
+    "generated_at": "2026-06-29T11:24:46Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2288,18 +2288,138 @@ window.NUSSEBASSENE_DATA = {
         "beregnet": false
       }
     },
-    "deltakere": {},
-    "leaderboard": [],
+    "deltakere": {
+      "Alexander": {
+        "deltaker": "Alexander",
+        "poeng": 0,
+        "kamp_poeng": 0,
+        "bonus_poeng": 0,
+        "rundebonus_poeng": 0,
+        "helhetsbonus_poeng": 0,
+        "exact": 0,
+        "outcome": 0,
+        "tips_levert": 2,
+        "bonus_riktig": 0,
+        "per_round": {
+          "r32": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 2
+          },
+          "r16": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 0
+          },
+          "qf": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 0
+          },
+          "sf": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 0
+          },
+          "final": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 0
+          }
+        },
+        "bonus": {
+          "rounds": {
+            "r32": {
+              "id": "antall_uavgjort",
+              "svar": 4,
+              "fasit": null,
+              "beregnet": false,
+              "riktig": null,
+              "poeng": null,
+              "submitted_at": "2026-06-29T11:24:37.056Z"
+            }
+          },
+          "helhet": {}
+        },
+        "plass": 1
+      }
+    },
+    "leaderboard": [
+      {
+        "deltaker": "Alexander",
+        "poeng": 0,
+        "kamp_poeng": 0,
+        "bonus_poeng": 0,
+        "rundebonus_poeng": 0,
+        "helhetsbonus_poeng": 0,
+        "exact": 0,
+        "outcome": 0,
+        "tips_levert": 2,
+        "bonus_riktig": 0,
+        "per_round": {
+          "r32": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 2
+          },
+          "r16": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 0
+          },
+          "qf": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 0
+          },
+          "sf": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 0
+          },
+          "final": {
+            "poeng": 0,
+            "kamp_poeng": 0,
+            "bonus_poeng": 0,
+            "tips": 0
+          }
+        },
+        "bonus": {
+          "rounds": {
+            "r32": {
+              "id": "antall_uavgjort",
+              "svar": 4,
+              "fasit": null,
+              "beregnet": false,
+              "riktig": null,
+              "poeng": null,
+              "submitted_at": "2026-06-29T11:24:37.056Z"
+            }
+          },
+          "helhet": {}
+        },
+        "plass": 1
+      }
+    ],
     "summary": {
-      "tips_total": 0,
-      "bonus_total": 0,
-      "helhetsbonus_total": 0,
+      "tips_total": 2,
+      "bonus_total": 1,
+      "helhetsbonus_total": 3,
       "kamper_total": 31,
       "kamper_ferdig": 1
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-29T11:15:32Z",
+    "generated_at": "2026-06-29T11:24:46Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2339,6 +2459,59 @@ window.NUSSEBASSENE_DATA = {
         "match_ids": []
       }
     },
-    "deltakere": []
+    "deltakere": [
+      {
+        "deltaker": "Alexander",
+        "total_levert": 2,
+        "rounds": {
+          "r32": {
+            "levert": 2,
+            "mulige": 16,
+            "komplett": false,
+            "rundebonus": true,
+            "helhetsbonus": 3,
+            "submitted_at": "2026-06-29T11:24:37.056Z",
+            "path": "tippinger/r32/alexander.json"
+          },
+          "r16": {
+            "levert": 0,
+            "mulige": 0,
+            "komplett": false,
+            "rundebonus": false,
+            "helhetsbonus": 0,
+            "submitted_at": null,
+            "path": null
+          },
+          "qf": {
+            "levert": 0,
+            "mulige": 0,
+            "komplett": false,
+            "rundebonus": false,
+            "helhetsbonus": 0,
+            "submitted_at": null,
+            "path": null
+          },
+          "sf": {
+            "levert": 0,
+            "mulige": 0,
+            "komplett": false,
+            "rundebonus": false,
+            "helhetsbonus": 0,
+            "submitted_at": null,
+            "path": null
+          },
+          "final": {
+            "levert": 0,
+            "mulige": 0,
+            "komplett": false,
+            "rundebonus": false,
+            "helhetsbonus": 0,
+            "submitted_at": null,
+            "path": null
+          }
+        },
+        "total_bonus": 4
+      }
+    ]
   }
 };

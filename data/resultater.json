@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T11:15:32Z",
+  "generated_at": "2026-06-29T11:24:46Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -609,12 +609,132 @@
       "beregnet": false
     }
   },
-  "deltakere": {},
-  "leaderboard": [],
+  "deltakere": {
+    "Alexander": {
+      "deltaker": "Alexander",
+      "poeng": 0,
+      "kamp_poeng": 0,
+      "bonus_poeng": 0,
+      "rundebonus_poeng": 0,
+      "helhetsbonus_poeng": 0,
+      "exact": 0,
+      "outcome": 0,
+      "tips_levert": 2,
+      "bonus_riktig": 0,
+      "per_round": {
+        "r32": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 2
+        },
+        "r16": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "qf": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "sf": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "final": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        }
+      },
+      "bonus": {
+        "rounds": {
+          "r32": {
+            "id": "antall_uavgjort",
+            "svar": 4,
+            "fasit": null,
+            "beregnet": false,
+            "riktig": null,
+            "poeng": null,
+            "submitted_at": "2026-06-29T11:24:37.056Z"
+          }
+        },
+        "helhet": {}
+      },
+      "plass": 1
+    }
+  },
+  "leaderboard": [
+    {
+      "deltaker": "Alexander",
+      "poeng": 0,
+      "kamp_poeng": 0,
+      "bonus_poeng": 0,
+      "rundebonus_poeng": 0,
+      "helhetsbonus_poeng": 0,
+      "exact": 0,
+      "outcome": 0,
+      "tips_levert": 2,
+      "bonus_riktig": 0,
+      "per_round": {
+        "r32": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 2
+        },
+        "r16": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "qf": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "sf": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        },
+        "final": {
+          "poeng": 0,
+          "kamp_poeng": 0,
+          "bonus_poeng": 0,
+          "tips": 0
+        }
+      },
+      "bonus": {
+        "rounds": {
+          "r32": {
+            "id": "antall_uavgjort",
+            "svar": 4,
+            "fasit": null,
+            "beregnet": false,
+            "riktig": null,
+            "poeng": null,
+            "submitted_at": "2026-06-29T11:24:37.056Z"
+          }
+        },
+        "helhet": {}
+      },
+      "plass": 1
+    }
+  ],
   "summary": {
-    "tips_total": 0,
-    "bonus_total": 0,
-    "helhetsbonus_total": 0,
+    "tips_total": 2,
+    "bonus_total": 1,
+    "helhetsbonus_total": 3,
     "kamper_total": 31,
     "kamper_ferdig": 1
   }
