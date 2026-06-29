@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T12:45:33Z",
+  "generated_at": "2026-06-29T12:47:33Z",
   "rounds": {
     "r32": {
       "mulige": 16,
@@ -42,15 +42,15 @@
   "deltakere": [
     {
       "deltaker": "Alexander",
-      "total_levert": 2,
+      "total_levert": 3,
       "rounds": {
         "r32": {
-          "levert": 2,
+          "levert": 3,
           "mulige": 16,
           "komplett": false,
           "rundebonus": true,
           "helhetsbonus": 3,
-          "submitted_at": "2026-06-29T11:24:37.056Z",
+          "submitted_at": "2026-06-29T12:47:22.449Z",
           "path": "tippinger/r32/alexander.json"
         },
         "r16": {

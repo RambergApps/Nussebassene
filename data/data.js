@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-29T12:45:33Z",
+    "generated_at": "2026-06-29T12:47:33Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -1678,7 +1678,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-29T12:45:33Z",
+    "generated_at": "2026-06-29T12:47:33Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2298,14 +2298,14 @@ window.NUSSEBASSENE_DATA = {
         "helhetsbonus_poeng": 0,
         "exact": 0,
         "outcome": 0,
-        "tips_levert": 2,
+        "tips_levert": 3,
         "bonus_riktig": 0,
         "per_round": {
           "r32": {
             "poeng": 0,
             "kamp_poeng": 0,
             "bonus_poeng": 0,
-            "tips": 2
+            "tips": 3
           },
           "r16": {
             "poeng": 0,
@@ -2341,7 +2341,7 @@ window.NUSSEBASSENE_DATA = {
               "beregnet": false,
               "riktig": null,
               "poeng": null,
-              "submitted_at": "2026-06-29T11:24:37.056Z"
+              "submitted_at": "2026-06-29T12:47:22.449Z"
             }
           },
           "helhet": {}
@@ -2359,14 +2359,14 @@ window.NUSSEBASSENE_DATA = {
         "helhetsbonus_poeng": 0,
         "exact": 0,
         "outcome": 0,
-        "tips_levert": 2,
+        "tips_levert": 3,
         "bonus_riktig": 0,
         "per_round": {
           "r32": {
             "poeng": 0,
             "kamp_poeng": 0,
             "bonus_poeng": 0,
-            "tips": 2
+            "tips": 3
           },
           "r16": {
             "poeng": 0,
@@ -2402,7 +2402,7 @@ window.NUSSEBASSENE_DATA = {
               "beregnet": false,
               "riktig": null,
               "poeng": null,
-              "submitted_at": "2026-06-29T11:24:37.056Z"
+              "submitted_at": "2026-06-29T12:47:22.449Z"
             }
           },
           "helhet": {}
@@ -2411,7 +2411,7 @@ window.NUSSEBASSENE_DATA = {
       }
     ],
     "summary": {
-      "tips_total": 2,
+      "tips_total": 3,
       "bonus_total": 1,
       "helhetsbonus_total": 3,
       "kamper_total": 31,
@@ -2419,7 +2419,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-29T12:45:33Z",
+    "generated_at": "2026-06-29T12:47:33Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2462,15 +2462,15 @@ window.NUSSEBASSENE_DATA = {
     "deltakere": [
       {
         "deltaker": "Alexander",
-        "total_levert": 2,
+        "total_levert": 3,
         "rounds": {
           "r32": {
-            "levert": 2,
+            "levert": 3,
             "mulige": 16,
             "komplett": false,
             "rundebonus": true,
             "helhetsbonus": 3,
-            "submitted_at": "2026-06-29T11:24:37.056Z",
+            "submitted_at": "2026-06-29T12:47:22.449Z",
             "path": "tippinger/r32/alexander.json"
           },
           "r16": {

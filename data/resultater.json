@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T12:45:33Z",
+  "generated_at": "2026-06-29T12:47:33Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -619,14 +619,14 @@
       "helhetsbonus_poeng": 0,
       "exact": 0,
       "outcome": 0,
-      "tips_levert": 2,
+      "tips_levert": 3,
       "bonus_riktig": 0,
       "per_round": {
         "r32": {
           "poeng": 0,
           "kamp_poeng": 0,
           "bonus_poeng": 0,
-          "tips": 2
+          "tips": 3
         },
         "r16": {
           "poeng": 0,
@@ -662,7 +662,7 @@
             "beregnet": false,
             "riktig": null,
             "poeng": null,
-            "submitted_at": "2026-06-29T11:24:37.056Z"
+            "submitted_at": "2026-06-29T12:47:22.449Z"
           }
         },
         "helhet": {}
@@ -680,14 +680,14 @@
       "helhetsbonus_poeng": 0,
       "exact": 0,
       "outcome": 0,
-      "tips_levert": 2,
+      "tips_levert": 3,
       "bonus_riktig": 0,
       "per_round": {
         "r32": {
           "poeng": 0,
           "kamp_poeng": 0,
           "bonus_poeng": 0,
-          "tips": 2
+          "tips": 3
         },
         "r16": {
           "poeng": 0,
@@ -723,7 +723,7 @@
             "beregnet": false,
             "riktig": null,
             "poeng": null,
-            "submitted_at": "2026-06-29T11:24:37.056Z"
+            "submitted_at": "2026-06-29T12:47:22.449Z"
           }
         },
         "helhet": {}
@@ -732,7 +732,7 @@
     }
   ],
   "summary": {
-    "tips_total": 2,
+    "tips_total": 3,
     "bonus_total": 1,
     "helhetsbonus_total": 3,
     "kamper_total": 31,
