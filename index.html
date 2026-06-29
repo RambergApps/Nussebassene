@@ -211,6 +211,227 @@ a { color: inherit; text-decoration: none; }
 .delivery-total { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold); }
 .empty { padding: 34px 22px; text-align: center; color: var(--muted); background: rgba(13,19,32,.7); border: 1px solid var(--border); border-radius: 12px; }
 .source-note { margin-top: 26px; color: var(--muted); font-size: 12px; text-align: center; }
+
+/* ── LOKAL PROFIL OG MODALER ── */
+.profil-linje {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  color: rgba(232,240,255,.72);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0,0,0,.75);
+}
+.profil-linje strong { color: var(--text); font-size: 12px; font-weight: 900; }
+.profil-linje button {
+  padding: 5px 9px;
+  font-size: 9px;
+  line-height: 1.2;
+  background: rgba(6,9,18,.32);
+  border-color: rgba(239,43,45,.36);
+  color: var(--accent);
+  text-shadow: none;
+}
+.stilling-rad.clickable,
+.delivery-row.clickable { cursor: pointer; }
+.stilling-rad.clickable:hover,
+.delivery-row.clickable:hover { background: rgba(239,43,45,.07); }
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(2,5,12,.76);
+  backdrop-filter: blur(8px);
+}
+.modal-backdrop.vis { display: flex; }
+.modal-card {
+  width: min(760px, 100%);
+  max-height: min(86vh, 900px);
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(17,26,46,.98), rgba(9,14,25,.98));
+  border: 1px solid rgba(239,43,45,.28);
+  border-radius: 16px;
+  box-shadow: 0 24px 90px rgba(0,0,0,.55);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  line-height: .95;
+  color: var(--accent);
+}
+.modal-subtitle {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.modal-close {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+}
+.modal-body { padding: 18px 20px 20px; }
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  padding: 0 20px 18px;
+}
+.profile-select,
+.profile-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  color: var(--text);
+  padding: 11px 12px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+.profile-select:focus,
+.profile-input:focus { border-color: var(--accent); }
+.profile-form-grid { display: grid; gap: 12px; }
+.profile-help { color: var(--muted); font-size: 13px; line-height: 1.45; }
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.mini-stat {
+  background: rgba(13,19,32,.78);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 12px 11px;
+}
+.mini-stat strong {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--gold);
+}
+.mini-stat span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.detail-section + .detail-section { margin-top: 18px; }
+.detail-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.detail-row {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 2px;
+  border-bottom: 1px solid rgba(30,45,74,.45);
+  font-size: 13px;
+  color: var(--muted);
+}
+.detail-row:last-child { border-bottom: 0; }
+.detail-main {
+  min-width: 0;
+  color: var(--text);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.detail-sub { color: var(--muted); font-size: 11px; margin-top: 2px; text-transform: none; font-family: 'Barlow', sans-serif; font-weight: 500; }
+.detail-score {
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--text);
+  font-size: 22px;
+  white-space: nowrap;
+}
+.detail-points {
+  min-width: 42px;
+  text-align: right;
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--gold);
+  font-size: 24px;
+}
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 8px;
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.status-chip.ok { color: var(--success); border-color: rgba(0,230,118,.32); background: rgba(0,230,118,.06); }
+.status-chip.warn { color: var(--gold); border-color: rgba(255,214,0,.3); background: rgba(255,214,0,.06); }
+.status-chip.bad { color: var(--danger); border-color: rgba(255,90,90,.32); background: rgba(255,90,90,.06); }
+.modal-empty {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(13,19,32,.52);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+@media (max-width: 760px) {
+  .profil-linje { top: 10px; right: 10px; gap: 7px; font-size: 9px; }
+  .profil-linje strong { font-size: 10px; }
+  .profil-linje button { padding: 4px 7px; font-size: 8px; }
+  .modal-card { max-height: 90vh; border-radius: 14px; }
+  .modal-title { font-size: 32px; }
+  .modal-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .detail-row { grid-template-columns: minmax(0,1fr) auto; }
+  .detail-points { grid-column: 2; }
+}
+
 @media (max-width: 760px) {
   .hero { min-height: 430px; padding: 42px 18px 36px; background-position: center top; }
   .hero h1 { font-size: clamp(52px, 16vw, 86px); }
@@ -245,12 +466,15 @@ a { color: inherit; text-decoration: none; }
 <div class="bg-grid"></div>
 <div class="bg-glow"></div>
 <header class="hero">
+  <div class="profil-linje" id="profileLine" aria-label="Lokal brukerprofil">
+    <span id="profileText">Ingen bruker valgt</span>
+    <button type="button" onclick="openProfileModal()" id="profileButton">Velg bruker</button>
+  </div>
   <div class="hero-badge"><span class="live-dot"></span> Nussebassene · Utslagsrunder</div>
   <h1>Nussebassene <span class="year">2026</span></h1>
   <div class="hero-sub">Kun utslagsrunder · 90 minutter · automatisk oppdatert</div>
   <div class="hero-actions">
     <a class="btn primary" href="tipping.html">Lever tips</a>
-    <button type="button" onclick="location.reload()">Oppdater</button>
   </div>
 </header>
 <nav class="nav" aria-label="Hovedmeny">
@@ -294,6 +518,21 @@ a { color: inherit; text-decoration: none; }
 
   <p class="source-note">Datakilder: FIFA Calendar som primærkilde. football-data.org som kontroll/resultatfallback der FIFA mangler ferdig resultat.</p>
 </main>
+
+<div class="modal-backdrop" id="appModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-subtitle" id="modalSubtitle"></div>
+      </div>
+      <button type="button" class="modal-close" onclick="closeModal()" aria-label="Lukk">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-actions" id="modalActions"></div>
+  </div>
+</div>
+
 <script>
 const DATA = window.NUSSEBASSENE_DATA || {};
 const status = DATA.status || { matches: [] };
@@ -376,7 +615,8 @@ function renderLeaderboard() {
   const board = resultater.leaderboard || [];
   const el = document.getElementById('leaderboard');
   if (!board.length) { el.innerHTML = '<div class="empty">Ingen poeng ennå. Stilling fylles når første kamp er ferdig og poengregning er kjørt.</div>'; return; }
-  el.innerHTML = `<div class="table-card"><div class="stilling-header"><div>#</div><div>Deltaker</div><div>Eksakt</div><div>Utfall</div><div>Bonus</div><div>Poeng</div></div>${board.map((p,i) => `<div class="stilling-rad"><div class="plass-num p${i+1 <= 3 ? i+1 : ''}">${i+1}</div><div class="rad-navn">${esc(p.deltaker)}</div><div class="rad-tall">${Number(p.exact || 0)}</div><div class="rad-tall">${Number(p.outcome || 0)}</div><div class="rad-tall">${Number(p.bonus_poeng || 0)}</div><div class="rad-totalt">${Number(p.poeng || 0)}</div></div>`).join('')}</div>`;
+  el.innerHTML = `<div class="table-card"><div class="stilling-header"><div>#</div><div>Deltaker</div><div>Eksakt</div><div>Utfall</div><div>Bonus</div><div>Poeng</div></div>${board.map((p,i) => `<div class="stilling-rad clickable" data-participant="${esc(p.deltaker)}" title="Vis detaljer for ${esc(p.deltaker)}"><div class="plass-num p${i+1 <= 3 ? i+1 : ''}">${i+1}</div><div class="rad-navn">${esc(p.deltaker)}</div><div class="rad-tall">${Number(p.exact || 0)}</div><div class="rad-tall">${Number(p.outcome || 0)}</div><div class="rad-tall">${Number(p.bonus_poeng || 0)}</div><div class="rad-totalt">${Number(p.poeng || 0)}</div></div>`).join('')}</div>`;
+  el.querySelectorAll('[data-participant]').forEach(row => row.addEventListener('click', () => openParticipantDetails(row.dataset.participant)));
 }
 function renderFilter() {
   const el = document.getElementById('kampFilter');
@@ -413,10 +653,184 @@ function renderDeliveries() {
       const bonus = (r.rundebonus ? ' + bonus' : '') + (Number(r.helhetsbonus || 0) ? ` + helhet ${Number(r.helhetsbonus || 0)}/3` : '');
       return `${roundLabels[round] || round}: ${Number(r.levert || 0)}/${Number(r.mulige || 0)}${bonus}`;
     }).join(' · ');
-    return `<div class="delivery-row"><div><div class="delivery-name">${esc(p.deltaker)}</div><div class="delivery-rounds">${esc(rounds || 'Ingen runder')}</div></div><div class="delivery-total">${Number(p.total_levert || 0)}<span style="display:block;font-family:'Barlow',sans-serif;font-size:10px;color:var(--muted);line-height:1">+${Number(p.total_bonus || 0)} bonus</span></div></div>`;
+    return `<div class="delivery-row clickable" data-participant="${esc(p.deltaker)}" title="Vis detaljer for ${esc(p.deltaker)}"><div><div class="delivery-name">${esc(p.deltaker)}</div><div class="delivery-rounds">${esc(rounds || 'Ingen runder')}</div></div><div class="delivery-total">${Number(p.total_levert || 0)}<span style="display:block;font-family:'Barlow',sans-serif;font-size:10px;color:var(--muted);line-height:1">+${Number(p.total_bonus || 0)} bonus</span></div></div>`;
   }).join('')}</div>`;
+  el.querySelectorAll('[data-participant]').forEach(row => row.addEventListener('click', () => openParticipantDetails(row.dataset.participant)));
 }
-renderNav(); renderStats(); renderPodium(); renderLeaderboard(); renderFilter(); renderMatches(); renderDeliveries();
+
+const PROFILE_KEY = 'nussebassene_viewer_name';
+const RECAP_PREFIX = 'nussebassene_recap_seen_';
+let viewerName = localStorage.getItem(PROFILE_KEY) || '';
+function normalizeName(name) { return String(name || '').trim().replace(/\s+/g, ' ').toLocaleLowerCase('no'); }
+function participantNames() {
+  const names = new Set();
+  (resultater.leaderboard || []).forEach(p => p?.deltaker && names.add(p.deltaker));
+  Object.values(resultater.deltakere || {}).forEach(p => p?.deltaker && names.add(p.deltaker));
+  (innlevering.deltakere || []).forEach(p => p?.deltaker && names.add(p.deltaker));
+  (resultater.matches || []).forEach(m => (m.tips || []).forEach(t => t?.deltaker && names.add(t.deltaker)));
+  return Array.from(names).sort((a,b) => a.localeCompare(b, 'no'));
+}
+function getPlayer(name) {
+  const key = normalizeName(name);
+  const fromMap = Object.values(resultater.deltakere || {}).find(p => normalizeName(p?.deltaker) === key);
+  const fromBoard = (resultater.leaderboard || []).find(p => normalizeName(p?.deltaker) === key);
+  return fromMap || fromBoard || null;
+}
+function getDelivery(name) {
+  const key = normalizeName(name);
+  return (innlevering.deltakere || []).find(p => normalizeName(p?.deltaker) === key) || null;
+}
+function visibleTipsFor(name) {
+  const key = normalizeName(name);
+  const rows = [];
+  (resultater.matches || []).forEach(m => {
+    (m.tips || []).forEach(t => {
+      if (normalizeName(t.deltaker) === key) rows.push({ match: m, tip: t });
+    });
+  });
+  return rows.sort((a,b) => String(a.match.utcDate || '').localeCompare(String(b.match.utcDate || '')));
+}
+function openModal(title, subtitle, bodyHtml, actionsHtml='') {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalSubtitle').textContent = subtitle || '';
+  document.getElementById('modalBody').innerHTML = bodyHtml || '';
+  document.getElementById('modalActions').innerHTML = actionsHtml || '<button type="button" class="primary" onclick="closeModal()">Lukk</button>';
+  const modal = document.getElementById('appModal');
+  modal.classList.add('vis');
+  modal.setAttribute('aria-hidden', 'false');
+}
+function closeModal() {
+  const modal = document.getElementById('appModal');
+  modal.classList.remove('vis');
+  modal.setAttribute('aria-hidden', 'true');
+}
+document.addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
+document.getElementById('appModal')?.addEventListener('click', event => { if (event.target?.id === 'appModal') closeModal(); });
+function renderProfile() {
+  const text = document.getElementById('profileText');
+  const button = document.getElementById('profileButton');
+  if (!text || !button) return;
+  if (viewerName) {
+    text.innerHTML = `Innlogget: <strong>${esc(viewerName)}</strong>`;
+    button.textContent = 'Bytt bruker';
+  } else {
+    text.textContent = 'Ingen bruker valgt';
+    button.textContent = 'Velg bruker';
+  }
+}
+function openProfileModal() {
+  const names = participantNames();
+  const options = names.map(name => `<option value="${esc(name)}" ${normalizeName(name) === normalizeName(viewerName) ? 'selected' : ''}>${esc(name)}</option>`).join('');
+  const body = `<div class="profile-form-grid">
+    <div class="profile-help">Velg hvem du er. Valget lagres bare lokalt i nettleseren og brukes til personlig status på forsiden.</div>
+    <select class="profile-select" id="profileSelect"><option value="">— Velg deltaker —</option>${options}</select>
+    <input class="profile-input" id="profileManual" placeholder="Skriv navn hvis du ikke ligger i listen" value="${names.some(n => normalizeName(n) === normalizeName(viewerName)) ? '' : esc(viewerName)}">
+  </div>`;
+  const actions = `<button type="button" onclick="clearViewer()">Fjern valg</button><button type="button" class="primary" onclick="saveViewerFromModal()">Lagre</button>`;
+  openModal('Velg bruker', 'Personlig visning', body, actions);
+}
+function saveViewerFromModal() {
+  const selected = document.getElementById('profileSelect')?.value || '';
+  const manual = document.getElementById('profileManual')?.value || '';
+  const name = (selected || manual).trim();
+  if (!name) return;
+  viewerName = name;
+  localStorage.setItem(PROFILE_KEY, viewerName);
+  renderProfile();
+  closeModal();
+  openPersonalRecap(true);
+}
+function clearViewer() {
+  viewerName = '';
+  localStorage.removeItem(PROFILE_KEY);
+  renderProfile();
+  closeModal();
+}
+function roundDeliveryHtml(delivery) {
+  if (!delivery) return '<div class="modal-empty">Ingen innlevering registrert for denne deltakeren ennå.</div>';
+  const rows = Object.entries(delivery.rounds || {}).map(([round, r]) => {
+    const komplett = r.komplett ? '<span class="status-chip ok">Komplett</span>' : Number(r.levert || 0) ? '<span class="status-chip warn">Delvis</span>' : '<span class="status-chip bad">Ikke levert</span>';
+    const bonus = `${r.rundebonus ? 'Rundebonus levert' : 'Ingen rundebonus'}${Number(r.helhetsbonus || 0) ? ` · helhet ${Number(r.helhetsbonus || 0)}/3` : ''}`;
+    return `<div class="detail-row"><div><div class="detail-main">${esc(roundLabels[round] || round)}</div><div class="detail-sub">${Number(r.levert || 0)} av ${Number(r.mulige || 0)} kamper · ${esc(bonus)}</div></div>${komplett}<div class="detail-points">${Number(r.levert || 0)}</div></div>`;
+  }).join('');
+  return rows || '<div class="modal-empty">Ingen runder registrert.</div>';
+}
+function playerMiniStats(player, delivery) {
+  const totalLevert = Number(delivery?.total_levert || player?.tips_levert || 0);
+  const totalBonus = Number(delivery?.total_bonus || 0);
+  return `<div class="modal-grid">
+    <div class="mini-stat"><strong>${Number(player?.poeng || 0)}</strong><span>poeng</span></div>
+    <div class="mini-stat"><strong>${Number(player?.kamp_poeng || 0)}</strong><span>kamp</span></div>
+    <div class="mini-stat"><strong>${Number(player?.bonus_poeng || 0)}</strong><span>bonus</span></div>
+    <div class="mini-stat"><strong>${totalLevert}</strong><span>tips levert</span></div>
+  </div>`;
+}
+function formatResultObject(result) {
+  if (!result) return 'Venter';
+  const h = result.home_score ?? result.hjemme ?? result.home;
+  const a = result.away_score ?? result.borte ?? result.away;
+  return h === undefined || a === undefined || h === null || a === null ? 'Venter' : `${h}–${a}`;
+}
+function visibleTipsHtml(name) {
+  const rows = visibleTipsFor(name);
+  if (!rows.length) return '<div class="modal-empty">Ingen synlige kamptips ennå. Tips for kamper som ikke har startet vises ikke her.</div>';
+  return rows.map(({match, tip}) => `<div class="detail-row"><div><div class="detail-main">${esc(match.hjemme || 'TBD')} – ${esc(match.borte || 'TBD')}</div><div class="detail-sub">${esc(roundLabels[match.runde] || match.runde || '')} · resultat ${esc(formatResultObject(match.resultat))}</div></div><div class="detail-score">${esc(tip.home_score)}–${esc(tip.away_score)}</div><div class="detail-points">${tip.poeng === null || tip.poeng === undefined ? '–' : Number(tip.poeng) + 'p'}</div></div>`).join('');
+}
+function perRoundHtml(player) {
+  const perRound = player?.per_round || {};
+  const rows = Object.entries(perRound).filter(([,r]) => Number(r.tips || 0) || Number(r.poeng || 0) || Number(r.bonus_poeng || 0)).map(([round, r]) => `<div class="detail-row"><div><div class="detail-main">${esc(roundLabels[round] || round)}</div><div class="detail-sub">${Number(r.tips || 0)} tips · kamp ${Number(r.kamp_poeng || 0)}p · bonus ${Number(r.bonus_poeng || 0)}p</div></div><span class="status-chip">runde</span><div class="detail-points">${Number(r.poeng || 0)}p</div></div>`).join('');
+  return rows || '<div class="modal-empty">Ingen rundepoeng ennå.</div>';
+}
+function bonusHtml(player) {
+  const bonus = player?.bonus || {};
+  const roundRows = Object.entries(bonus.rounds || {}).map(([round, b]) => `<div class="detail-row"><div><div class="detail-main">${esc(roundLabels[round] || round)} · rundebonus</div><div class="detail-sub">Svar: ${esc(b.svar)} · fasit: ${b.fasit === null || b.fasit === undefined ? 'ikke beregnet' : esc(b.fasit)}</div></div><span class="status-chip ${b.riktig === true ? 'ok' : b.riktig === false ? 'bad' : 'warn'}">${b.beregnet ? (b.riktig ? 'Riktig' : 'Feil') : 'Venter'}</span><div class="detail-points">${b.poeng === null || b.poeng === undefined ? '–' : Number(b.poeng) + 'p'}</div></div>`).join('');
+  const labels = { flest_maal_lag: 'Flest mål lag', totale_maal_utslag: 'Totale mål', golden_boot: 'Golden Boot' };
+  const helhetRows = Object.entries(bonus.helhet || {}).map(([key, b]) => `<div class="detail-row"><div><div class="detail-main">Helhet · ${esc(labels[key] || key)}</div><div class="detail-sub">Svar: ${esc(b.svar)} · fasit: ${Array.isArray(b.fasit) ? esc(b.fasit.join(', ')) : b.fasit === null || b.fasit === undefined ? 'ikke beregnet' : esc(b.fasit)}</div></div><span class="status-chip ${b.riktig === true ? 'ok' : b.riktig === false ? 'bad' : 'warn'}">${b.beregnet ? (b.riktig ? 'Riktig' : 'Feil') : 'Venter'}</span><div class="detail-points">${b.poeng === null || b.poeng === undefined ? '–' : Number(b.poeng) + 'p'}</div></div>`).join('');
+  return roundRows || helhetRows ? roundRows + helhetRows : '<div class="modal-empty">Ingen bonuspoeng beregnet ennå.</div>';
+}
+function openParticipantDetails(name) {
+  const player = getPlayer(name);
+  const delivery = getDelivery(name);
+  const displayName = player?.deltaker || delivery?.deltaker || name;
+  const body = `${playerMiniStats(player, delivery)}
+    <div class="detail-section"><div class="detail-title"><span>Runder</span><span>Poeng</span></div>${perRoundHtml(player)}</div>
+    <div class="detail-section"><div class="detail-title"><span>Innlevering</span><span>Status</span></div>${roundDeliveryHtml(delivery)}</div>
+    <div class="detail-section"><div class="detail-title"><span>Kamptips</span><span>Synlige etter avspark</span></div>${visibleTipsHtml(displayName)}</div>
+    <div class="detail-section"><div class="detail-title"><span>Bonus</span><span>5p / 10p</span></div>${bonusHtml(player)}</div>`;
+  openModal(displayName, 'Deltakerdetaljer', body, `<button type="button" onclick="setViewerFromDetails(decodeURIComponent('${encodeURIComponent(displayName)}'))">Bruk som meg</button><button type="button" class="primary" onclick="closeModal()">Lukk</button>`);
+}
+function setViewerFromDetails(name) {
+  viewerName = name;
+  localStorage.setItem(PROFILE_KEY, viewerName);
+  renderProfile();
+  closeModal();
+  openPersonalRecap(true);
+}
+function openPersonalRecap(manual=false) {
+  if (!viewerName) { openProfileModal(); return; }
+  const player = getPlayer(viewerName);
+  const delivery = getDelivery(viewerName);
+  const openMatches = matches.filter(m => m.tippe_status === 'åpen');
+  const nextOpen = openMatches.slice().sort((a,b) => String(a.utcDate || '').localeCompare(String(b.utcDate || ''))).slice(0, 6);
+  const openHtml = nextOpen.length ? nextOpen.map(m => `<div class="detail-row"><div><div class="detail-main">${esc(m.hjemme || 'TBD')} – ${esc(m.borte || 'TBD')}</div><div class="detail-sub">${esc(roundLabels[m.runde] || m.runde || '')} · ${esc(fmtTime(m.utcDate))}</div></div><a class="status-chip warn" href="tipping.html?runde=${encodeURIComponent(m.runde || '')}&kamp=${encodeURIComponent(m.match_no || '')}">Tipp</a><div class="detail-points">M${esc(m.match_no || '')}</div></div>`).join('') : '<div class="modal-empty">Ingen åpne kamper akkurat nå.</div>';
+  const body = `${playerMiniStats(player, delivery)}
+    <div class="detail-section"><div class="detail-title"><span>Din innlevering</span><span>Status</span></div>${roundDeliveryHtml(delivery)}</div>
+    <div class="detail-section"><div class="detail-title"><span>Åpne kamper nå</span><span>${openMatches.length} åpne</span></div>${openHtml}</div>
+    <div class="detail-section"><div class="detail-title"><span>Dine synlige tips</span><span>Etter avspark</span></div>${visibleTipsHtml(viewerName)}</div>`;
+  openModal(`Hei ${viewerName}`, 'Personlig status', body, `<button type="button" onclick="openProfileModal()">Bytt bruker</button><a class="btn primary" href="tipping.html">Lever tips</a><button type="button" onclick="closeModal()">Lukk</button>`);
+  const key = RECAP_PREFIX + normalizeName(viewerName);
+  if (!manual) localStorage.setItem(key, String(Date.now()));
+}
+function maybeShowPersonalRecap() {
+  if (!viewerName) return;
+  const key = RECAP_PREFIX + normalizeName(viewerName);
+  const last = Number(localStorage.getItem(key) || 0);
+  if (!last || Date.now() - last > 5 * 60 * 60 * 1000) {
+    window.setTimeout(() => openPersonalRecap(false), 650);
+  }
+}
+
+renderProfile(); renderNav(); renderStats(); renderPodium(); renderLeaderboard(); renderFilter(); renderMatches(); renderDeliveries(); maybeShowPersonalRecap();
 </script>
 </body>
 </html>
