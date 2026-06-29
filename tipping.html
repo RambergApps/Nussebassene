@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lever tips · Nussebassene</title>
+  <script src="app-config.js"></script>
+  <script src="data/data.js"></script>
+  <style>
+    :root {
+      --bg: #071522;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.13);
+      --text: #f5fbff;
+      --muted: #9fb3c8;
+      --accent: #34d399;
+      --accent2: #38bdf8;
+      --danger: #fb7185;
+      --warn: #fbbf24;
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.26), transparent 35%),
+        radial-gradient(circle at top right, rgba(52, 211, 153, 0.20), transparent 28%),
+        linear-gradient(135deg, #05111d 0%, #0a1f32 52%, #061018 100%);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(980px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 6vw, 58px);
+      letter-spacing: -0.06em;
+      line-height: 0.94;
+    }
+
+    .btn, button {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      min-height: 44px;
+      padding: 0 18px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 900;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    button.primary, .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #04111c;
+      border: none;
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .panel-pad { padding: 18px; }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    input, select {
+      width: 100%;
+      min-height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.09);
+      color: var(--text);
+      padding: 0 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    option { color: #06111c; }
+
+    .formgrid {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab {
+      min-height: 40px;
+      padding: 0 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+    }
+
+    .tab.active {
+      background: var(--accent);
+      color: #04111c;
+      border-color: transparent;
+    }
+
+    .matches {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .match {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.055);
+      padding: 15px;
+    }
+
+    .match-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .teams {
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      font-size: 18px;
+    }
+
+    .meta {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .scorebox {
+      display: grid;
+      grid-template-columns: 72px 12px 72px;
+      gap: 8px;
+      align-items: center;
+      justify-content: end;
+    }
+
+    .scorebox input {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 950;
+      padding: 0;
+    }
+
+    .dash {
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pill.open { color: #062017; background: var(--accent); border-color: transparent; }
+    .pill.started { color: #071522; background: var(--warn); border-color: transparent; }
+    .pill.finished { color: #06111c; background: var(--accent2); border-color: transparent; }
+    .pill.closed { color: #fff; background: rgba(251,113,133,0.24); border-color: rgba(251,113,133,0.45); }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .notice {
+      padding: 13px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .notice.ok { color: #d1fae5; border-color: rgba(52,211,153,0.35); background: rgba(52,211,153,0.13); }
+    .notice.err { color: #ffe4e6; border-color: rgba(251,113,133,0.45); background: rgba(251,113,133,0.13); }
+
+    .empty {
+      padding: 28px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 740px) {
+      .top, .formgrid, .match-top { grid-template-columns: 1fr; display: grid; }
+      .scorebox { justify-content: start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <div>
+        <h1>Lever tips</h1>
+        <div class="meta">Kun utslagsrunder. Tips kan endres frem til avspark.</div>
+      </div>
+      <a class="btn" href="index.html">Til forsiden</a>
+    </div>
+
+    <div id="message"></div>
+
+    <section class="panel">
+      <div class="panel-pad formgrid">
+        <div>
+          <label for="participant">Deltaker</label>
+          <input id="participant" autocomplete="name" placeholder="Skriv navn" />
+        </div>
+        <button class="primary" type="button" id="saveNameBtn">Lagre navn</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="tabs" id="tabs"></div>
+      <div class="matches" id="matches"></div>
+      <div class="actions">
+        <button type="button" id="submitBtn" class="primary">Lever tips</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const CONFIG = window.NUSSEBASSENE_CONFIG || {};
+    const DATA = window.NUSSEBASSENE_DATA || {};
+    const status = DATA.status || { matches: [] };
+    const allMatches = Array.isArray(status.matches) ? status.matches : [];
+    const roundLabels = { r32: 'R32', r16: 'R16', qf: 'Kvartfinale', sf: 'Semifinale', final: 'Finale' };
+    const rounds = ['r32', 'r16', 'qf', 'sf', 'final'];
+    let activeRound = rounds.find(r => allMatches.some(m => m.runde === r && m.tippe_status === 'åpen')) || rounds.find(r => allMatches.some(m => m.runde === r)) || 'r32';
+
+    const participantInput = document.getElementById('participant');
+    participantInput.value = localStorage.getItem('nussebassene_participant') || '';
+
+    function esc(value) {
+      return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    }
+
+    function fmtTime(iso) {
+      if (!iso) return 'Ukjent tid';
+      try {
+        return new Intl.DateTimeFormat('no-NO', {
+          weekday: 'short', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'
+        }).format(new Date(iso));
+      } catch { return iso; }
+    }
+
+    function statusClass(s) {
+      if (s === 'åpen') return 'open';
+      if (s === 'ferdig') return 'finished';
+      if (s === 'startet') return 'started';
+      return 'closed';
+    }
+
+    function showMessage(text, type = '') {
+      const el = document.getElementById('message');
+      if (!text) {
+        el.innerHTML = '';
+        return;
+      }
+      el.innerHTML = `<div class="notice ${type}">${esc(text)}</div>`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderTabs() {
+      const el = document.getElementById('tabs');
+      el.innerHTML = rounds.map(r => {
+        const count = allMatches.filter(m => m.runde === r).length;
+        return `<button type="button" class="tab ${r === activeRound ? 'active' : ''}" data-round="${r}">${roundLabels[r]} ${count ? `(${count})` : ''}</button>`;
+      }).join('');
+      el.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+        activeRound = btn.dataset.round;
+        renderTabs();
+        renderMatches();
+      }));
+    }
+
+    function renderMatches() {
+      const el = document.getElementById('matches');
+      const matches = allMatches.filter(m => m.runde === activeRound);
+      if (!matches.length) {
+        el.innerHTML = '<div class="empty">Ingen kamper i denne runden ennå.</div>';
+        return;
+      }
+      el.innerHTML = matches.map(m => {
+        const open = m.tippe_status === 'åpen' && m.tippebar === true;
+        const disabled = open ? '' : 'disabled';
+        return `<article class="match" data-match-id="${esc(m.id)}">
+          <div class="match-top">
+            <div>
+              <div class="teams">${esc(m.hjemme || 'TBD')} – ${esc(m.borte || 'TBD')}</div>
+              <div class="meta">${esc(m.id)} · ${fmtTime(m.utcDate)} · <span class="pill ${statusClass(m.tippe_status)}">${esc(m.tippe_status || 'ukjent')}</span></div>
+            </div>
+            <div class="scorebox">
+              <input type="number" min="0" max="30" inputmode="numeric" ${disabled} data-side="home" aria-label="${esc(m.hjemme || 'Hjemme')}" />
+              <span class="dash">–</span>
+              <input type="number" min="0" max="30" inputmode="numeric" ${disabled} data-side="away" aria-label="${esc(m.borte || 'Borte')}" />
+            </div>
+          </div>
+          ${open ? '' : '<div class="meta">Denne kampen kan ikke tippes nå.</div>'}
+        </article>`;
+      }).join('');
+    }
+
+    function collectTips() {
+      const matches = allMatches.filter(m => m.runde === activeRound && m.tippe_status === 'åpen' && m.tippebar === true);
+      const tips = [];
+      for (const match of matches) {
+        const card = document.querySelector(`[data-match-id="${CSS.escape(match.id)}"]`);
+        if (!card) continue;
+        const home = card.querySelector('[data-side="home"]').value;
+        const away = card.querySelector('[data-side="away"]').value;
+        if (home === '' && away === '') continue;
+        if (home === '' || away === '') throw new Error(`Fyll inn begge tall for ${match.id}.`);
+        const homeScore = Number(home);
+        const awayScore = Number(away);
+        if (!Number.isInteger(homeScore) || !Number.isInteger(awayScore) || homeScore < 0 || awayScore < 0 || homeScore > 30 || awayScore > 30) {
+          throw new Error(`Ugyldig resultat på ${match.id}.`);
+        }
+        tips.push({
+          match_id: match.id,
+          match_no: match.match_no,
+          fifa_event_id: match.fifa_event_id,
+          hjemme_snapshot: match.hjemme,
+          borte_snapshot: match.borte,
+          home_score: homeScore,
+          away_score: awayScore
+        });
+      }
+      return tips;
+    }
+
+    async function submitTips() {
+      showMessage('');
+      const participant = participantInput.value.trim();
+      if (!participant) {
+        showMessage('Skriv inn deltaker først.', 'err');
+        return;
+      }
+      localStorage.setItem('nussebassene_participant', participant);
+      let tips;
+      try {
+        tips = collectTips();
+      } catch (err) {
+        showMessage(err.message, 'err');
+        return;
+      }
+      if (!tips.length) {
+        showMessage('Ingen tips å levere for denne runden.', 'err');
+        return;
+      }
+
+      const baseUrl = (CONFIG.apiBaseUrl || '').replace(/\/$/, '');
+      if (!baseUrl) {
+        showMessage('Mangler apiBaseUrl i app-config.js. Sett den til Vercel-domenet før innsending kan testes.', 'err');
+        return;
+      }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Leverer...';
+      try {
+        const response = await fetch(`${baseUrl}/api/submit-tip`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(CONFIG.submitToken ? { 'x-submit-token': CONFIG.submitToken } : {})
+          },
+          body: JSON.stringify({
+            participant,
+            round: activeRound,
+            tips,
+            submitted_at: new Date().toISOString()
+          })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || `Innsending feilet med status ${response.status}.`);
+        showMessage(`Tips levert for ${participant}. Fil: ${data.path || 'ukjent'}`, 'ok');
+      } catch (err) {
+        showMessage(err.message || 'Innsending feilet.', 'err');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Lever tips';
+      }
+    }
+
+    document.getElementById('saveNameBtn').addEventListener('click', () => {
+      localStorage.setItem('nussebassene_participant', participantInput.value.trim());
+      showMessage('Navn lagret på denne enheten.', 'ok');
+    });
+    document.getElementById('submitBtn').addEventListener('click', submitTips);
+
+    renderTabs();
+    renderMatches();
+  </script>
+</body>
+</html>
