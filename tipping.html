@@ -439,13 +439,23 @@ const HELHETSBONUS_TEKST = {
   golden_boot:'Hvem vinner FIFA Golden Boot?'
 };
 // Midlertidig unntak fordi appen ble åpnet etter første R32-avspark.
-// Gjelder kun R32-rundebonus og helhetsbonus. Neste runde følger vanlig første-avspark-frist.
-// 29.06.2026 kl. 23:59:59 norsk sommertid = 21:59:59 UTC.
+// Gjelder kun R32-bonus/helhetsbonus og utløper ved midnatt norsk tid 29.06.2026.
 const R32_BONUS_UTVIDET_FRIST_UTC = Date.parse('2026-06-29T21:59:59.999Z');
-
-let activeRound = rounds.find(r => allMatches.some(m => m.runde === r && m.tippe_status === 'åpen')) || rounds.find(r => allMatches.some(m => m.runde === r)) || 'r32';
+const queryParams = new URLSearchParams(window.location.search);
+const requestedRound = queryParams.get('runde');
+const requestedKamp = queryParams.get('kamp');
+let deepLinkFocused = false;
+let activeRound = rounds.includes(requestedRound)
+  ? requestedRound
+  : (rounds.find(r => allMatches.some(m => m.runde === r && m.tippe_status === 'åpen')) || rounds.find(r => allMatches.some(m => m.runde === r)) || 'r32');
 const participantInput = document.getElementById('participant');
-participantInput.value = localStorage.getItem('nussebassene_participant') || '';
+const requestedParticipant = (queryParams.get('participant') || queryParams.get('navn') || '').trim();
+const storedParticipant = localStorage.getItem('nussebassene_participant') || localStorage.getItem('nussebassene_viewer_name') || '';
+participantInput.value = requestedParticipant || storedParticipant;
+if (participantInput.value) {
+  localStorage.setItem('nussebassene_participant', participantInput.value);
+  localStorage.setItem('nussebassene_viewer_name', participantInput.value);
+}
 
 function esc(value) { return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
 function fmtTime(iso) {
@@ -471,6 +481,12 @@ function showMessage(text, type = '') {
   el.innerHTML = `<div class="notice ${type}">${esc(text)}</div>`;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+function persistParticipantName(name) {
+  const value = String(name || '').trim();
+  if (!value) return;
+  localStorage.setItem('nussebassene_participant', value);
+  localStorage.setItem('nussebassene_viewer_name', value);
+}
 function parseKickoff(m) {
   const t = Date.parse(m?.utcDate || '');
   return Number.isFinite(t) ? t : null;
@@ -492,10 +508,8 @@ function bonusOpen(round) {
 function formatBonusFrist(round) {
   const frist = bonusDeadline(round);
   if (frist === null) return 'Avventer bekreftet avsparkstid';
-  if (round === 'r32' && frist === R32_BONUS_UTVIDET_FRIST_UTC) {
-    return 'R32-bonus har utvidet frist til 29.06.2026 kl. 23:59 norsk tid';
-  }
-  return 'Stenger ' + new Date(frist).toLocaleString('no-NO', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
+  const prefix = round === 'r32' && frist === R32_BONUS_UTVIDET_FRIST_UTC ? 'Utvidet bonusfrist: ' : 'Stenger ';
+  return prefix + new Date(frist).toLocaleString('no-NO', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
 }
 function knownR32Teams() {
   const lag = new Set();
@@ -532,6 +546,17 @@ function updateProgress(matches) {
   document.getElementById('progressCount').textContent = `${filled} / ${total}`;
   document.getElementById('progressFill').style.width = total ? `${Math.round((filled / total) * 100)}%` : '0%';
 }
+function focusRequestedMatch() {
+  if (deepLinkFocused || !requestedKamp) return;
+  const match = allMatches.find(m => String(m.match_no || '').trim() === String(requestedKamp).trim() || String(m.id || '').trim() === String(requestedKamp).trim());
+  if (!match || match.runde !== activeRound) return;
+  const card = document.querySelector(`[data-match-id="${CSS.escape(match.id)}"]`);
+  if (!card) return;
+  deepLinkFocused = true;
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  card.style.boxShadow = '0 0 0 3px rgba(239,43,45,.35), 0 16px 42px rgba(0,0,0,.35)';
+  window.setTimeout(() => { card.style.boxShadow = ''; }, 3200);
+}
 function renderRound() {
   const el = document.getElementById('roundContent');
   const matches = allMatches.filter(m => m.runde === activeRound).sort((a,b) => String(a.utcDate || '').localeCompare(String(b.utcDate || '')) || Number(a.match_no || 0) - Number(b.match_no || 0));
@@ -542,10 +567,10 @@ function renderRound() {
     return;
   }
   const openCount = matches.filter(matchOpen).length;
-  const bonusInfo = activeRound === 'r32' && bonusOpen('r32')
-    ? 'R32-bonus har utvidet frist ut dagen norsk tid. Neste runder følger vanlig første-avspark-frist.'
-    : 'Bonus låses ved første avspark i aktuell runde.';
-  el.innerHTML = `<div class="runde-header"><span class="runde-tag">${esc(roundShort[activeRound])}</span><h2>${esc(roundLabels[activeRound])}</h2><div class="poeng-info"><span>${openCount}</span> åpne</div></div><div class="runde-oppsummering"><strong>${openCount} av ${matches.length}</strong> kamper er åpne for tipping. ${esc(bonusInfo)}</div>${activeRound === 'r32' ? renderOverallBonus() : ''}${renderRoundBonus(activeRound)}${matches.map(m => renderMatchCard(m)).join('')}`;
+  const bonusInfo = activeRound === 'r32' && bonusOpen('r32') && bonusDeadline('r32') === R32_BONUS_UTVIDET_FRIST_UTC
+    ? ' Bonus for R32 har utvidet frist ut dagen norsk tid.'
+    : ' Bonus låses ved første avspark i aktuell runde.';
+  el.innerHTML = `<div class="runde-header"><span class="runde-tag">${esc(roundShort[activeRound])}</span><h2>${esc(roundLabels[activeRound])}</h2><div class="poeng-info"><span>${openCount}</span> åpne</div></div><div class="runde-oppsummering"><strong>${openCount} av ${matches.length}</strong> kamper er åpne for tipping.${bonusInfo}</div>${activeRound === 'r32' ? renderOverallBonus() : ''}${renderRoundBonus(activeRound)}${matches.map(m => renderMatchCard(m)).join('')}`;
   for (const input of el.querySelectorAll('.score-input-felt')) {
     input.addEventListener('input', () => { input.classList.toggle('filled', input.value !== ''); localStorage.setItem(storageKey(input.dataset.matchId, input.dataset.side), input.value); updateProgress(matches); updateSubmitButton(matches); });
     input.classList.toggle('filled', input.value !== '');
@@ -556,6 +581,7 @@ function renderRound() {
   }
   updateProgress(matches);
   updateSubmitButton(matches);
+  requestAnimationFrame(focusRequestedMatch);
 }
 function renderOverallBonus() {
   const open = bonusOpen('r32');
@@ -650,7 +676,7 @@ async function submitTips() {
   showMessage('');
   const participant = participantInput.value.trim();
   if (!participant) { showMessage('Skriv inn deltaker først.', 'err'); return; }
-  localStorage.setItem('nussebassene_participant', participant);
+  persistParticipantName(participant);
   let tips, bonus, helhetsbonus;
   try {
     tips = collectTips();
@@ -677,7 +703,7 @@ async function submitTips() {
   } catch (err) { showMessage(err.message || 'Innsending feilet.', 'err'); }
   finally { btn.disabled = false; renderRound(); }
 }
-document.getElementById('saveNameBtn').addEventListener('click', () => { localStorage.setItem('nussebassene_participant', participantInput.value.trim()); showMessage('Navn lagret på denne enheten.', 'ok'); });
+document.getElementById('saveNameBtn').addEventListener('click', () => { persistParticipantName(participantInput.value.trim()); showMessage('Navn lagret på denne enheten.', 'ok'); });
 document.getElementById('submitBtn').addEventListener('click', submitTips);
 renderTabs(); renderRound();
 </script>
