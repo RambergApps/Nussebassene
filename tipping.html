@@ -438,6 +438,11 @@ const HELHETSBONUS_TEKST = {
   totale_maal_utslag:'Hvor mange mål scores totalt fra 32-delsfinalene til og med finalen i løpet av de første 90 minuttene, inkludert tilleggstid?',
   golden_boot:'Hvem vinner FIFA Golden Boot?'
 };
+// Midlertidig unntak fordi appen ble åpnet etter første R32-avspark.
+// Gjelder kun R32-rundebonus og helhetsbonus. Neste runde følger vanlig første-avspark-frist.
+// 29.06.2026 kl. 23:59:59 norsk sommertid = 21:59:59 UTC.
+const R32_BONUS_UTVIDET_FRIST_UTC = Date.parse('2026-06-29T21:59:59.999Z');
+
 let activeRound = rounds.find(r => allMatches.some(m => m.runde === r && m.tippe_status === 'åpen')) || rounds.find(r => allMatches.some(m => m.runde === r)) || 'r32';
 const participantInput = document.getElementById('participant');
 participantInput.value = localStorage.getItem('nussebassene_participant') || '';
@@ -474,13 +479,22 @@ function firstKickoff(round) {
   const times = allMatches.filter(m => m.runde === round).map(parseKickoff).filter(t => t !== null);
   return times.length ? Math.min(...times) : null;
 }
+function bonusDeadline(round) {
+  if (round === 'r32' && Number.isFinite(R32_BONUS_UTVIDET_FRIST_UTC) && Date.now() < R32_BONUS_UTVIDET_FRIST_UTC) {
+    return R32_BONUS_UTVIDET_FRIST_UTC;
+  }
+  return firstKickoff(round);
+}
 function bonusOpen(round) {
-  const frist = firstKickoff(round);
+  const frist = bonusDeadline(round);
   return frist !== null && Date.now() < frist;
 }
 function formatBonusFrist(round) {
-  const frist = firstKickoff(round);
+  const frist = bonusDeadline(round);
   if (frist === null) return 'Avventer bekreftet avsparkstid';
+  if (round === 'r32' && frist === R32_BONUS_UTVIDET_FRIST_UTC) {
+    return 'R32-bonus har utvidet frist til 29.06.2026 kl. 23:59 norsk tid';
+  }
   return 'Stenger ' + new Date(frist).toLocaleString('no-NO', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
 }
 function knownR32Teams() {
@@ -528,7 +542,10 @@ function renderRound() {
     return;
   }
   const openCount = matches.filter(matchOpen).length;
-  el.innerHTML = `<div class="runde-header"><span class="runde-tag">${esc(roundShort[activeRound])}</span><h2>${esc(roundLabels[activeRound])}</h2><div class="poeng-info"><span>${openCount}</span> åpne</div></div><div class="runde-oppsummering"><strong>${openCount} av ${matches.length}</strong> kamper er åpne for tipping. Bonus låses ved første avspark i aktuell runde.</div>${activeRound === 'r32' ? renderOverallBonus() : ''}${renderRoundBonus(activeRound)}${matches.map(m => renderMatchCard(m)).join('')}`;
+  const bonusInfo = activeRound === 'r32' && bonusOpen('r32')
+    ? 'R32-bonus har utvidet frist ut dagen norsk tid. Neste runder følger vanlig første-avspark-frist.'
+    : 'Bonus låses ved første avspark i aktuell runde.';
+  el.innerHTML = `<div class="runde-header"><span class="runde-tag">${esc(roundShort[activeRound])}</span><h2>${esc(roundLabels[activeRound])}</h2><div class="poeng-info"><span>${openCount}</span> åpne</div></div><div class="runde-oppsummering"><strong>${openCount} av ${matches.length}</strong> kamper er åpne for tipping. ${esc(bonusInfo)}</div>${activeRound === 'r32' ? renderOverallBonus() : ''}${renderRoundBonus(activeRound)}${matches.map(m => renderMatchCard(m)).join('')}`;
   for (const input of el.querySelectorAll('.score-input-felt')) {
     input.addEventListener('input', () => { input.classList.toggle('filled', input.value !== ''); localStorage.setItem(storageKey(input.dataset.matchId, input.dataset.side), input.value); updateProgress(matches); updateSubmitButton(matches); });
     input.classList.toggle('filled', input.value !== '');
@@ -547,7 +564,7 @@ function renderOverallBonus() {
   const players = scorerNames().map(navn => `<option value="${esc(navn)}"></option>`).join('');
   const totalValue = localStorage.getItem(helhetStorageKey('totale_maal_utslag')) || '';
   const gb = localStorage.getItem(helhetStorageKey('golden_boot')) || '';
-  return `<div class="bonus-panel helhet"><div class="bonus-heading"><div><h3>Bonus · hele utslagsfasen</h3><div class="bonus-intro">Tre spørsmål som gjelder fra 32-delsfinalene til og med finalen.</div></div><span>${BONUS_POINTS_OVERALL} poeng per spørsmål</span></div><div class="bonus-grid"><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.flest_maal_lag)}</label><select data-helhet-key="flest_maal_lag" ${disabled}><option value="">— Velg lag —</option>${teams}</select></div><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.totale_maal_utslag)}</label><select data-helhet-key="totale_maal_utslag" ${disabled}><option value="">— Velg intervall —</option><option value="0_46" ${totalValue === '0_46' ? 'selected' : ''}>0–46 mål</option><option value="47_77" ${totalValue === '47_77' ? 'selected' : ''}>47–77 mål</option><option value="78_pluss" ${totalValue === '78_pluss' ? 'selected' : ''}>78 mål eller flere</option></select></div><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.golden_boot)}</label><input data-helhet-key="golden_boot" list="nussebassene-scorers" value="${esc(gb)}" placeholder="Skriv eller velg spiller" ${disabled}><datalist id="nussebassene-scorers">${players}</datalist></div></div><div class="bonus-status ${open ? 'open' : 'locked'}">${open ? formatBonusFrist('r32') : 'Tippingen er stengt'}</div></div>`;
+  return `<div class="bonus-panel helhet"><div class="bonus-heading"><div><h3>Bonus · hele utslagsfasen</h3><div class="bonus-intro">Tre spørsmål som gjelder fra 32-delsfinalene til og med finalen.</div></div><span>${BONUS_POINTS_OVERALL} poeng per spørsmål</span></div><div class="bonus-grid"><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.flest_maal_lag)}</label><select data-helhet-key="flest_maal_lag" ${disabled}><option value="">— Velg lag —</option>${teams}</select></div><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.totale_maal_utslag)}</label><select data-helhet-key="totale_maal_utslag" ${disabled}><option value="">— Velg intervall —</option><option value="0_46" ${totalValue === '0_46' ? 'selected' : ''}>0–46 mål</option><option value="47_77" ${totalValue === '47_77' ? 'selected' : ''}>47–77 mål</option><option value="78_pluss" ${totalValue === '78_pluss' ? 'selected' : ''}>78 mål eller flere</option></select></div><div class="bonus-field"><label>${esc(HELHETSBONUS_TEKST.golden_boot)}</label><input data-helhet-key="golden_boot" list="nussebassene-scorers" value="${esc(gb)}" placeholder="Skriv eller velg spiller" ${disabled}><datalist id="nussebassene-scorers">${players}</datalist></div></div><div class="bonus-status ${open ? 'open' : 'locked'}">${open ? formatBonusFrist('r32') : 'Bonus er stengt'}</div></div>`;
 }
 function renderRoundBonus(round) {
   const cfg = BONUS_SPORSMAL[round];
@@ -557,7 +574,7 @@ function renderRoundBonus(round) {
   const input = cfg.type === 'ja_nei'
     ? `<select data-bonus-round="${round}" ${disabled}><option value="">— Velg —</option><option value="ja" ${saved === 'ja' ? 'selected' : ''}>Ja</option><option value="nei" ${saved === 'nei' ? 'selected' : ''}>Nei</option></select>`
     : `<input data-bonus-round="${round}" type="number" min="${cfg.min}" max="${cfg.max}" value="${esc(saved)}" placeholder="Svar" ${disabled}>`;
-  return `<div class="bonus-panel"><div class="bonus-heading"><div><h3>Rundebonus</h3><div class="bonus-intro">${esc(cfg.tekst)}</div></div><span>${BONUS_POINTS_ROUND} poeng</span></div><div class="bonus-field">${input}</div><div class="bonus-status ${open ? 'open' : 'locked'}">${open ? formatBonusFrist(round) : 'Tippingen er stengt'}</div></div>`;
+  return `<div class="bonus-panel"><div class="bonus-heading"><div><h3>Rundebonus</h3><div class="bonus-intro">${esc(cfg.tekst)}</div></div><span>${BONUS_POINTS_ROUND} poeng</span></div><div class="bonus-field">${input}</div><div class="bonus-status ${open ? 'open' : 'locked'}">${open ? formatBonusFrist(round) : 'Bonus er stengt'}</div></div>`;
 }
 function saveBonusInput(input) {
   if (input.dataset.bonusRound) localStorage.setItem(bonusStorageKey(input.dataset.bonusRound), input.value);
