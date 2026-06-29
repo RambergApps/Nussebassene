@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T17:00:55Z",
+  "generated_at": "2026-06-29T17:15:31Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -121,7 +121,7 @@
       "borte": "Japan",
       "utcDate": "2026-06-29T17:00:00Z",
       "fifa_status": "3",
-      "fd_status": "TIMED",
+      "fd_status": "IN_PLAY",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
