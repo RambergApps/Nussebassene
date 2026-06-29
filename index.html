@@ -162,6 +162,149 @@ a { color: inherit; text-decoration: none; }
 }
 .stat-num { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 36px; line-height: 1; color: var(--accent); }
 .stat-label { color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+
+.front-matches {
+  margin: -14px 0 26px;
+}
+.front-matches-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.front-matches-head h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--accent);
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: .01em;
+}
+.front-matches-head p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+.front-matches-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(239,43,45,.45);
+  background: rgba(239,43,45,.10);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 8px 13px;
+  text-decoration: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.front-matches-link:hover { background: var(--accent); color: #fff; }
+.front-matches-list {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 12px;
+}
+.front-match-card {
+  background: linear-gradient(180deg, rgba(17,26,46,.98), rgba(13,19,32,.96));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 13px 14px;
+  min-height: 118px;
+  position: relative;
+  overflow: hidden;
+}
+.front-match-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 14% 0%, rgba(239,43,45,.13), transparent 35%);
+  pointer-events: none;
+}
+.front-match-top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.front-match-time {
+  font-family: 'Barlow Condensed', sans-serif;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.front-match-round {
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.front-team-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px minmax(0,1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 29px;
+}
+.front-team-row + .front-team-row {
+  border-top: 1px solid rgba(30,45,74,.62);
+  margin-top: 5px;
+  padding-top: 6px;
+}
+.front-flag { font-size: 21px; line-height: 1; }
+.front-team-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.front-team-score {
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--gold);
+  font-size: 24px;
+  line-height: 1;
+  min-width: 18px;
+  text-align: right;
+}
+.front-match-status {
+  position: relative;
+  margin-top: 10px;
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.front-match-status.open { color: var(--accent); }
+.front-match-status.live { color: var(--danger); }
+.front-match-status.ferdig { color: var(--success); }
+.front-matches-empty {
+  grid-column: 1 / -1;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  background: rgba(13,19,32,.72);
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .seksjon { display: none; }
 .seksjon.active { display: block; }
 .section-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 18px; }
@@ -599,6 +742,14 @@ a { color: inherit; text-decoration: none; }
   .stats { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
   .compact-stats { margin-top: 0; }
   .compact-stats .stat { min-height: 74px; }
+  .front-matches { margin-top: 0; }
+  .front-matches-head { align-items: flex-start; }
+  .front-matches-head h2 { font-size: 34px; }
+  .front-matches-head p { font-size: 12px; }
+  .front-matches-link { padding: 7px 10px; font-size: 10px; }
+  .front-matches-list { grid-template-columns: 1fr; gap: 10px; }
+  .front-match-card { min-height: 0; padding: 12px 13px; }
+  .front-team-name { font-size: 18px; }
   .section-intro { display: block; }
   .section-intro h2 { font-size: 38px; }
   .oppdatert { margin-top: 8px; display: block; }
@@ -662,11 +813,15 @@ a { color: inherit; text-decoration: none; }
       <div class="oppdatert" id="generatedAt">Ikke oppdatert ennå</div>
     </div>
     <div id="podium"></div>
-    <section class="stats compact-stats" aria-label="Nøkkeltall">
-      <div class="stat"><span class="stat-num" id="statMatches">0</span><span class="stat-label">kamper</span></div>
-      <div class="stat"><span class="stat-num" id="statOpen">0</span><span class="stat-label">åpne</span></div>
-      <div class="stat"><span class="stat-num" id="statFinished">0</span><span class="stat-label">ferdige</span></div>
-      <div class="stat"><span class="stat-num" id="statPlayers">0</span><span class="stat-label">deltakere</span></div>
+    <section class="front-matches" aria-label="Dagens kamper">
+      <div class="front-matches-head">
+        <div>
+          <h2>Dagens kamper</h2>
+          <p id="frontMatchesSub">Kampene som spilles i dag, norsk tid.</p>
+        </div>
+        <a class="front-matches-link" href="tipping.html">Lever tips</a>
+      </div>
+      <div id="frontMatches" class="front-matches-list"></div>
     </section>
     <div class="front-actions">
       <a class="btn primary" href="tipping.html">Lever tips</a>
@@ -766,6 +921,66 @@ function resultTips(matchId) {
   return Array.isArray(rm?.tips) ? rm.tips : [];
 }
 function canShowTips(m) { return m.vis_tips === true || ['startet','ferdig'].includes(m.tippe_status); }
+
+const TEAM_FLAGS = {
+  'Argentina':'🇦🇷','Algeria':'🇩🇿','Austria':'🇦🇹','Australia':'🇦🇺','Belgium':'🇧🇪','Belgia':'🇧🇪','Bosnia and Herzegovina':'🇧🇦','Bosnia-Hercegovina':'🇧🇦','Brazil':'🇧🇷','Brasil':'🇧🇷','Canada':'🇨🇦','Cape Verde':'🇨🇻','Kapp Verde':'🇨🇻','Colombia':'🇨🇴','Croatia':'🇭🇷','Kroatia':'🇭🇷','Curacao':'🇨🇼','Curaçao':'🇨🇼','Czechia':'🇨🇿','Tsjekkia':'🇨🇿','DR Congo':'🇨🇩','D.R. Congo':'🇨🇩','Congo DR':'🇨🇩','Ecuador':'🇪🇨','Egypt':'🇪🇬','Egypten':'🇪🇬','England':'🏴','France':'🇫🇷','Frankrike':'🇫🇷','Germany':'🇩🇪','Tyskland':'🇩🇪','Ghana':'🇬🇭','Haiti':'🇭🇹','Iran':'🇮🇷','Iraq':'🇮🇶','Irak':'🇮🇶','Ivory Coast':'🇨🇮','Elfenbenskysten':'🇨🇮','Japan':'🇯🇵','Jordan':'🇯🇴','Mexico':'🇲🇽','Morocco':'🇲🇦','Marokko':'🇲🇦','Netherlands':'🇳🇱','Nederland':'🇳🇱','New Zealand':'🇳🇿','Norway':'🇳🇴','Norge':'🇳🇴','Panama':'🇵🇦','Paraguay':'🇵🇾','Portugal':'🇵🇹','Qatar':'🇶🇦','Saudi Arabia':'🇸🇦','Saudi-Arabia':'🇸🇦','Scotland':'🏴󠁧󠁢󠁳󠁣󠁴󠁿','Skottland':'🏴󠁧󠁢󠁳󠁣󠁴󠁿','Senegal':'🇸🇳','South Africa':'🇿🇦','Sør-Afrika':'🇿🇦','South Korea':'🇰🇷','Sør-Korea':'🇰🇷','Spain':'🇪🇸','Spania':'🇪🇸','Sweden':'🇸🇪','Sverige':'🇸🇪','Switzerland':'🇨🇭','Sveits':'🇨🇭','Tunisia':'🇹🇳','Tunisia':'🇹🇳','Turkey':'🇹🇷','Tyrkia':'🇹🇷','United States':'🇺🇸','USA':'🇺🇸','Uruguay':'🇺🇾','Uzbekistan':'🇺🇿'
+};
+function teamFlag(name) {
+  const n = String(name || '').trim();
+  if (!n || /TBD|Winner|Loser|Vinner|Taper/i.test(n) || n.includes('/')) return '🏳️';
+  return TEAM_FLAGS[n] || '🏳️';
+}
+function osloDateParts(dateValue) {
+  if (!dateValue) return null;
+  const d = new Date(dateValue);
+  if (Number.isNaN(d.getTime())) return null;
+  const parts = new Intl.DateTimeFormat('en-CA', { timeZone:'Europe/Oslo', year:'numeric', month:'2-digit', day:'2-digit' }).formatToParts(d);
+  const map = Object.fromEntries(parts.map(p => [p.type, p.value]));
+  return `${map.year}-${map.month}-${map.day}`;
+}
+function frontMatchScoreValue(m, side) {
+  const r = m.resultat_90min || m.football_data_regular_time || m.resultat || m.score || {};
+  const value = side === 'home'
+    ? (r.home_score ?? r.home ?? r.hjemme ?? m.home_score)
+    : (r.away_score ?? r.away ?? r.borte ?? m.away_score);
+  return value === undefined || value === null || value === '' ? '' : String(value);
+}
+function renderFrontMatches() {
+  const el = document.getElementById('frontMatches');
+  if (!el) return;
+  const sub = document.getElementById('frontMatchesSub');
+  const todayKey = osloDateParts(new Date());
+  let list = matches
+    .filter(m => osloDateParts(m.utcDate) === todayKey)
+    .sort((a,b) => String(a.utcDate || '').localeCompare(String(b.utcDate || '')) || Number(a.match_no || 0) - Number(b.match_no || 0));
+  let mode = 'today';
+  if (!list.length) {
+    const now = Date.now();
+    list = matches
+      .filter(m => !m.ferdig && (!m.utcDate || Date.parse(m.utcDate) >= now - 3 * 60 * 60 * 1000))
+      .sort((a,b) => String(a.utcDate || '').localeCompare(String(b.utcDate || '')) || Number(a.match_no || 0) - Number(b.match_no || 0))
+      .slice(0, 3);
+    mode = 'next';
+  }
+  if (sub) sub.textContent = mode === 'today' ? 'Kampene som spilles i dag, norsk tid.' : 'Ingen kamper i dag. Viser neste åpne kamper.';
+  if (!list.length) {
+    el.innerHTML = '<div class="front-matches-empty">Ingen kamper er hentet ennå. Kjør oppdateringen når API-oppsettet er klart.</div>';
+    return;
+  }
+  el.innerHTML = list.slice(0, 6).map(m => {
+    const homeScore = frontMatchScoreValue(m, 'home');
+    const awayScore = frontMatchScoreValue(m, 'away');
+    const hasScore = homeScore !== '' || awayScore !== '';
+    const cls = statusClass(m);
+    return `<article class="front-match-card">
+      <div class="front-match-top"><span class="front-match-time">${esc(fmtTime(m.utcDate))}</span><span class="front-match-round">${esc(roundLabels[m.runde] || m.runde || '')}${m.match_no ? ` · M${esc(m.match_no)}` : ''}</span></div>
+      <div class="front-team-row"><span class="front-flag">${teamFlag(m.hjemme)}</span><span class="front-team-name">${esc(m.hjemme || 'TBD')}</span><span class="front-team-score">${hasScore ? esc(homeScore || '0') : ''}</span></div>
+      <div class="front-team-row"><span class="front-flag">${teamFlag(m.borte)}</span><span class="front-team-name">${esc(m.borte || 'TBD')}</span><span class="front-team-score">${hasScore ? esc(awayScore || '0') : ''}</span></div>
+      <div class="front-match-status ${cls}">${esc(statusText(m))}</div>
+    </article>`;
+  }).join('');
+}
+
 function renderNav() {
   document.querySelectorAll('.nav-tab').forEach(btn => btn.addEventListener('click', () => {
     if (!btn.dataset.section) return;
@@ -776,16 +991,24 @@ function renderNav() {
   }));
 }
 function renderStats() {
-  document.getElementById('statMatches').textContent = matches.length;
-  document.getElementById('statOpen').textContent = matches.filter(m => m.tippe_status === 'åpen').length;
-  document.getElementById('statFinished').textContent = matches.filter(m => m.ferdig || m.tippe_status === 'ferdig').length;
-  document.getElementById('statPlayers').textContent = (resultater.leaderboard || []).length || (innlevering.deltakere || []).length;
+  const statMatches = document.getElementById('statMatches');
+  if (statMatches) statMatches.textContent = matches.length;
+  const statOpen = document.getElementById('statOpen');
+  if (statOpen) statOpen.textContent = matches.filter(m => m.tippe_status === 'åpen').length;
+  const statFinished = document.getElementById('statFinished');
+  if (statFinished) statFinished.textContent = matches.filter(m => m.ferdig || m.tippe_status === 'ferdig').length;
+  const statPlayers = document.getElementById('statPlayers');
+  if (statPlayers) statPlayers.textContent = (resultater.leaderboard || []).length || (innlevering.deltakere || []).length;
   const stamp = resultater.generated_at || status.generated_at || innlevering.generated_at;
   const text = stamp ? `Oppdatert ${fmtTime(stamp)}` : 'Ikke oppdatert ennå';
-  document.getElementById('generatedAt').textContent = text;
-  document.getElementById('matchesUpdated').textContent = status.generated_at ? `Oppdatert ${fmtTime(status.generated_at)}` : text;
-  document.getElementById('deliveryUpdated').textContent = innlevering.generated_at ? `Oppdatert ${fmtTime(innlevering.generated_at)}` : text;
-  document.getElementById('detailsUpdated').textContent = resultater.generated_at ? `Oppdatert ${fmtTime(resultater.generated_at)}` : text;
+  const generatedAt = document.getElementById('generatedAt');
+  if (generatedAt) generatedAt.textContent = text;
+  const matchesUpdated = document.getElementById('matchesUpdated');
+  if (matchesUpdated) matchesUpdated.textContent = status.generated_at ? `Oppdatert ${fmtTime(status.generated_at)}` : text;
+  const deliveryUpdated = document.getElementById('deliveryUpdated');
+  if (deliveryUpdated) deliveryUpdated.textContent = innlevering.generated_at ? `Oppdatert ${fmtTime(innlevering.generated_at)}` : text;
+  const detailsUpdated = document.getElementById('detailsUpdated');
+  if (detailsUpdated) detailsUpdated.textContent = resultater.generated_at ? `Oppdatert ${fmtTime(resultater.generated_at)}` : text;
 }
 function renderPodium() {
   const board = resultater.leaderboard || [];
@@ -1170,7 +1393,7 @@ function maybeShowPersonalRecap() {
   }
 }
 
-renderProfile(); renderNav(); renderStats(); renderPodium(); renderLeaderboard(); renderFilter(); renderMatches(); renderDetails(); renderDeliveries(); maybeShowPersonalRecap();
+renderProfile(); renderNav(); renderStats(); renderPodium(); renderFrontMatches(); renderLeaderboard(); renderFilter(); renderMatches(); renderDetails(); renderDeliveries(); maybeShowPersonalRecap();
 </script>
 </body>
 </html>
