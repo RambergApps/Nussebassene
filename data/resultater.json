@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T16:45:32Z",
+  "generated_at": "2026-06-30T17:00:56Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -197,11 +197,16 @@
       "hjemme": "Côte d'Ivoire",
       "borte": "Norway",
       "utcDate": "2026-06-30T17:00:00Z",
-      "fifa_status": "1",
+      "fifa_status": "3",
       "fd_status": null,
-      "ferdig": false,
-      "ferdig_kilde": null,
-      "resultat": null,
+      "ferdig": true,
+      "ferdig_kilde": "fifa_calendar",
+      "resultat": {
+        "home_score": 0,
+        "away_score": 0,
+        "source": "fifa_calendar",
+        "source_role": "primary"
+      },
       "tips": []
     },
     {
@@ -781,6 +786,6 @@
     "bonus_total": 1,
     "helhetsbonus_total": 3,
     "kamper_total": 31,
-    "kamper_ferdig": 4
+    "kamper_ferdig": 5
   }
 }
