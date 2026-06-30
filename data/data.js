@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T18:45:31Z",
+    "generated_at": "2026-06-30T19:00:53Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -129,7 +129,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Côte d'Ivoire",
         "borte": "Norway",
         "utcDate": "2026-06-30T17:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": null,
         "tippebar": false,
         "tippe_status": "ferdig",
@@ -138,7 +138,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 1,
+          "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -611,7 +611,7 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 38101,
         "team": "Norway",
         "team_id": 8872,
-        "goals": 4,
+        "goals": 5,
         "assists": null,
         "penalties": null,
         "source": "football-data.org",
@@ -1698,7 +1698,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T18:45:31Z",
+    "generated_at": "2026-06-30T19:00:53Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1896,13 +1896,13 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Côte d'Ivoire",
         "borte": "Norway",
         "utcDate": "2026-06-30T17:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": null,
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 1,
+          "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -2489,7 +2489,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T18:45:32Z",
+    "generated_at": "2026-06-30T19:00:53Z",
     "rounds": {
       "r32": {
         "mulige": 16,
