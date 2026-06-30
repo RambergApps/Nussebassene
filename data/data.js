@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T00:45:31Z",
+    "generated_at": "2026-06-30T01:00:53Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -65,14 +65,19 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Netherlands",
         "borte": "Morocco",
         "utcDate": "2026-06-30T01:00:00Z",
-        "fifa_status": "1",
+        "fifa_status": "3",
         "fd_status": "TIMED",
-        "tippebar": true,
-        "tippe_status": "åpen",
-        "vis_tips": false,
-        "ferdig": false,
-        "ferdig_kilde": null,
-        "resultat": null
+        "tippebar": false,
+        "tippe_status": "ferdig",
+        "vis_tips": true,
+        "ferdig": true,
+        "ferdig_kilde": "fifa_calendar",
+        "resultat": {
+          "home_score": 0,
+          "away_score": 0,
+          "source": "fifa_calendar",
+          "source_role": "primary"
+        }
       },
       {
         "id": "M76",
@@ -1688,7 +1693,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T00:45:31Z",
+    "generated_at": "2026-06-30T01:00:53Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1808,12 +1813,27 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Netherlands",
         "borte": "Morocco",
         "utcDate": "2026-06-30T01:00:00Z",
-        "fifa_status": "1",
+        "fifa_status": "3",
         "fd_status": "TIMED",
-        "ferdig": false,
-        "ferdig_kilde": null,
-        "resultat": null,
-        "tips": []
+        "ferdig": true,
+        "ferdig_kilde": "fifa_calendar",
+        "resultat": {
+          "home_score": 0,
+          "away_score": 0,
+          "source": "fifa_calendar",
+          "source_role": "primary"
+        },
+        "tips": [
+          {
+            "deltaker": "Alexander",
+            "home_score": 1,
+            "away_score": 1,
+            "poeng": 1,
+            "exact": false,
+            "outcome": true,
+            "submitted_at": "2026-06-29T12:47:22.449Z"
+          }
+        ]
       },
       {
         "id": "M76",
@@ -2331,19 +2351,19 @@ window.NUSSEBASSENE_DATA = {
     "deltakere": {
       "Alexander": {
         "deltaker": "Alexander",
-        "poeng": 1,
-        "kamp_poeng": 1,
+        "poeng": 2,
+        "kamp_poeng": 2,
         "bonus_poeng": 0,
         "rundebonus_poeng": 0,
         "helhetsbonus_poeng": 0,
         "exact": 0,
-        "outcome": 1,
+        "outcome": 2,
         "tips_levert": 3,
         "bonus_riktig": 0,
         "per_round": {
           "r32": {
-            "poeng": 1,
-            "kamp_poeng": 1,
+            "poeng": 2,
+            "kamp_poeng": 2,
             "bonus_poeng": 0,
             "tips": 3
           },
@@ -2392,19 +2412,19 @@ window.NUSSEBASSENE_DATA = {
     "leaderboard": [
       {
         "deltaker": "Alexander",
-        "poeng": 1,
-        "kamp_poeng": 1,
+        "poeng": 2,
+        "kamp_poeng": 2,
         "bonus_poeng": 0,
         "rundebonus_poeng": 0,
         "helhetsbonus_poeng": 0,
         "exact": 0,
-        "outcome": 1,
+        "outcome": 2,
         "tips_levert": 3,
         "bonus_riktig": 0,
         "per_round": {
           "r32": {
-            "poeng": 1,
-            "kamp_poeng": 1,
+            "poeng": 2,
+            "kamp_poeng": 2,
             "bonus_poeng": 0,
             "tips": 3
           },
@@ -2455,11 +2475,11 @@ window.NUSSEBASSENE_DATA = {
       "bonus_total": 1,
       "helhetsbonus_total": 3,
       "kamper_total": 31,
-      "kamper_ferdig": 3
+      "kamper_ferdig": 4
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T00:45:31Z",
+    "generated_at": "2026-06-30T01:00:53Z",
     "rounds": {
       "r32": {
         "mulige": 16,
