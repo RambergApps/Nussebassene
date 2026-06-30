@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T21:45:31Z",
+    "generated_at": "2026-06-30T21:57:39Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -112,7 +112,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Sweden",
         "utcDate": "2026-06-30T21:00:00Z",
         "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fd_status": "PAUSED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -627,7 +627,7 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 3374,
         "team": "France",
         "team_id": 773,
-        "goals": 4,
+        "goals": 5,
         "assists": 2,
         "penalties": null,
         "source": "football-data.org",
@@ -639,7 +639,7 @@ window.NUSSEBASSENE_DATA = {
         "team": "France",
         "team_id": 773,
         "goals": 4,
-        "assists": 1,
+        "assists": 2,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1703,7 +1703,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T21:45:31Z",
+    "generated_at": "2026-06-30T21:57:40Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1886,7 +1886,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Sweden",
         "utcDate": "2026-06-30T21:00:00Z",
         "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fd_status": "PAUSED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2499,7 +2499,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T21:45:31Z",
+    "generated_at": "2026-06-30T21:57:40Z",
     "rounds": {
       "r32": {
         "mulige": 16,
