@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T03:45:30Z",
+    "generated_at": "2026-06-30T04:00:52Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -65,8 +65,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Netherlands",
         "borte": "Morocco",
         "utcDate": "2026-06-30T01:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -657,17 +657,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Cody Gakpo",
-        "player_id": 7459,
-        "team": "Netherlands",
-        "team_id": 8601,
-        "goals": 3,
-        "assists": 1,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Deniz Undav",
         "player_id": 6928,
         "team": "Germany",
@@ -800,6 +789,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Cody Gakpo",
+        "player_id": 7459,
+        "team": "Netherlands",
+        "team_id": 8601,
+        "goals": 2,
+        "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Cristiano Ronaldo",
         "player_id": 44,
         "team": "Portugal",
@@ -816,7 +816,7 @@ window.NUSSEBASSENE_DATA = {
         "team": "Netherlands",
         "team_id": 8601,
         "goals": 2,
-        "assists": 2,
+        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1693,7 +1693,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T03:45:31Z",
+    "generated_at": "2026-06-30T04:00:52Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1813,8 +1813,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Netherlands",
         "borte": "Morocco",
         "utcDate": "2026-06-30T01:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2479,7 +2479,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T03:45:31Z",
+    "generated_at": "2026-06-30T04:00:52Z",
     "rounds": {
       "r32": {
         "mulige": 16,
