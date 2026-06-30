@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T19:00:53Z",
+  "generated_at": "2026-06-30T19:15:33Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -365,12 +365,12 @@
       "fd_match_id": null,
       "runde": "r16",
       "hjemme": "Brazil",
-      "borte": "TBD",
+      "borte": "Norway",
       "utcDate": "2026-07-05T20:00:00Z",
       "fifa_status": "1",
       "fd_status": null,
-      "tippebar": false,
-      "tippe_status": "mangler_lag",
+      "tippebar": true,
+      "tippe_status": "åpen",
       "vis_tips": false,
       "ferdig": false,
       "ferdig_kilde": null,

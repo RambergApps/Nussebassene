@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T19:00:53Z",
+  "generated_at": "2026-06-30T19:15:33Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -408,7 +408,7 @@
       "fd_match_id": null,
       "runde": "r16",
       "hjemme": "Brazil",
-      "borte": "TBD",
+      "borte": "Norway",
       "utcDate": "2026-07-05T20:00:00Z",
       "fifa_status": "1",
       "fd_status": null,

@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T19:00:53Z",
+    "generated_at": "2026-06-30T19:15:33Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -366,12 +366,12 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "r16",
         "hjemme": "Brazil",
-        "borte": "TBD",
+        "borte": "Norway",
         "utcDate": "2026-07-05T20:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -1698,7 +1698,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T19:00:53Z",
+    "generated_at": "2026-06-30T19:15:33Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2107,7 +2107,7 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "r16",
         "hjemme": "Brazil",
-        "borte": "TBD",
+        "borte": "Norway",
         "utcDate": "2026-07-05T20:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
@@ -2489,7 +2489,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T19:00:53Z",
+    "generated_at": "2026-06-30T19:15:33Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2513,9 +2513,10 @@ window.NUSSEBASSENE_DATA = {
         ]
       },
       "r16": {
-        "mulige": 1,
+        "mulige": 2,
         "match_ids": [
-          "M90"
+          "M90",
+          "M91"
         ]
       },
       "qf": {
@@ -2547,7 +2548,7 @@ window.NUSSEBASSENE_DATA = {
           },
           "r16": {
             "levert": 0,
-            "mulige": 1,
+            "mulige": 2,
             "komplett": false,
             "rundebonus": false,
             "helhetsbonus": 0,
