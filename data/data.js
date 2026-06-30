@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T02:45:32Z",
+    "generated_at": "2026-06-30T03:00:52Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -74,7 +74,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -1693,7 +1693,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T02:45:32Z",
+    "generated_at": "2026-06-30T03:00:52Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1819,7 +1819,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -1828,8 +1828,8 @@ window.NUSSEBASSENE_DATA = {
             "deltaker": "Alexander",
             "home_score": 1,
             "away_score": 1,
-            "poeng": 0,
-            "exact": false,
+            "poeng": 3,
+            "exact": true,
             "outcome": false,
             "submitted_at": "2026-06-29T12:47:22.449Z"
           }
@@ -2351,19 +2351,19 @@ window.NUSSEBASSENE_DATA = {
     "deltakere": {
       "Alexander": {
         "deltaker": "Alexander",
-        "poeng": 1,
-        "kamp_poeng": 1,
+        "poeng": 4,
+        "kamp_poeng": 4,
         "bonus_poeng": 0,
         "rundebonus_poeng": 0,
         "helhetsbonus_poeng": 0,
-        "exact": 0,
+        "exact": 1,
         "outcome": 1,
         "tips_levert": 3,
         "bonus_riktig": 0,
         "per_round": {
           "r32": {
-            "poeng": 1,
-            "kamp_poeng": 1,
+            "poeng": 4,
+            "kamp_poeng": 4,
             "bonus_poeng": 0,
             "tips": 3
           },
@@ -2412,19 +2412,19 @@ window.NUSSEBASSENE_DATA = {
     "leaderboard": [
       {
         "deltaker": "Alexander",
-        "poeng": 1,
-        "kamp_poeng": 1,
+        "poeng": 4,
+        "kamp_poeng": 4,
         "bonus_poeng": 0,
         "rundebonus_poeng": 0,
         "helhetsbonus_poeng": 0,
-        "exact": 0,
+        "exact": 1,
         "outcome": 1,
         "tips_levert": 3,
         "bonus_riktig": 0,
         "per_round": {
           "r32": {
-            "poeng": 1,
-            "kamp_poeng": 1,
+            "poeng": 4,
+            "kamp_poeng": 4,
             "bonus_poeng": 0,
             "tips": 3
           },
@@ -2479,7 +2479,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T02:45:32Z",
+    "generated_at": "2026-06-30T03:00:52Z",
     "rounds": {
       "r32": {
         "mulige": 16,
