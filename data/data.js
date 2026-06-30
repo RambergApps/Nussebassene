@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T21:15:32Z",
+    "generated_at": "2026-06-30T21:30:46Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -616,7 +616,7 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 38101,
         "team": "Norway",
         "team_id": 8872,
-        "goals": 5,
+        "goals": 4,
         "assists": null,
         "penalties": null,
         "source": "football-data.org",
@@ -784,17 +784,6 @@ window.NUSSEBASSENE_DATA = {
         "goals": 3,
         "assists": null,
         "penalties": 1,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Amad Diallo",
-        "player_id": 133584,
-        "team": "Ivory Coast",
-        "team_id": 1935,
-        "goals": 2,
-        "assists": null,
-        "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
       },
@@ -969,7 +958,7 @@ window.NUSSEBASSENE_DATA = {
         "team": "Ivory Coast",
         "team_id": 1935,
         "goals": 2,
-        "assists": 1,
+        "assists": null,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1089,6 +1078,17 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 244174,
         "team": "Jordan",
         "team_id": 8049,
+        "goals": 1,
+        "assists": null,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
+        "player": "Amad Diallo",
+        "player_id": 133584,
+        "team": "Ivory Coast",
+        "team_id": 1935,
         "goals": 1,
         "assists": null,
         "penalties": null,
@@ -1703,7 +1703,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T21:15:32Z",
+    "generated_at": "2026-06-30T21:30:46Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2499,7 +2499,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T21:15:32Z",
+    "generated_at": "2026-06-30T21:30:46Z",
     "rounds": {
       "r32": {
         "mulige": 16,
