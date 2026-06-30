@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T04:15:30Z",
+  "generated_at": "2026-06-30T04:30:46Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -387,7 +387,7 @@
       "fd_match_id": null,
       "runde": "r16",
       "hjemme": "Canada",
-      "borte": "TBD",
+      "borte": "Morocco",
       "utcDate": "2026-07-04T17:00:00Z",
       "fifa_status": "1",
       "fd_status": null,
