@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T02:30:40Z",
+    "generated_at": "2026-06-30T02:45:32Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -73,7 +73,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -657,6 +657,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Cody Gakpo",
+        "player_id": 7459,
+        "team": "Netherlands",
+        "team_id": 8601,
+        "goals": 3,
+        "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Deniz Undav",
         "player_id": 6928,
         "team": "Germany",
@@ -789,17 +800,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Cody Gakpo",
-        "player_id": 7459,
-        "team": "Netherlands",
-        "team_id": 8601,
-        "goals": 2,
-        "assists": 1,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Cristiano Ronaldo",
         "player_id": 44,
         "team": "Portugal",
@@ -816,7 +816,7 @@ window.NUSSEBASSENE_DATA = {
         "team": "Netherlands",
         "team_id": 8601,
         "goals": 2,
-        "assists": 1,
+        "assists": 2,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1693,7 +1693,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T02:30:41Z",
+    "generated_at": "2026-06-30T02:45:32Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1818,7 +1818,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -1828,9 +1828,9 @@ window.NUSSEBASSENE_DATA = {
             "deltaker": "Alexander",
             "home_score": 1,
             "away_score": 1,
-            "poeng": 1,
+            "poeng": 0,
             "exact": false,
-            "outcome": true,
+            "outcome": false,
             "submitted_at": "2026-06-29T12:47:22.449Z"
           }
         ]
@@ -2351,19 +2351,19 @@ window.NUSSEBASSENE_DATA = {
     "deltakere": {
       "Alexander": {
         "deltaker": "Alexander",
-        "poeng": 2,
-        "kamp_poeng": 2,
+        "poeng": 1,
+        "kamp_poeng": 1,
         "bonus_poeng": 0,
         "rundebonus_poeng": 0,
         "helhetsbonus_poeng": 0,
         "exact": 0,
-        "outcome": 2,
+        "outcome": 1,
         "tips_levert": 3,
         "bonus_riktig": 0,
         "per_round": {
           "r32": {
-            "poeng": 2,
-            "kamp_poeng": 2,
+            "poeng": 1,
+            "kamp_poeng": 1,
             "bonus_poeng": 0,
             "tips": 3
           },
@@ -2412,19 +2412,19 @@ window.NUSSEBASSENE_DATA = {
     "leaderboard": [
       {
         "deltaker": "Alexander",
-        "poeng": 2,
-        "kamp_poeng": 2,
+        "poeng": 1,
+        "kamp_poeng": 1,
         "bonus_poeng": 0,
         "rundebonus_poeng": 0,
         "helhetsbonus_poeng": 0,
         "exact": 0,
-        "outcome": 2,
+        "outcome": 1,
         "tips_levert": 3,
         "bonus_riktig": 0,
         "per_round": {
           "r32": {
-            "poeng": 2,
-            "kamp_poeng": 2,
+            "poeng": 1,
+            "kamp_poeng": 1,
             "bonus_poeng": 0,
             "tips": 3
           },
@@ -2479,7 +2479,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T02:30:41Z",
+    "generated_at": "2026-06-30T02:45:32Z",
     "rounds": {
       "r32": {
         "mulige": 16,
