@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T22:00:54Z",
+    "generated_at": "2026-06-30T22:15:31Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -112,14 +112,14 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Sweden",
         "utcDate": "2026-06-30T21:00:00Z",
         "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fd_status": "IN_PLAY",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -821,6 +821,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Bradley Barcola",
+        "player_id": 172762,
+        "team": "France",
+        "team_id": 773,
+        "goals": 2,
+        "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Cristiano Ronaldo",
         "player_id": 44,
         "team": "Portugal",
@@ -1124,17 +1135,6 @@ window.NUSSEBASSENE_DATA = {
         "team_id": 8030,
         "goals": 1,
         "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Bradley Barcola",
-        "player_id": 172762,
-        "team": "France",
-        "team_id": 773,
-        "goals": 1,
-        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1703,7 +1703,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T22:00:54Z",
+    "generated_at": "2026-06-30T22:15:32Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1886,11 +1886,11 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Sweden",
         "utcDate": "2026-06-30T21:00:00Z",
         "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fd_status": "IN_PLAY",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2499,7 +2499,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T22:00:54Z",
+    "generated_at": "2026-06-30T22:15:32Z",
     "rounds": {
       "r32": {
         "mulige": 16,
