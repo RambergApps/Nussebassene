@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-06-30T22:45:31Z",
+    "generated_at": "2026-06-30T23:00:54Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -111,8 +111,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "France",
         "borte": "Sweden",
         "utcDate": "2026-06-30T21:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -335,12 +335,12 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "r16",
         "hjemme": "Paraguay",
-        "borte": "TBD",
+        "borte": "France",
         "utcDate": "2026-07-04T21:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -1703,7 +1703,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-06-30T22:45:32Z",
+    "generated_at": "2026-06-30T23:00:55Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1885,8 +1885,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "France",
         "borte": "Sweden",
         "utcDate": "2026-06-30T21:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2085,7 +2085,7 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "r16",
         "hjemme": "Paraguay",
-        "borte": "TBD",
+        "borte": "France",
         "utcDate": "2026-07-04T21:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
@@ -2499,7 +2499,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-06-30T22:45:32Z",
+    "generated_at": "2026-06-30T23:00:55Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2523,8 +2523,9 @@ window.NUSSEBASSENE_DATA = {
         ]
       },
       "r16": {
-        "mulige": 2,
+        "mulige": 3,
         "match_ids": [
+          "M89",
           "M90",
           "M91"
         ]
@@ -2558,7 +2559,7 @@ window.NUSSEBASSENE_DATA = {
           },
           "r16": {
             "levert": 0,
-            "mulige": 2,
+            "mulige": 3,
             "komplett": false,
             "rundebonus": false,
             "helhetsbonus": 0,
