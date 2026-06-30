@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T01:45:29Z",
+  "generated_at": "2026-06-30T02:00:52Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -65,7 +65,7 @@
       "borte": "Morocco",
       "utcDate": "2026-06-30T01:00:00Z",
       "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fd_status": "PAUSED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
