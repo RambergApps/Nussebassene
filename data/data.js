@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-01T17:30:48Z",
+    "generated_at": "2026-07-01T17:45:33Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -188,7 +188,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -644,6 +644,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Harry Kane",
+        "player_id": 8004,
+        "team": "England",
+        "team_id": 770,
+        "goals": 4,
+        "assists": null,
+        "penalties": 1,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Ousmane Dembélé",
         "player_id": 3373,
         "team": "France",
@@ -706,17 +717,6 @@ window.NUSSEBASSENE_DATA = {
         "goals": 3,
         "assists": null,
         "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Harry Kane",
-        "player_id": 8004,
-        "team": "England",
-        "team_id": 770,
-        "goals": 3,
-        "assists": null,
-        "penalties": 1,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
       },
@@ -1713,7 +1713,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-01T17:30:48Z",
+    "generated_at": "2026-07-01T17:45:34Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1963,7 +1963,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2519,7 +2519,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-01T17:30:48Z",
+    "generated_at": "2026-07-01T17:45:34Z",
     "rounds": {
       "r32": {
         "mulige": 16,
