@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-01T20:22:55Z",
+    "generated_at": "2026-07-01T20:30:48Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -230,7 +230,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 0,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -935,6 +935,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Habib Diarra",
+        "player_id": 171876,
+        "team": "Senegal",
+        "team_id": 804,
+        "goals": 2,
+        "assists": null,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Jude Bellingham",
         "player_id": 125010,
         "team": "England",
@@ -1126,17 +1137,6 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 244174,
         "team": "Jordan",
         "team_id": 8049,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Amine Gouiri",
-        "player_id": 8476,
-        "team": "Algeria",
-        "team_id": 778,
         "goals": 1,
         "assists": null,
         "penalties": null,
@@ -1718,7 +1718,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-01T20:22:55Z",
+    "generated_at": "2026-07-01T20:30:48Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2006,7 +2006,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 0,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -2529,7 +2529,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-01T20:22:55Z",
+    "generated_at": "2026-07-01T20:30:48Z",
     "rounds": {
       "r32": {
         "mulige": 16,
