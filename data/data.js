@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-01T00:15:32Z",
+    "generated_at": "2026-07-01T00:30:49Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -157,7 +157,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Mexico",
         "borte": "Ecuador",
         "utcDate": "2026-07-01T01:00:00Z",
-        "fifa_status": "1",
+        "fifa_status": "10",
         "fd_status": "TIMED",
         "tippebar": true,
         "tippe_status": "åpen",
@@ -1703,7 +1703,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-01T00:15:33Z",
+    "generated_at": "2026-07-01T00:30:49Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1927,7 +1927,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Mexico",
         "borte": "Ecuador",
         "utcDate": "2026-07-01T01:00:00Z",
-        "fifa_status": "1",
+        "fifa_status": "10",
         "fd_status": "TIMED",
         "ferdig": false,
         "ferdig_kilde": null,
@@ -2499,7 +2499,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-01T00:15:33Z",
+    "generated_at": "2026-07-01T00:30:49Z",
     "rounds": {
       "r32": {
         "mulige": 16,
