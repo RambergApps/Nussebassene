@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T06:30:48Z",
+  "generated_at": "2026-07-01T06:45:38Z",
   "fifa": {
     "ok": true,
     "url": "https://api.fifa.com/api/v3/calendar/matches?from=2026-06-28T00%3A00%3A00Z&to=2026-07-20T23%3A59%3A59Z&language=en&count=500&idCompetition=17",
@@ -8,7 +8,7 @@
   },
   "football_data": {
     "ok": true,
-    "count": 0,
+    "count": 34,
     "error": null,
     "url": "https://api.football-data.org/v4/competitions/WC/matches?dateFrom=2026-06-28&dateTo=2026-07-20"
   },
