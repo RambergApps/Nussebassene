@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-01T17:45:33Z",
+    "generated_at": "2026-07-01T18:01:00Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -180,7 +180,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "England",
         "borte": "Congo DR",
         "utcDate": "2026-07-01T16:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": "IN_PLAY",
         "tippebar": false,
         "tippe_status": "ferdig",
@@ -188,7 +188,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -648,7 +648,7 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 8004,
         "team": "England",
         "team_id": 770,
-        "goals": 4,
+        "goals": 5,
         "assists": null,
         "penalties": 1,
         "source": "football-data.org",
@@ -1713,7 +1713,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-01T17:45:34Z",
+    "generated_at": "2026-07-01T18:01:00Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1958,12 +1958,12 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "England",
         "borte": "Congo DR",
         "utcDate": "2026-07-01T16:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": "IN_PLAY",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2519,7 +2519,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-01T17:45:34Z",
+    "generated_at": "2026-07-01T18:01:00Z",
     "rounds": {
       "r32": {
         "mulige": 16,
