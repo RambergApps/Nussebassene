@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-01T21:45:33Z",
+    "generated_at": "2026-07-01T21:58:32Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -229,7 +229,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 2,
           "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -962,7 +962,7 @@ window.NUSSEBASSENE_DATA = {
         "team": "Belgium",
         "team_id": 805,
         "goals": 2,
-        "assists": null,
+        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1051,6 +1051,17 @@ window.NUSSEBASSENE_DATA = {
         "team_id": 778,
         "goals": 2,
         "assists": 2,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
+        "player": "Romelu Lukaku",
+        "player_id": 3662,
+        "team": "Belgium",
+        "team_id": 805,
+        "goals": 2,
+        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1573,17 +1584,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Nadhir Benbouali",
-        "player_id": 192676,
-        "team": "Algeria",
-        "team_id": 778,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Nathan-Dylan Saliba",
         "player_id": 171216,
         "team": "Canada",
@@ -1718,7 +1718,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-01T21:45:33Z",
+    "generated_at": "2026-07-01T21:58:32Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2005,7 +2005,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 2,
           "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2529,7 +2529,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-01T21:45:33Z",
+    "generated_at": "2026-07-01T21:58:32Z",
     "rounds": {
       "r32": {
         "mulige": 16,
