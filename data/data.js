@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-01T22:30:48Z",
+    "generated_at": "2026-07-01T22:45:33Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -229,7 +229,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 2,
+          "home_score": 3,
           "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -1089,6 +1089,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Youri Tielemans",
+        "player_id": 3658,
+        "team": "Belgium",
+        "team_id": 805,
+        "goals": 2,
+        "assists": null,
+        "penalties": 1,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Abbosbek Fayzullaev",
         "player_id": 214531,
         "team": "Uzbekistan",
@@ -1628,17 +1639,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Nizar Al Rashdan",
-        "player_id": 231890,
-        "team": "Jordan",
-        "team_id": 8049,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Omar Rekik",
         "player_id": 144669,
         "team": "Tunisia",
@@ -1718,7 +1718,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-01T22:30:48Z",
+    "generated_at": "2026-07-01T22:45:33Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2005,7 +2005,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 2,
+          "home_score": 3,
           "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2529,7 +2529,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-01T22:30:48Z",
+    "generated_at": "2026-07-01T22:45:33Z",
     "rounds": {
       "r32": {
         "mulige": 16,

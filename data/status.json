@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T22:30:48Z",
+  "generated_at": "2026-07-01T22:45:33Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -228,7 +228,7 @@
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 2,
+        "home_score": 3,
         "away_score": 2,
         "source": "fifa_calendar",
         "source_role": "primary"
@@ -1088,6 +1088,17 @@
       "source_role": "golden_boot_control_source"
     },
     {
+      "player": "Youri Tielemans",
+      "player_id": 3658,
+      "team": "Belgium",
+      "team_id": 805,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "source": "football-data.org",
+      "source_role": "golden_boot_control_source"
+    },
+    {
       "player": "Abbosbek Fayzullaev",
       "player_id": 214531,
       "team": "Uzbekistan",
@@ -1620,17 +1631,6 @@
       "player_id": 75539,
       "team": "Germany",
       "team_id": 759,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "source": "football-data.org",
-      "source_role": "golden_boot_control_source"
-    },
-    {
-      "player": "Nizar Al Rashdan",
-      "player_id": 231890,
-      "team": "Jordan",
-      "team_id": 8049,
       "goals": 1,
       "assists": null,
       "penalties": null,
