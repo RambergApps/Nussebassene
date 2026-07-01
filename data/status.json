@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T16:45:34Z",
+  "generated_at": "2026-07-01T17:01:00Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -180,7 +180,7 @@
       "borte": "Congo DR",
       "utcDate": "2026-07-01T16:00:00Z",
       "fifa_status": "3",
-      "fd_status": "LIVE",
+      "fd_status": "PAUSED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
