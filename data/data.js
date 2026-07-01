@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-01T05:30:48Z",
+    "generated_at": "2026-07-01T05:45:33Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -606,6 +606,17 @@ window.NUSSEBASSENE_DATA = {
     ],
     "top_scorers": [
       {
+        "player": "Kylian Mbappé",
+        "player_id": 3374,
+        "team": "France",
+        "team_id": 773,
+        "goals": 6,
+        "assists": 2,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Lionel Messi",
         "player_id": 3218,
         "team": "Argentina",
@@ -621,19 +632,8 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 38101,
         "team": "Norway",
         "team_id": 8872,
-        "goals": 4,
+        "goals": 5,
         "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Kylian Mbappé",
-        "player_id": 3374,
-        "team": "France",
-        "team_id": 773,
-        "goals": 4,
-        "assists": 2,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -644,7 +644,7 @@ window.NUSSEBASSENE_DATA = {
         "team": "France",
         "team_id": 773,
         "goals": 4,
-        "assists": 1,
+        "assists": 2,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -760,6 +760,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Julián Quiñones",
+        "player_id": 39237,
+        "team": "Mexico",
+        "team_id": 769,
+        "goals": 3,
+        "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Kai Havertz",
         "player_id": 171,
         "team": "Germany",
@@ -793,6 +804,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Amad Diallo",
+        "player_id": 133584,
+        "team": "Ivory Coast",
+        "team_id": 1935,
+        "goals": 2,
+        "assists": null,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Anthony Elanga",
         "player_id": 166376,
         "team": "Sweden",
@@ -808,6 +830,17 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 119460,
         "team": "Japan",
         "team_id": 766,
+        "goals": 2,
+        "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
+        "player": "Bradley Barcola",
+        "player_id": 172762,
+        "team": "France",
+        "team_id": 773,
         "goals": 2,
         "assists": 1,
         "penalties": null,
@@ -903,17 +936,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Julián Quiñones",
-        "player_id": 39237,
-        "team": "Mexico",
-        "team_id": 769,
-        "goals": 2,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Leandro Trossard",
         "player_id": 8984,
         "team": "Belgium",
@@ -963,7 +985,7 @@ window.NUSSEBASSENE_DATA = {
         "team": "Ivory Coast",
         "team_id": 1935,
         "goals": 2,
-        "assists": null,
+        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -986,6 +1008,17 @@ window.NUSSEBASSENE_DATA = {
         "team_id": 840,
         "goals": 2,
         "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
+        "player": "Raúl Jiménez",
+        "player_id": 3305,
+        "team": "Mexico",
+        "team_id": 769,
+        "goals": 2,
+        "assists": null,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1090,17 +1123,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Amad Diallo",
-        "player_id": 133584,
-        "team": "Ivory Coast",
-        "team_id": 1935,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Amine Gouiri",
         "player_id": 8476,
         "team": "Algeria",
@@ -1129,17 +1151,6 @@ window.NUSSEBASSENE_DATA = {
         "team_id": 8030,
         "goals": 1,
         "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Bradley Barcola",
-        "player_id": 172762,
-        "team": "France",
-        "team_id": 773,
-        "goals": 1,
-        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1640,17 +1651,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Raúl Jiménez",
-        "player_id": 3305,
-        "team": "Mexico",
-        "team_id": 769,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Romano Schmid",
         "player_id": 16346,
         "team": "Austria",
@@ -1708,7 +1708,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-01T05:30:48Z",
+    "generated_at": "2026-07-01T05:45:33Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2509,7 +2509,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-01T05:30:48Z",
+    "generated_at": "2026-07-01T05:45:33Z",
     "rounds": {
       "r32": {
         "mulige": 16,
