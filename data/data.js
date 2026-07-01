@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-01T22:45:33Z",
+    "generated_at": "2026-07-01T23:00:54Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -221,8 +221,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Belgium",
         "borte": "Senegal",
         "utcDate": "2026-07-01T20:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -440,7 +440,7 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "r16",
         "hjemme": "TBD",
-        "borte": "TBD",
+        "borte": "Belgium",
         "utcDate": "2026-07-07T00:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
@@ -1718,7 +1718,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-01T22:45:33Z",
+    "generated_at": "2026-07-01T23:00:54Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2000,8 +2000,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Belgium",
         "borte": "Senegal",
         "utcDate": "2026-07-01T20:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2195,7 +2195,7 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "r16",
         "hjemme": "TBD",
-        "borte": "TBD",
+        "borte": "Belgium",
         "utcDate": "2026-07-07T00:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
@@ -2529,7 +2529,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-01T22:45:33Z",
+    "generated_at": "2026-07-01T23:00:54Z",
     "rounds": {
       "r32": {
         "mulige": 16,
