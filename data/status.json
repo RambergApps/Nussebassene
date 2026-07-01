@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T01:45:29Z",
+  "generated_at": "2026-07-01T02:00:59Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -158,9 +158,9 @@
       "utcDate": "2026-07-01T02:00:00Z",
       "fifa_status": "10",
       "fd_status": "IN_PLAY",
-      "tippebar": true,
-      "tippe_status": "åpen",
-      "vis_tips": false,
+      "tippebar": false,
+      "tippe_status": "startet",
+      "vis_tips": true,
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null
