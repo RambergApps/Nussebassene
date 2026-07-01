@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T17:01:00Z",
+  "generated_at": "2026-07-01T17:15:32Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -245,7 +245,7 @@
       "borte": "Congo DR",
       "utcDate": "2026-07-01T16:00:00Z",
       "fifa_status": "3",
-      "fd_status": "PAUSED",
+      "fd_status": "IN_PLAY",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
