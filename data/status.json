@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T02:30:44Z",
+  "generated_at": "2026-07-01T02:45:31Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -164,7 +164,7 @@
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 1,
+        "home_score": 2,
         "away_score": 0,
         "source": "fifa_calendar",
         "source_role": "primary"
@@ -764,7 +764,7 @@
       "team": "Mexico",
       "team_id": 769,
       "goals": 3,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "source": "football-data.org",
       "source_role": "golden_boot_control_source"
@@ -1007,6 +1007,17 @@
       "team_id": 840,
       "goals": 2,
       "assists": 1,
+      "penalties": null,
+      "source": "football-data.org",
+      "source_role": "golden_boot_control_source"
+    },
+    {
+      "player": "Raúl Jiménez",
+      "player_id": 3305,
+      "team": "Mexico",
+      "team_id": 769,
+      "goals": 2,
+      "assists": null,
       "penalties": null,
       "source": "football-data.org",
       "source_role": "golden_boot_control_source"
@@ -1632,17 +1643,6 @@
       "player_id": 56589,
       "team": "Croatia",
       "team_id": 799,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "source": "football-data.org",
-      "source_role": "golden_boot_control_source"
-    },
-    {
-      "player": "Raúl Jiménez",
-      "player_id": 3305,
-      "team": "Mexico",
-      "team_id": 769,
       "goals": 1,
       "assists": null,
       "penalties": null,
