@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-02T02:00:53Z",
+    "generated_at": "2026-07-02T02:15:35Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -203,7 +203,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "USA",
         "borte": "Bosnia and Herzegovina",
         "utcDate": "2026-07-02T00:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": null,
         "tippebar": false,
         "tippe_status": "ferdig",
@@ -444,13 +444,13 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "r16",
-        "hjemme": "TBD",
+        "hjemme": "USA",
         "borte": "Belgium",
         "utcDate": "2026-07-07T00:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -1723,7 +1723,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-02T02:00:54Z",
+    "generated_at": "2026-07-02T02:15:35Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -1989,7 +1989,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "USA",
         "borte": "Bosnia and Herzegovina",
         "utcDate": "2026-07-02T00:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": null,
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
@@ -2204,7 +2204,7 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "r16",
-        "hjemme": "TBD",
+        "hjemme": "USA",
         "borte": "Belgium",
         "utcDate": "2026-07-07T00:00:00Z",
         "fifa_status": "1",
@@ -2539,7 +2539,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-02T02:00:54Z",
+    "generated_at": "2026-07-02T02:15:35Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2563,12 +2563,13 @@ window.NUSSEBASSENE_DATA = {
         ]
       },
       "r16": {
-        "mulige": 4,
+        "mulige": 5,
         "match_ids": [
           "M89",
           "M90",
           "M91",
-          "M92"
+          "M92",
+          "M94"
         ]
       },
       "qf": {
@@ -2600,7 +2601,7 @@ window.NUSSEBASSENE_DATA = {
           },
           "r16": {
             "levert": 0,
-            "mulige": 4,
+            "mulige": 5,
             "komplett": false,
             "rundebonus": false,
             "helhetsbonus": 0,
