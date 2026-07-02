@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T21:00:57Z",
+  "generated_at": "2026-07-02T21:15:34Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -267,7 +267,7 @@
       "borte": "Austria",
       "utcDate": "2026-07-02T19:00:00Z",
       "fifa_status": "0",
-      "fd_status": "IN_PLAY",
+      "fd_status": "FINISHED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
