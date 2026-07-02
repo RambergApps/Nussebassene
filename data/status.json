@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T06:00:56Z",
+  "generated_at": "2026-07-02T06:15:30Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -405,13 +405,13 @@
       "id": "M92",
       "match_no": 92,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537378,
       "runde": "r16",
       "hjemme": "Mexico",
       "borte": "England",
       "utcDate": "2026-07-06T00:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "tippebar": true,
       "tippe_status": "åpen",
       "vis_tips": false,

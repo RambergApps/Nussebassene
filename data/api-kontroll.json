@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T06:00:56Z",
+  "generated_at": "2026-07-02T06:15:30Z",
   "fifa": {
     "ok": true,
     "url": "https://api.fifa.com/api/v3/calendar/matches?from=2026-06-28T00%3A00%3A00Z&to=2026-07-20T23%3A59%3A59Z&language=en&count=500&idCompetition=17",
@@ -19,7 +19,27 @@
     "url": "https://api.football-data.org/v4/competitions/WC/scorers?season=2026&limit=100"
   },
   "warnings": [],
-  "discrepancies": [],
+  "discrepancies": [
+    {
+      "match_id": "M82",
+      "match_no": 82,
+      "fifa_event_id": null,
+      "fd_match_id": 537422,
+      "type": "score_mismatch",
+      "fifa_result": {
+        "home_score": 3,
+        "away_score": 2,
+        "source": "fifa_calendar",
+        "source_role": "primary"
+      },
+      "football_data_result": {
+        "home_score": 2,
+        "away_score": 2,
+        "duration": "EXTRA_TIME",
+        "winner": "HOME_TEAM"
+      }
+    }
+  ],
   "match_count": 31,
   "rounds": {
     "r32": 16,
@@ -31,7 +51,6 @@
   "unmapped_fd": [
     "M78",
     "M81",
-    "M92",
     "M93",
     "M94",
     "M95",
