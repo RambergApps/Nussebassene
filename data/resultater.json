@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T20:45:34Z",
+  "generated_at": "2026-07-02T21:00:57Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -323,12 +323,12 @@
       "hjemme": "Spain",
       "borte": "Austria",
       "utcDate": "2026-07-02T19:00:00Z",
-      "fifa_status": "3",
+      "fifa_status": "0",
       "fd_status": "IN_PLAY",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 2,
+        "home_score": 3,
         "away_score": 0,
         "source": "fifa_calendar",
         "source_role": "primary"
@@ -470,7 +470,7 @@
       "fd_match_id": null,
       "runde": "r16",
       "hjemme": "TBD",
-      "borte": "TBD",
+      "borte": "Spain",
       "utcDate": "2026-07-06T19:00:00Z",
       "fifa_status": "1",
       "fd_status": null,
