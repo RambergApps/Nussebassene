@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T00:45:34Z",
+  "generated_at": "2026-07-02T01:00:54Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -741,6 +741,17 @@
       "source_role": "golden_boot_control_source"
     },
     {
+      "player": "Folarin Balogun",
+      "player_id": 131040,
+      "team": "United States",
+      "team_id": 771,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "source": "football-data.org",
+      "source_role": "golden_boot_control_source"
+    },
+    {
       "player": "Ismael Saibari",
       "player_id": 130173,
       "team": "Morocco",
@@ -921,17 +932,6 @@
       "player_id": 221764,
       "team": "Bosnia-Herzegovina",
       "team_id": 1060,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "source": "football-data.org",
-      "source_role": "golden_boot_control_source"
-    },
-    {
-      "player": "Folarin Balogun",
-      "player_id": 131040,
-      "team": "United States",
-      "team_id": 771,
       "goals": 2,
       "assists": null,
       "penalties": null,

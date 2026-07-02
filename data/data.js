@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-02T00:45:34Z",
+    "generated_at": "2026-07-02T01:00:54Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -742,6 +742,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Folarin Balogun",
+        "player_id": 131040,
+        "team": "United States",
+        "team_id": 771,
+        "goals": 3,
+        "assists": null,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Ismael Saibari",
         "player_id": 130173,
         "team": "Morocco",
@@ -922,17 +933,6 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 221764,
         "team": "Bosnia-Herzegovina",
         "team_id": 1060,
-        "goals": 2,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Folarin Balogun",
-        "player_id": 131040,
-        "team": "United States",
-        "team_id": 771,
         "goals": 2,
         "assists": null,
         "penalties": null,
@@ -1723,7 +1723,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-02T00:45:34Z",
+    "generated_at": "2026-07-02T01:00:54Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2539,7 +2539,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-02T00:45:34Z",
+    "generated_at": "2026-07-02T01:00:54Z",
     "rounds": {
       "r32": {
         "mulige": 16,
