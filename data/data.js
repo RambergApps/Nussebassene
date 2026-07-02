@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-02T19:45:31Z",
+    "generated_at": "2026-07-02T20:00:13Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -268,7 +268,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Austria",
         "utcDate": "2026-07-02T19:00:00Z",
         "fifa_status": "3",
-        "fd_status": "TIMED",
+        "fd_status": "PAUSED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -1728,7 +1728,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-02T19:45:31Z",
+    "generated_at": "2026-07-02T20:00:13Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2053,7 +2053,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Austria",
         "utcDate": "2026-07-02T19:00:00Z",
         "fifa_status": "3",
-        "fd_status": "TIMED",
+        "fd_status": "PAUSED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2549,7 +2549,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-02T19:45:31Z",
+    "generated_at": "2026-07-02T20:00:13Z",
     "rounds": {
       "r32": {
         "mulige": 16,
