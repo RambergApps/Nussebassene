@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T05:00:54Z",
+  "generated_at": "2026-07-03T05:15:31Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -350,7 +350,7 @@
       "borte": "Algeria",
       "utcDate": "2026-07-03T03:00:00Z",
       "fifa_status": "0",
-      "fd_status": "IN_PLAY",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {

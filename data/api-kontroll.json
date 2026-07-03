@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T05:00:54Z",
+  "generated_at": "2026-07-03T05:15:31Z",
   "fifa": {
     "ok": true,
     "url": "https://api.fifa.com/api/v3/calendar/matches?from=2026-06-28T00%3A00%3A00Z&to=2026-07-20T23%3A59%3A59Z&language=en&count=500&idCompetition=17",
