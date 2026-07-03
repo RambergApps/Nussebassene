@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T00:15:36Z",
+  "generated_at": "2026-07-03T00:30:49Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -256,7 +256,7 @@
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 0,
+        "home_score": 1,
         "away_score": 1,
         "source": "fifa_calendar",
         "source_role": "primary"
@@ -740,6 +740,17 @@
       "source_role": "golden_boot_control_source"
     },
     {
+      "player": "Cristiano Ronaldo",
+      "player_id": 44,
+      "team": "Portugal",
+      "team_id": 765,
+      "goals": 3,
+      "assists": null,
+      "penalties": 1,
+      "source": "football-data.org",
+      "source_role": "golden_boot_control_source"
+    },
+    {
       "player": "Deniz Undav",
       "player_id": 6928,
       "team": "Germany",
@@ -889,17 +900,6 @@
       "team_id": 773,
       "goals": 2,
       "assists": 1,
-      "penalties": null,
-      "source": "football-data.org",
-      "source_role": "golden_boot_control_source"
-    },
-    {
-      "player": "Cristiano Ronaldo",
-      "player_id": 44,
-      "team": "Portugal",
-      "team_id": 765,
-      "goals": 2,
-      "assists": null,
       "penalties": null,
       "source": "football-data.org",
       "source_role": "golden_boot_control_source"
