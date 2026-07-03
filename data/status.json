@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T21:00:57Z",
+  "generated_at": "2026-07-03T21:08:05Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -482,7 +482,7 @@
       "fd_match_id": null,
       "runde": "r16",
       "hjemme": "TBD",
-      "borte": "TBD",
+      "borte": "Egypt",
       "utcDate": "2026-07-07T16:00:00Z",
       "fifa_status": "1",
       "fd_status": null,
