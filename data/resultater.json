@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T18:45:32Z",
+  "generated_at": "2026-07-03T19:00:59Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -403,7 +403,7 @@
       "borte": "Egypt",
       "utcDate": "2026-07-03T18:00:00Z",
       "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fd_status": "PAUSED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
