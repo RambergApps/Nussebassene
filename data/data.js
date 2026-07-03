@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-03T04:00:58Z",
+    "generated_at": "2026-07-03T04:15:34Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -296,14 +296,14 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Algeria",
         "utcDate": "2026-07-03T03:00:00Z",
         "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fd_status": "IN_PLAY",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -1738,7 +1738,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-03T04:00:58Z",
+    "generated_at": "2026-07-03T04:15:35Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2089,11 +2089,11 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Algeria",
         "utcDate": "2026-07-03T03:00:00Z",
         "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fd_status": "IN_PLAY",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2569,7 +2569,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-03T04:00:58Z",
+    "generated_at": "2026-07-03T04:15:35Z",
     "rounds": {
       "r32": {
         "mulige": 16,
