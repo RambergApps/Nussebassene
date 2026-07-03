@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T23:00:59Z",
+  "generated_at": "2026-07-03T23:15:34Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -371,7 +371,7 @@
       "borte": "Cabo Verde",
       "utcDate": "2026-07-03T22:00:00Z",
       "fifa_status": "3",
-      "fd_status": "PAUSED",
+      "fd_status": "IN_PLAY",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
