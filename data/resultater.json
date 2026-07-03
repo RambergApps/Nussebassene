@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T20:45:34Z",
+  "generated_at": "2026-07-03T21:00:57Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -402,8 +402,8 @@
       "hjemme": "Australia",
       "borte": "Egypt",
       "utcDate": "2026-07-03T18:00:00Z",
-      "fifa_status": "3",
-      "fd_status": "PAUSED",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
