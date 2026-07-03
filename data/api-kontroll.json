@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T01:15:32Z",
+  "generated_at": "2026-07-03T01:30:46Z",
   "fifa": {
     "ok": true,
     "url": "https://api.fifa.com/api/v3/calendar/matches?from=2026-06-28T00%3A00%3A00Z&to=2026-07-20T23%3A59%3A59Z&language=en&count=500&idCompetition=17",
@@ -37,25 +37,6 @@
         "away_score": 2,
         "duration": "EXTRA_TIME",
         "winner": "HOME_TEAM"
-      }
-    },
-    {
-      "match_id": "M83",
-      "match_no": 83,
-      "fifa_event_id": null,
-      "fd_match_id": 537419,
-      "type": "score_mismatch",
-      "fifa_result": {
-        "home_score": 2,
-        "away_score": 1,
-        "source": "fifa_calendar",
-        "source_role": "primary"
-      },
-      "football_data_result": {
-        "home_score": 2,
-        "away_score": 2,
-        "duration": "REGULAR",
-        "winner": "DRAW"
       }
     }
   ],
