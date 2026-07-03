@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T23:45:31Z",
+  "generated_at": "2026-07-03T00:01:00Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -308,7 +308,7 @@
       "borte": "Croatia",
       "utcDate": "2026-07-02T23:00:00Z",
       "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fd_status": "PAUSED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
