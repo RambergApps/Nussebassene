@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T00:45:32Z",
+  "generated_at": "2026-07-03T01:00:56Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -256,7 +256,7 @@
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 1,
+        "home_score": 2,
         "away_score": 1,
         "source": "fifa_calendar",
         "source_role": "primary"
