@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T04:45:37Z",
+  "generated_at": "2026-07-03T05:00:54Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -349,7 +349,7 @@
       "hjemme": "Switzerland",
       "borte": "Algeria",
       "utcDate": "2026-07-03T03:00:00Z",
-      "fifa_status": "3",
+      "fifa_status": "0",
       "fd_status": "IN_PLAY",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
@@ -527,7 +527,7 @@
       "fifa_event_id": null,
       "fd_match_id": null,
       "runde": "r16",
-      "hjemme": "TBD",
+      "hjemme": "Switzerland",
       "borte": "TBD",
       "utcDate": "2026-07-07T20:00:00Z",
       "fifa_status": "1",

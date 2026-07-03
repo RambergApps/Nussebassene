@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-03T04:45:37Z",
+    "generated_at": "2026-07-03T05:00:54Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -295,7 +295,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Switzerland",
         "borte": "Algeria",
         "utcDate": "2026-07-03T03:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": "IN_PLAY",
         "tippebar": false,
         "tippe_status": "ferdig",
@@ -495,7 +495,7 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "r16",
-        "hjemme": "TBD",
+        "hjemme": "Switzerland",
         "borte": "TBD",
         "utcDate": "2026-07-07T20:00:00Z",
         "fifa_status": "1",
@@ -1738,7 +1738,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-03T04:45:37Z",
+    "generated_at": "2026-07-03T05:00:54Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2088,7 +2088,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Switzerland",
         "borte": "Algeria",
         "utcDate": "2026-07-03T03:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": "IN_PLAY",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
@@ -2266,7 +2266,7 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "r16",
-        "hjemme": "TBD",
+        "hjemme": "Switzerland",
         "borte": "TBD",
         "utcDate": "2026-07-07T20:00:00Z",
         "fifa_status": "1",
@@ -2569,7 +2569,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-03T04:45:37Z",
+    "generated_at": "2026-07-03T05:00:54Z",
     "rounds": {
       "r32": {
         "mulige": 16,
