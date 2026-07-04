@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-04T18:45:34Z",
+    "generated_at": "2026-07-04T19:00:56Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -414,7 +414,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 0,
-          "away_score": 1,
+          "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -915,6 +915,17 @@ window.NUSSEBASSENE_DATA = {
         "team_id": 766,
         "goals": 2,
         "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
+        "player": "Azzedine Ounahi",
+        "player_id": 122511,
+        "team": "Morocco",
+        "team_id": 815,
+        "goals": 2,
+        "assists": null,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1525,17 +1536,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Marcus Pedersen",
-        "player_id": 38548,
-        "team": "Norway",
-        "team_id": 8872,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Marcus Rashford",
         "player_id": 3331,
         "team": "England",
@@ -1758,7 +1758,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-04T18:45:34Z",
+    "generated_at": "2026-07-04T19:00:57Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2214,7 +2214,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 0,
-          "away_score": 1,
+          "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -2609,7 +2609,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-04T18:45:34Z",
+    "generated_at": "2026-07-04T19:00:57Z",
     "rounds": {
       "r32": {
         "mulige": 16,
