@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T00:15:35Z",
+  "generated_at": "2026-07-04T00:30:52Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -318,7 +318,7 @@
       "borte": "Cabo Verde",
       "utcDate": "2026-07-03T22:00:00Z",
       "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fd_status": "PAUSED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
@@ -326,7 +326,7 @@
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
         "home_score": 2,
-        "away_score": 1,
+        "away_score": 2,
         "source": "fifa_calendar",
         "source_role": "primary"
       }
