@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T00:30:53Z",
+  "generated_at": "2026-07-04T00:45:33Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -370,12 +370,12 @@
       "hjemme": "Argentina",
       "borte": "Cabo Verde",
       "utcDate": "2026-07-03T22:00:00Z",
-      "fifa_status": "3",
+      "fifa_status": "0",
       "fd_status": "PAUSED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 2,
+        "home_score": 3,
         "away_score": 2,
         "source": "fifa_calendar",
         "source_role": "primary"

@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-04T00:30:52Z",
+    "generated_at": "2026-07-04T00:45:33Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -318,7 +318,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Argentina",
         "borte": "Cabo Verde",
         "utcDate": "2026-07-03T22:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": "PAUSED",
         "tippebar": false,
         "tippe_status": "ferdig",
@@ -326,7 +326,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 2,
+          "home_score": 3,
           "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -651,7 +651,7 @@ window.NUSSEBASSENE_DATA = {
         "team": "Argentina",
         "team_id": 762,
         "goals": 7,
-        "assists": null,
+        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1748,7 +1748,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-04T00:30:53Z",
+    "generated_at": "2026-07-04T00:45:33Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2119,12 +2119,12 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Argentina",
         "borte": "Cabo Verde",
         "utcDate": "2026-07-03T22:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": "PAUSED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 2,
+          "home_score": 3,
           "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2589,7 +2589,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-04T00:30:53Z",
+    "generated_at": "2026-07-04T00:45:33Z",
     "rounds": {
       "r32": {
         "mulige": 16,
