@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-04T09:35:02Z",
+    "generated_at": "2026-07-04T09:45:30Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -1753,7 +1753,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-04T09:35:03Z",
+    "generated_at": "2026-07-04T09:45:30Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2599,7 +2599,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-04T09:35:03Z",
+    "generated_at": "2026-07-04T09:45:30Z",
     "rounds": {
       "r32": {
         "mulige": 16,
