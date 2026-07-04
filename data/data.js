@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-04T03:30:49Z",
+    "generated_at": "2026-07-04T03:45:33Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -341,8 +341,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Colombia",
         "borte": "Ghana",
         "utcDate": "2026-07-04T01:30:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -511,12 +511,12 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "r16",
         "hjemme": "Switzerland",
-        "borte": "TBD",
+        "borte": "Colombia",
         "utcDate": "2026-07-07T20:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -1753,7 +1753,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-04T03:30:50Z",
+    "generated_at": "2026-07-04T03:45:33Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2145,8 +2145,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Colombia",
         "borte": "Ghana",
         "utcDate": "2026-07-04T01:30:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2297,7 +2297,7 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "r16",
         "hjemme": "Switzerland",
-        "borte": "TBD",
+        "borte": "Colombia",
         "utcDate": "2026-07-07T20:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
@@ -2599,7 +2599,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-04T03:30:50Z",
+    "generated_at": "2026-07-04T03:45:33Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2623,7 +2623,7 @@ window.NUSSEBASSENE_DATA = {
         ]
       },
       "r16": {
-        "mulige": 7,
+        "mulige": 8,
         "match_ids": [
           "M89",
           "M90",
@@ -2631,7 +2631,8 @@ window.NUSSEBASSENE_DATA = {
           "M92",
           "M93",
           "M94",
-          "M95"
+          "M95",
+          "M96"
         ]
       },
       "qf": {
@@ -2663,7 +2664,7 @@ window.NUSSEBASSENE_DATA = {
           },
           "r16": {
             "levert": 0,
-            "mulige": 7,
+            "mulige": 8,
             "komplett": false,
             "rundebonus": false,
             "helhetsbonus": 0,

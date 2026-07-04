@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T03:30:50Z",
+  "generated_at": "2026-07-04T03:45:33Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -391,8 +391,8 @@
       "hjemme": "Colombia",
       "borte": "Ghana",
       "utcDate": "2026-07-04T01:30:00Z",
-      "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
@@ -543,7 +543,7 @@
       "fd_match_id": null,
       "runde": "r16",
       "hjemme": "Switzerland",
-      "borte": "TBD",
+      "borte": "Colombia",
       "utcDate": "2026-07-07T20:00:00Z",
       "fifa_status": "1",
       "fd_status": null,
