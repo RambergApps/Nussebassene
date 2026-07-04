@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T01:30:51Z",
+  "generated_at": "2026-07-04T01:45:32Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -341,14 +341,14 @@
       "borte": "Ghana",
       "utcDate": "2026-07-04T01:30:00Z",
       "fifa_status": "3",
-      "fd_status": "TIMED",
+      "fd_status": "IN_PLAY",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 0,
+        "home_score": 1,
         "away_score": 0,
         "source": "fifa_calendar",
         "source_role": "primary"

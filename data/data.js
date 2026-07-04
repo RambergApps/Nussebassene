@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-04T01:30:51Z",
+    "generated_at": "2026-07-04T01:45:32Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -342,14 +342,14 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Ghana",
         "utcDate": "2026-07-04T01:30:00Z",
         "fifa_status": "3",
-        "fd_status": "TIMED",
+        "fd_status": "IN_PLAY",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -1753,7 +1753,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-04T01:30:51Z",
+    "generated_at": "2026-07-04T01:45:32Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2146,11 +2146,11 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Ghana",
         "utcDate": "2026-07-04T01:30:00Z",
         "fifa_status": "3",
-        "fd_status": "TIMED",
+        "fd_status": "IN_PLAY",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2425,7 +2425,7 @@ window.NUSSEBASSENE_DATA = {
           "id": "antall_uavgjort",
           "tekst": "Hvor mange kamper ender uavgjort i løpet av de første 90 minuttene, inkludert tilleggstid?",
           "poeng": 5,
-          "fasit": 4,
+          "fasit": 3,
           "beregnet": true
         },
         "r16": {
@@ -2471,20 +2471,20 @@ window.NUSSEBASSENE_DATA = {
     "deltakere": {
       "Alexander": {
         "deltaker": "Alexander",
-        "poeng": 9,
+        "poeng": 4,
         "kamp_poeng": 4,
-        "bonus_poeng": 5,
-        "rundebonus_poeng": 5,
+        "bonus_poeng": 0,
+        "rundebonus_poeng": 0,
         "helhetsbonus_poeng": 0,
         "exact": 1,
         "outcome": 1,
         "tips_levert": 3,
-        "bonus_riktig": 1,
+        "bonus_riktig": 0,
         "per_round": {
           "r32": {
-            "poeng": 9,
+            "poeng": 4,
             "kamp_poeng": 4,
-            "bonus_poeng": 5,
+            "bonus_poeng": 0,
             "tips": 3
           },
           "r16": {
@@ -2517,10 +2517,10 @@ window.NUSSEBASSENE_DATA = {
             "r32": {
               "id": "antall_uavgjort",
               "svar": 4,
-              "fasit": 4,
+              "fasit": 3,
               "beregnet": true,
-              "riktig": true,
-              "poeng": 5,
+              "riktig": false,
+              "poeng": 0,
               "submitted_at": "2026-06-29T12:47:22.449Z"
             }
           },
@@ -2532,20 +2532,20 @@ window.NUSSEBASSENE_DATA = {
     "leaderboard": [
       {
         "deltaker": "Alexander",
-        "poeng": 9,
+        "poeng": 4,
         "kamp_poeng": 4,
-        "bonus_poeng": 5,
-        "rundebonus_poeng": 5,
+        "bonus_poeng": 0,
+        "rundebonus_poeng": 0,
         "helhetsbonus_poeng": 0,
         "exact": 1,
         "outcome": 1,
         "tips_levert": 3,
-        "bonus_riktig": 1,
+        "bonus_riktig": 0,
         "per_round": {
           "r32": {
-            "poeng": 9,
+            "poeng": 4,
             "kamp_poeng": 4,
-            "bonus_poeng": 5,
+            "bonus_poeng": 0,
             "tips": 3
           },
           "r16": {
@@ -2578,10 +2578,10 @@ window.NUSSEBASSENE_DATA = {
             "r32": {
               "id": "antall_uavgjort",
               "svar": 4,
-              "fasit": 4,
+              "fasit": 3,
               "beregnet": true,
-              "riktig": true,
-              "poeng": 5,
+              "riktig": false,
+              "poeng": 0,
               "submitted_at": "2026-06-29T12:47:22.449Z"
             }
           },
@@ -2599,7 +2599,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-04T01:30:51Z",
+    "generated_at": "2026-07-04T01:45:32Z",
     "rounds": {
       "r32": {
         "mulige": 16,
