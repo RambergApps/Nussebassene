@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-04T00:45:33Z",
+    "generated_at": "2026-07-04T01:00:58Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -319,7 +319,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Cabo Verde",
         "utcDate": "2026-07-03T22:00:00Z",
         "fifa_status": "0",
-        "fd_status": "PAUSED",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -487,13 +487,13 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "r16",
-        "hjemme": "TBD",
+        "hjemme": "Argentina",
         "borte": "Egypt",
         "utcDate": "2026-07-07T16:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -1748,7 +1748,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-04T00:45:33Z",
+    "generated_at": "2026-07-04T01:00:58Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2120,7 +2120,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Cabo Verde",
         "utcDate": "2026-07-03T22:00:00Z",
         "fifa_status": "0",
-        "fd_status": "PAUSED",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2270,7 +2270,7 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "r16",
-        "hjemme": "TBD",
+        "hjemme": "Argentina",
         "borte": "Egypt",
         "utcDate": "2026-07-07T16:00:00Z",
         "fifa_status": "1",
@@ -2589,7 +2589,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-04T00:45:33Z",
+    "generated_at": "2026-07-04T01:00:58Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2613,14 +2613,15 @@ window.NUSSEBASSENE_DATA = {
         ]
       },
       "r16": {
-        "mulige": 6,
+        "mulige": 7,
         "match_ids": [
           "M89",
           "M90",
           "M91",
           "M92",
           "M93",
-          "M94"
+          "M94",
+          "M95"
         ]
       },
       "qf": {
@@ -2652,7 +2653,7 @@ window.NUSSEBASSENE_DATA = {
           },
           "r16": {
             "levert": 0,
-            "mulige": 6,
+            "mulige": 7,
             "komplett": false,
             "rundebonus": false,
             "helhetsbonus": 0,

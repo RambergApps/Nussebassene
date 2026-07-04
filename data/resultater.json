@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T00:45:33Z",
+  "generated_at": "2026-07-04T01:00:58Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -371,7 +371,7 @@
       "borte": "Cabo Verde",
       "utcDate": "2026-07-03T22:00:00Z",
       "fifa_status": "0",
-      "fd_status": "PAUSED",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
@@ -521,7 +521,7 @@
       "fifa_event_id": null,
       "fd_match_id": null,
       "runde": "r16",
-      "hjemme": "TBD",
+      "hjemme": "Argentina",
       "borte": "Egypt",
       "utcDate": "2026-07-07T16:00:00Z",
       "fifa_status": "1",
