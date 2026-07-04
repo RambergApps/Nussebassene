@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-04T23:01:00Z",
+    "generated_at": "2026-07-04T23:15:32Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -387,8 +387,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Paraguay",
         "borte": "France",
         "utcDate": "2026-07-04T21:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -538,13 +538,13 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "qf",
-        "hjemme": "TBD",
+        "hjemme": "France",
         "borte": "Morocco",
         "utcDate": "2026-07-09T20:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -1763,7 +1763,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-04T23:01:00Z",
+    "generated_at": "2026-07-04T23:15:32Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2197,8 +2197,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Paraguay",
         "borte": "France",
         "utcDate": "2026-07-04T21:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2332,7 +2332,7 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "qf",
-        "hjemme": "TBD",
+        "hjemme": "France",
         "borte": "Morocco",
         "utcDate": "2026-07-09T20:00:00Z",
         "fifa_status": "1",
@@ -2619,7 +2619,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-04T23:01:00Z",
+    "generated_at": "2026-07-04T23:15:32Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2656,8 +2656,10 @@ window.NUSSEBASSENE_DATA = {
         ]
       },
       "qf": {
-        "mulige": 0,
-        "match_ids": []
+        "mulige": 1,
+        "match_ids": [
+          "M97"
+        ]
       },
       "sf": {
         "mulige": 0,
@@ -2693,7 +2695,7 @@ window.NUSSEBASSENE_DATA = {
           },
           "qf": {
             "levert": 0,
-            "mulige": 0,
+            "mulige": 1,
             "komplett": false,
             "rundebonus": false,
             "helhetsbonus": 0,
