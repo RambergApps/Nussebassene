@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T05:30:56Z",
+  "generated_at": "2026-07-05T05:45:31Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -434,7 +434,7 @@
       "borte": "France",
       "utcDate": "2026-07-04T21:00:00Z",
       "fifa_status": "0",
-      "fd_status": "FINISHED",
+      "fd_status": "2026-07-04 21:00:00Z",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
@@ -476,7 +476,7 @@
       "borte": "Norway",
       "utcDate": "2026-07-05T20:00:00Z",
       "fifa_status": "1",
-      "fd_status": "TIMED",
+      "fd_status": "2026-07-06 20:00:00Z",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
