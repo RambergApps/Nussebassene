@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-05T10:45:34Z",
+    "generated_at": "2026-07-05T11:01:02Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -250,7 +250,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Croatia",
         "utcDate": "2026-07-02T23:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -273,7 +273,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Austria",
         "utcDate": "2026-07-02T19:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -296,7 +296,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Algeria",
         "utcDate": "2026-07-03T03:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -319,7 +319,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Cabo Verde",
         "utcDate": "2026-07-03T22:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -342,7 +342,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Ghana",
         "utcDate": "2026-07-04T01:30:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -365,7 +365,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Egypt",
         "utcDate": "2026-07-03T18:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -388,7 +388,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "France",
         "utcDate": "2026-07-04T21:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -411,7 +411,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Morocco",
         "utcDate": "2026-07-04T17:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -1763,7 +1763,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-05T10:45:34Z",
+    "generated_at": "2026-07-05T11:01:02Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2072,7 +2072,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Croatia",
         "utcDate": "2026-07-02T23:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2093,7 +2093,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Austria",
         "utcDate": "2026-07-02T19:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2114,7 +2114,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Algeria",
         "utcDate": "2026-07-03T03:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2135,7 +2135,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Cabo Verde",
         "utcDate": "2026-07-03T22:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2156,7 +2156,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Ghana",
         "utcDate": "2026-07-04T01:30:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2177,7 +2177,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Egypt",
         "utcDate": "2026-07-03T18:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2198,7 +2198,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "France",
         "utcDate": "2026-07-04T21:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2219,7 +2219,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Morocco",
         "utcDate": "2026-07-04T17:00:00Z",
         "fifa_status": "0",
-        "fd_status": "TIMED",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2619,7 +2619,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-05T10:45:34Z",
+    "generated_at": "2026-07-05T11:01:02Z",
     "rounds": {
       "r32": {
         "mulige": 16,
