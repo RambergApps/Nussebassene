@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T22:01:06Z",
+  "generated_at": "2026-07-05T22:15:33Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -475,12 +475,12 @@
       "hjemme": "Brazil",
       "borte": "Norway",
       "utcDate": "2026-07-05T20:00:00Z",
-      "fifa_status": "3",
-      "fd_status": "LIVE",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 0,
+        "home_score": 1,
         "away_score": 2,
         "source": "fifa_calendar",
         "source_role": "primary"
@@ -605,7 +605,7 @@
       "fifa_event_id": null,
       "fd_match_id": null,
       "runde": "qf",
-      "hjemme": "TBD",
+      "hjemme": "Norway",
       "borte": "TBD",
       "utcDate": "2026-07-11T21:00:00Z",
       "fifa_status": "1",
