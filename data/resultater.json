@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T06:01:03Z",
+  "generated_at": "2026-07-05T06:15:34Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -434,7 +434,7 @@
       "borte": "France",
       "utcDate": "2026-07-04T21:00:00Z",
       "fifa_status": "0",
-      "fd_status": "2026-07-04 21:00:00Z",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
@@ -476,7 +476,7 @@
       "borte": "Norway",
       "utcDate": "2026-07-05T20:00:00Z",
       "fifa_status": "1",
-      "fd_status": "2026-07-06 20:00:00Z",
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -566,13 +566,13 @@
       "id": "M97",
       "match_no": 97,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537383,
       "runde": "qf",
       "hjemme": "France",
       "borte": "Morocco",
       "utcDate": "2026-07-09T20:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
