@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T23:15:34Z",
+  "generated_at": "2026-07-05T23:30:53Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -456,7 +456,7 @@
       "borte": "England",
       "utcDate": "2026-07-06T00:00:00Z",
       "fifa_status": "1",
-      "fd_status": "TIMED",
+      "fd_status": "SCHEDULED",
       "tippebar": true,
       "tippe_status": "åpen",
       "vis_tips": false,
