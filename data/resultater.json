@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T06:01:05Z",
+  "generated_at": "2026-07-06T06:15:33Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -608,13 +608,13 @@
       "id": "M99",
       "match_no": 99,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537385,
       "runde": "qf",
       "hjemme": "Norway",
       "borte": "England",
       "utcDate": "2026-07-11T21:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
