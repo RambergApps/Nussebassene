@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-06T02:30:54Z",
+    "generated_at": "2026-07-06T02:45:29Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -464,7 +464,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 3,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -902,6 +902,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Raúl Jiménez",
+        "player_id": 3305,
+        "team": "Mexico",
+        "team_id": 769,
+        "goals": 3,
+        "assists": null,
+        "penalties": 1,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Yoane Wissa",
         "player_id": 612,
         "team": "Congo DR",
@@ -1117,17 +1128,6 @@ window.NUSSEBASSENE_DATA = {
         "team_id": 840,
         "goals": 2,
         "assists": 1,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Raúl Jiménez",
-        "player_id": 3305,
-        "team": "Mexico",
-        "team_id": 769,
-        "goals": 2,
-        "assists": null,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1773,7 +1773,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-06T02:30:54Z",
+    "generated_at": "2026-07-06T02:45:29Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2275,7 +2275,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 3,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2639,7 +2639,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-06T02:30:54Z",
+    "generated_at": "2026-07-06T02:45:29Z",
     "rounds": {
       "r32": {
         "mulige": 16,
