@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T03:00:58Z",
+  "generated_at": "2026-07-06T03:15:31Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -496,8 +496,8 @@
       "hjemme": "Mexico",
       "borte": "England",
       "utcDate": "2026-07-06T01:00:00Z",
-      "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
@@ -611,7 +611,7 @@
       "fd_match_id": null,
       "runde": "qf",
       "hjemme": "Norway",
-      "borte": "TBD",
+      "borte": "England",
       "utcDate": "2026-07-11T21:00:00Z",
       "fifa_status": "1",
       "fd_status": null,
