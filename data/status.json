@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T21:01:11Z",
+  "generated_at": "2026-07-06T21:09:14Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -478,8 +478,8 @@
       "hjemme": "Portugal",
       "borte": "Spain",
       "utcDate": "2026-07-06T19:00:00Z",
-      "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
@@ -570,7 +570,7 @@
       "fifa_event_id": null,
       "fd_match_id": null,
       "runde": "qf",
-      "hjemme": "TBD",
+      "hjemme": "Spain",
       "borte": "TBD",
       "utcDate": "2026-07-10T19:00:00Z",
       "fifa_status": "1",
