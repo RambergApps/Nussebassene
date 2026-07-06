@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T19:45:32Z",
+  "generated_at": "2026-07-06T20:01:06Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -479,7 +479,7 @@
       "borte": "Spain",
       "utcDate": "2026-07-06T19:00:00Z",
       "fifa_status": "3",
-      "fd_status": "LIVE",
+      "fd_status": "PAUSED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
