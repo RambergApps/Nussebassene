@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-07T01:45:33Z",
+    "generated_at": "2026-07-07T02:01:08Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -502,7 +502,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "USA",
         "borte": "Belgium",
         "utcDate": "2026-07-07T00:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": null,
         "tippebar": false,
         "tippe_status": "ferdig",
@@ -511,7 +511,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 3,
+          "away_score": 4,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -577,12 +577,12 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "qf",
         "hjemme": "Spain",
-        "borte": "TBD",
+        "borte": "Belgium",
         "utcDate": "2026-07-10T19:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -923,6 +923,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Romelu Lukaku",
+        "player_id": 3662,
+        "team": "Belgium",
+        "team_id": 805,
+        "goals": 3,
+        "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Yoane Wissa",
         "player_id": 612,
         "team": "Congo DR",
@@ -1171,17 +1182,6 @@ window.NUSSEBASSENE_DATA = {
         "team_id": 778,
         "goals": 2,
         "assists": 2,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Romelu Lukaku",
-        "player_id": 3662,
-        "team": "Belgium",
-        "team_id": 805,
-        "goals": 2,
-        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1783,7 +1783,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-07T01:45:33Z",
+    "generated_at": "2026-07-07T02:01:08Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2322,13 +2322,13 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "USA",
         "borte": "Belgium",
         "utcDate": "2026-07-07T00:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": null,
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 3,
+          "away_score": 4,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -2389,7 +2389,7 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "qf",
         "hjemme": "Spain",
-        "borte": "TBD",
+        "borte": "Belgium",
         "utcDate": "2026-07-10T19:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
@@ -2659,7 +2659,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-07T01:45:33Z",
+    "generated_at": "2026-07-07T02:01:08Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2696,9 +2696,10 @@ window.NUSSEBASSENE_DATA = {
         ]
       },
       "qf": {
-        "mulige": 2,
+        "mulige": 3,
         "match_ids": [
           "M97",
+          "M98",
           "M99"
         ]
       },
@@ -2736,7 +2737,7 @@ window.NUSSEBASSENE_DATA = {
           },
           "qf": {
             "levert": 0,
-            "mulige": 2,
+            "mulige": 3,
             "komplett": false,
             "rundebonus": false,
             "helhetsbonus": 0,

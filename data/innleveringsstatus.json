@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T01:45:33Z",
+  "generated_at": "2026-07-07T02:01:08Z",
   "rounds": {
     "r32": {
       "mulige": 16,
@@ -36,9 +36,10 @@
       ]
     },
     "qf": {
-      "mulige": 2,
+      "mulige": 3,
       "match_ids": [
         "M97",
+        "M98",
         "M99"
       ]
     },
@@ -76,7 +77,7 @@
         },
         "qf": {
           "levert": 0,
-          "mulige": 2,
+          "mulige": 3,
           "komplett": false,
           "rundebonus": false,
           "helhetsbonus": 0,

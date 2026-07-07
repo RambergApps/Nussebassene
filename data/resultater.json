@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T01:45:33Z",
+  "generated_at": "2026-07-07T02:01:08Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -538,13 +538,13 @@
       "hjemme": "USA",
       "borte": "Belgium",
       "utcDate": "2026-07-07T00:00:00Z",
-      "fifa_status": "3",
+      "fifa_status": "0",
       "fd_status": null,
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
         "home_score": 1,
-        "away_score": 3,
+        "away_score": 4,
         "source": "fifa_calendar",
         "source_role": "primary"
       },
@@ -605,7 +605,7 @@
       "fd_match_id": null,
       "runde": "qf",
       "hjemme": "Spain",
-      "borte": "TBD",
+      "borte": "Belgium",
       "utcDate": "2026-07-10T19:00:00Z",
       "fifa_status": "1",
       "fd_status": null,
