@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T06:01:07Z",
+  "generated_at": "2026-07-07T06:15:35Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -602,13 +602,13 @@
       "id": "M98",
       "match_no": 98,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537384,
       "runde": "qf",
       "hjemme": "Spain",
       "borte": "Belgium",
       "utcDate": "2026-07-10T19:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
