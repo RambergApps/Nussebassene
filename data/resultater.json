@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T23:45:35Z",
+  "generated_at": "2026-07-07T00:01:10Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -538,11 +538,16 @@
       "hjemme": "USA",
       "borte": "Belgium",
       "utcDate": "2026-07-07T00:00:00Z",
-      "fifa_status": "1",
+      "fifa_status": "3",
       "fd_status": null,
-      "ferdig": false,
-      "ferdig_kilde": null,
-      "resultat": null,
+      "ferdig": true,
+      "ferdig_kilde": "fifa_calendar",
+      "resultat": {
+        "home_score": 0,
+        "away_score": 0,
+        "source": "fifa_calendar",
+        "source_role": "primary"
+      },
       "tips": []
     },
     {
@@ -866,6 +871,6 @@
     "bonus_total": 1,
     "helhetsbonus_total": 3,
     "kamper_total": 31,
-    "kamper_ferdig": 21
+    "kamper_ferdig": 22
   }
 }

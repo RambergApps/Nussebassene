@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-06T23:45:35Z",
+    "generated_at": "2026-07-07T00:01:09Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -502,14 +502,19 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "USA",
         "borte": "Belgium",
         "utcDate": "2026-07-07T00:00:00Z",
-        "fifa_status": "1",
+        "fifa_status": "3",
         "fd_status": null,
-        "tippebar": true,
-        "tippe_status": "åpen",
-        "vis_tips": false,
-        "ferdig": false,
-        "ferdig_kilde": null,
-        "resultat": null
+        "tippebar": false,
+        "tippe_status": "ferdig",
+        "vis_tips": true,
+        "ferdig": true,
+        "ferdig_kilde": "fifa_calendar",
+        "resultat": {
+          "home_score": 0,
+          "away_score": 0,
+          "source": "fifa_calendar",
+          "source_role": "primary"
+        }
       },
       {
         "id": "M95",
@@ -1778,7 +1783,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-06T23:45:35Z",
+    "generated_at": "2026-07-07T00:01:10Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2317,11 +2322,16 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "USA",
         "borte": "Belgium",
         "utcDate": "2026-07-07T00:00:00Z",
-        "fifa_status": "1",
+        "fifa_status": "3",
         "fd_status": null,
-        "ferdig": false,
-        "ferdig_kilde": null,
-        "resultat": null,
+        "ferdig": true,
+        "ferdig_kilde": "fifa_calendar",
+        "resultat": {
+          "home_score": 0,
+          "away_score": 0,
+          "source": "fifa_calendar",
+          "source_role": "primary"
+        },
         "tips": []
       },
       {
@@ -2645,11 +2655,11 @@ window.NUSSEBASSENE_DATA = {
       "bonus_total": 1,
       "helhetsbonus_total": 3,
       "kamper_total": 31,
-      "kamper_ferdig": 21
+      "kamper_ferdig": 22
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-06T23:45:35Z",
+    "generated_at": "2026-07-07T00:01:10Z",
     "rounds": {
       "r32": {
         "mulige": 16,
