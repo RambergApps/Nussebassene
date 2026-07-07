@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T22:01:16Z",
+  "generated_at": "2026-07-07T22:15:33Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -581,7 +581,7 @@
       "borte": "Colombia",
       "utcDate": "2026-07-07T20:00:00Z",
       "fifa_status": "3",
-      "fd_status": "FINISHED",
+      "fd_status": "LIVE",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
