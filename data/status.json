@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T18:01:17Z",
+  "generated_at": "2026-07-07T18:15:34Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -524,8 +524,8 @@
       "hjemme": "Argentina",
       "borte": "Egypt",
       "utcDate": "2026-07-07T16:00:00Z",
-      "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
@@ -616,7 +616,7 @@
       "fifa_event_id": null,
       "fd_match_id": null,
       "runde": "qf",
-      "hjemme": "TBD",
+      "hjemme": "Argentina",
       "borte": "TBD",
       "utcDate": "2026-07-12T01:00:00Z",
       "fifa_status": "1",

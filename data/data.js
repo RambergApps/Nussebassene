@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-07T18:01:17Z",
+    "generated_at": "2026-07-07T18:15:34Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -525,8 +525,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Argentina",
         "borte": "Egypt",
         "utcDate": "2026-07-07T16:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -617,7 +617,7 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "qf",
-        "hjemme": "TBD",
+        "hjemme": "Argentina",
         "borte": "TBD",
         "utcDate": "2026-07-12T01:00:00Z",
         "fifa_status": "1",
@@ -1788,7 +1788,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-07T18:01:18Z",
+    "generated_at": "2026-07-07T18:15:34Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2348,8 +2348,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Argentina",
         "borte": "Egypt",
         "utcDate": "2026-07-07T16:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2430,7 +2430,7 @@ window.NUSSEBASSENE_DATA = {
         "fifa_event_id": null,
         "fd_match_id": null,
         "runde": "qf",
-        "hjemme": "TBD",
+        "hjemme": "Argentina",
         "borte": "TBD",
         "utcDate": "2026-07-12T01:00:00Z",
         "fifa_status": "1",
@@ -2669,7 +2669,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-07T18:01:18Z",
+    "generated_at": "2026-07-07T18:15:34Z",
     "rounds": {
       "r32": {
         "mulige": 16,
