@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T01:15:34Z",
+  "generated_at": "2026-07-07T01:30:55Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -510,7 +510,7 @@
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
         "home_score": 1,
-        "away_score": 2,
+        "away_score": 3,
         "source": "fifa_calendar",
         "source_role": "primary"
       }
@@ -1004,7 +1004,7 @@
       "team": "Belgium",
       "team_id": 805,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "source": "football-data.org",
       "source_role": "golden_boot_control_source"
