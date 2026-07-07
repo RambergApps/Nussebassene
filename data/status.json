@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T20:45:33Z",
+  "generated_at": "2026-07-07T21:01:24Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -548,7 +548,7 @@
       "borte": "Colombia",
       "utcDate": "2026-07-07T20:00:00Z",
       "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fd_status": "PAUSED",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
