@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T00:31:01Z",
+  "generated_at": "2026-07-07T00:45:34Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -543,8 +543,8 @@
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 0,
-        "away_score": 1,
+        "home_score": 1,
+        "away_score": 2,
         "source": "fifa_calendar",
         "source_role": "primary"
       },

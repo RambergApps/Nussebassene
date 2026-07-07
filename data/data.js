@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-07T00:31:01Z",
+    "generated_at": "2026-07-07T00:45:34Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -510,8 +510,8 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
-          "away_score": 1,
+          "home_score": 1,
+          "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -1000,6 +1000,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Charles De Ketelaere",
+        "player_id": 129947,
+        "team": "Belgium",
+        "team_id": 805,
+        "goals": 2,
+        "assists": null,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Crysencio Summerville",
         "player_id": 102193,
         "team": "Netherlands",
@@ -1082,7 +1093,18 @@ window.NUSSEBASSENE_DATA = {
         "team": "Belgium",
         "team_id": 805,
         "goals": 2,
-        "assists": 1,
+        "assists": 2,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
+        "player": "Malik Tillman",
+        "player_id": 144470,
+        "team": "United States",
+        "team_id": 771,
+        "goals": 2,
+        "assists": null,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1638,34 +1660,12 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Mohamed Salah",
-        "player_id": 3754,
-        "team": "Egypt",
-        "team_id": 825,
-        "goals": 1,
-        "assists": 2,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Mohammad Mohebi",
         "player_id": 172641,
         "team": "Iran",
         "team_id": 840,
         "goals": 1,
         "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Mostafa Ziko",
-        "player_id": 295848,
-        "team": "Egypt",
-        "team_id": 825,
-        "goals": 1,
-        "assists": 1,
         "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
@@ -1783,7 +1783,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-07T00:31:01Z",
+    "generated_at": "2026-07-07T00:45:34Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2327,8 +2327,8 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
-          "away_score": 1,
+          "home_score": 1,
+          "away_score": 2,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -2659,7 +2659,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-07T00:31:01Z",
+    "generated_at": "2026-07-07T00:45:34Z",
     "rounds": {
       "r32": {
         "mulige": 16,
