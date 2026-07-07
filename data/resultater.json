@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T22:45:36Z",
+  "generated_at": "2026-07-07T22:57:37Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -580,8 +580,8 @@
       "hjemme": "Switzerland",
       "borte": "Colombia",
       "utcDate": "2026-07-07T20:00:00Z",
-      "fifa_status": "3",
-      "fd_status": "PAUSED",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
@@ -647,7 +647,7 @@
       "fd_match_id": null,
       "runde": "qf",
       "hjemme": "Argentina",
-      "borte": "TBD",
+      "borte": "Switzerland",
       "utcDate": "2026-07-12T01:00:00Z",
       "fifa_status": "1",
       "fd_status": null,
