@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-08T06:01:17Z",
+    "generated_at": "2026-07-08T06:13:48Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -620,13 +620,13 @@ window.NUSSEBASSENE_DATA = {
         "id": "M100",
         "match_no": 100,
         "fifa_event_id": null,
-        "fd_match_id": null,
+        "fd_match_id": 537386,
         "runde": "qf",
         "hjemme": "Argentina",
         "borte": "Switzerland",
         "utcDate": "2026-07-12T01:00:00Z",
         "fifa_status": "1",
-        "fd_status": null,
+        "fd_status": "TIMED",
         "tippebar": true,
         "tippe_status": "åpen",
         "vis_tips": false,
@@ -1793,7 +1793,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-08T06:01:17Z",
+    "generated_at": "2026-07-08T06:13:49Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2438,13 +2438,13 @@ window.NUSSEBASSENE_DATA = {
         "id": "M100",
         "match_no": 100,
         "fifa_event_id": null,
-        "fd_match_id": null,
+        "fd_match_id": 537386,
         "runde": "qf",
         "hjemme": "Argentina",
         "borte": "Switzerland",
         "utcDate": "2026-07-12T01:00:00Z",
         "fifa_status": "1",
-        "fd_status": null,
+        "fd_status": "TIMED",
         "ferdig": false,
         "ferdig_kilde": null,
         "resultat": null,
@@ -2679,7 +2679,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-08T06:01:18Z",
+    "generated_at": "2026-07-08T06:13:49Z",
     "rounds": {
       "r32": {
         "mulige": 16,

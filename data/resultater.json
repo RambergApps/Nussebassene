@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T06:01:17Z",
+  "generated_at": "2026-07-08T06:13:49Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -644,13 +644,13 @@
       "id": "M100",
       "match_no": 100,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537386,
       "runde": "qf",
       "hjemme": "Argentina",
       "borte": "Switzerland",
       "utcDate": "2026-07-12T01:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
