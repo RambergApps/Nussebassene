@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-10T19:01:09Z",
+    "generated_at": "2026-07-10T19:15:34Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -595,7 +595,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Belgium",
         "utcDate": "2026-07-10T19:00:00Z",
         "fifa_status": "3",
-        "fd_status": "TIMED",
+        "fd_status": "IN_PLAY",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -1803,7 +1803,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-10T19:01:09Z",
+    "generated_at": "2026-07-10T19:15:34Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2427,7 +2427,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Belgium",
         "utcDate": "2026-07-10T19:00:00Z",
         "fifa_status": "3",
-        "fd_status": "TIMED",
+        "fd_status": "IN_PLAY",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2699,7 +2699,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-10T19:01:09Z",
+    "generated_at": "2026-07-10T19:15:34Z",
     "rounds": {
       "r32": {
         "mulige": 16,

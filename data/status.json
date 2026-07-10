@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T19:01:09Z",
+  "generated_at": "2026-07-10T19:15:34Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -594,7 +594,7 @@
       "borte": "Belgium",
       "utcDate": "2026-07-10T19:00:00Z",
       "fifa_status": "3",
-      "fd_status": "TIMED",
+      "fd_status": "IN_PLAY",
       "tippebar": false,
       "tippe_status": "ferdig",
       "vis_tips": true,
