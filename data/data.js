@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-10T20:48:22Z",
+    "generated_at": "2026-07-10T21:01:13Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -594,7 +594,7 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Spain",
         "borte": "Belgium",
         "utcDate": "2026-07-10T19:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": "IN_PLAY",
         "tippebar": false,
         "tippe_status": "ferdig",
@@ -602,7 +602,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -1163,6 +1163,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Mikel Merino",
+        "player_id": 7935,
+        "team": "Spain",
+        "team_id": 760,
+        "goals": 2,
+        "assists": null,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Mostafa Ziko",
         "player_id": 295848,
         "team": "Egypt",
@@ -1420,17 +1431,6 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 191295,
         "team": "South Korea",
         "team_id": 772,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Hélio Varela",
-        "player_id": 213119,
-        "team": "Cape Verde Islands",
-        "team_id": 1930,
         "goals": 1,
         "assists": null,
         "penalties": null,
@@ -1803,7 +1803,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-10T20:48:22Z",
+    "generated_at": "2026-07-10T21:01:13Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2426,12 +2426,12 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Spain",
         "borte": "Belgium",
         "utcDate": "2026-07-10T19:00:00Z",
-        "fifa_status": "3",
+        "fifa_status": "0",
         "fd_status": "IN_PLAY",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 2,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2699,7 +2699,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-10T20:48:22Z",
+    "generated_at": "2026-07-10T21:01:13Z",
     "rounds": {
       "r32": {
         "mulige": 16,
