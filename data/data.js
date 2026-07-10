@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-10T19:31:05Z",
+    "generated_at": "2026-07-10T19:45:32Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -603,7 +603,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -822,6 +822,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Charles De Ketelaere",
+        "player_id": 129947,
+        "team": "Belgium",
+        "team_id": 805,
+        "goals": 3,
+        "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Cody Gakpo",
         "player_id": 7459,
         "team": "Netherlands",
@@ -1027,17 +1038,6 @@ window.NUSSEBASSENE_DATA = {
         "goals": 2,
         "assists": 2,
         "penalties": 1,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Charles De Ketelaere",
-        "player_id": 129947,
-        "team": "Belgium",
-        "team_id": 805,
-        "goals": 2,
-        "assists": 1,
-        "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
       },
@@ -1803,7 +1803,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-10T19:31:05Z",
+    "generated_at": "2026-07-10T19:45:32Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2432,7 +2432,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -2699,7 +2699,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-10T19:31:05Z",
+    "generated_at": "2026-07-10T19:45:32Z",
     "rounds": {
       "r32": {
         "mulige": 16,
