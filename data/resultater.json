@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T21:01:13Z",
+  "generated_at": "2026-07-10T21:15:32Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -623,7 +623,7 @@
       "borte": "Belgium",
       "utcDate": "2026-07-10T19:00:00Z",
       "fifa_status": "0",
-      "fd_status": "IN_PLAY",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
@@ -673,7 +673,7 @@
       "fd_match_id": null,
       "runde": "sf",
       "hjemme": "France",
-      "borte": "TBD",
+      "borte": "Spain",
       "utcDate": "2026-07-14T19:00:00Z",
       "fifa_status": "1",
       "fd_status": null,

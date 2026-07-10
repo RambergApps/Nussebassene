@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-10T21:01:13Z",
+    "generated_at": "2026-07-10T21:15:32Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -595,7 +595,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Belgium",
         "utcDate": "2026-07-10T19:00:00Z",
         "fifa_status": "0",
-        "fd_status": "IN_PLAY",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -651,12 +651,12 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "sf",
         "hjemme": "France",
-        "borte": "TBD",
+        "borte": "Spain",
         "utcDate": "2026-07-14T19:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -1803,7 +1803,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-10T21:01:13Z",
+    "generated_at": "2026-07-10T21:15:32Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2427,7 +2427,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Belgium",
         "utcDate": "2026-07-10T19:00:00Z",
         "fifa_status": "0",
-        "fd_status": "IN_PLAY",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2477,7 +2477,7 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "sf",
         "hjemme": "France",
-        "borte": "TBD",
+        "borte": "Spain",
         "utcDate": "2026-07-14T19:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
@@ -2699,7 +2699,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-10T21:01:13Z",
+    "generated_at": "2026-07-10T21:15:32Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2745,8 +2745,10 @@ window.NUSSEBASSENE_DATA = {
         ]
       },
       "sf": {
-        "mulige": 0,
-        "match_ids": []
+        "mulige": 1,
+        "match_ids": [
+          "M101"
+        ]
       },
       "final": {
         "mulige": 0,
@@ -2787,7 +2789,7 @@ window.NUSSEBASSENE_DATA = {
           },
           "sf": {
             "levert": 0,
-            "mulige": 0,
+            "mulige": 1,
             "komplett": false,
             "rundebonus": false,
             "helhetsbonus": 0,
