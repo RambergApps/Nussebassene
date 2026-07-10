@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T19:45:32Z",
+  "generated_at": "2026-07-10T20:01:15Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -623,7 +623,7 @@
       "borte": "Belgium",
       "utcDate": "2026-07-10T19:00:00Z",
       "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fd_status": "PAUSED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
