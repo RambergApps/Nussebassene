@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T23:01:21Z",
+  "generated_at": "2026-07-11T23:15:34Z",
   "source": {
     "primary": "fifa_calendar",
     "control": "football-data.org",
@@ -625,7 +625,7 @@
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
         "home_score": 1,
-        "away_score": 1,
+        "away_score": 2,
         "source": "fifa_calendar",
         "source_role": "primary"
       }
@@ -753,7 +753,7 @@
       "player_id": 125010,
       "team": "England",
       "team_id": 770,
-      "goals": 5,
+      "goals": 6,
       "assists": 1,
       "penalties": null,
       "source": "football-data.org",
