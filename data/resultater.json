@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T06:01:18Z",
+  "generated_at": "2026-07-11T06:15:35Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -670,13 +670,13 @@
       "id": "M101",
       "match_no": 101,
       "fifa_event_id": null,
-      "fd_match_id": null,
+      "fd_match_id": 537387,
       "runde": "sf",
       "hjemme": "France",
       "borte": "Spain",
       "utcDate": "2026-07-14T19:00:00Z",
       "fifa_status": "1",
-      "fd_status": null,
+      "fd_status": "TIMED",
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
