@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-11T21:45:31Z",
+    "generated_at": "2026-07-11T22:01:16Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -618,7 +618,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "England",
         "utcDate": "2026-07-11T21:00:00Z",
         "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fd_status": "PAUSED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -626,7 +626,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -750,6 +750,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Jude Bellingham",
+        "player_id": 125010,
+        "team": "England",
+        "team_id": 770,
+        "goals": 5,
+        "assists": 1,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Ousmane Dembélé",
         "player_id": 3373,
         "team": "France",
@@ -765,17 +776,6 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 3638,
         "team": "Senegal",
         "team_id": 804,
-        "goals": 4,
-        "assists": 1,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Jude Bellingham",
-        "player_id": 125010,
-        "team": "England",
-        "team_id": 770,
         "goals": 4,
         "assists": 1,
         "penalties": null,
@@ -1808,7 +1808,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-11T21:45:31Z",
+    "generated_at": "2026-07-11T22:01:16Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2453,12 +2453,12 @@ window.NUSSEBASSENE_DATA = {
         "borte": "England",
         "utcDate": "2026-07-11T21:00:00Z",
         "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fd_status": "PAUSED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -2709,7 +2709,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-11T21:45:32Z",
+    "generated_at": "2026-07-11T22:01:16Z",
     "rounds": {
       "r32": {
         "mulige": 16,
