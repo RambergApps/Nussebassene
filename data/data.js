@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-12T06:01:12Z",
+    "generated_at": "2026-07-12T06:15:34Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -457,7 +457,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "England",
         "utcDate": "2026-07-06T01:00:00Z",
         "fifa_status": "0",
-        "fd_status": "2026-07-06 01:00:00Z",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -676,13 +676,13 @@ window.NUSSEBASSENE_DATA = {
         "id": "M102",
         "match_no": 102,
         "fifa_event_id": null,
-        "fd_match_id": null,
+        "fd_match_id": 537388,
         "runde": "sf",
         "hjemme": "England",
         "borte": "Argentina",
         "utcDate": "2026-07-15T19:00:00Z",
         "fifa_status": "1",
-        "fd_status": null,
+        "fd_status": "TIMED",
         "tippebar": true,
         "tippe_status": "åpen",
         "vis_tips": false,
@@ -1813,7 +1813,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-12T06:01:12Z",
+    "generated_at": "2026-07-12T06:15:34Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2311,7 +2311,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "England",
         "utcDate": "2026-07-06T01:00:00Z",
         "fifa_status": "0",
-        "fd_status": "2026-07-06 01:00:00Z",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2510,13 +2510,13 @@ window.NUSSEBASSENE_DATA = {
         "id": "M102",
         "match_no": 102,
         "fifa_event_id": null,
-        "fd_match_id": null,
+        "fd_match_id": 537388,
         "runde": "sf",
         "hjemme": "England",
         "borte": "Argentina",
         "utcDate": "2026-07-15T19:00:00Z",
         "fifa_status": "1",
-        "fd_status": null,
+        "fd_status": "TIMED",
         "ferdig": false,
         "ferdig_kilde": null,
         "resultat": null,
@@ -2719,7 +2719,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-12T06:01:12Z",
+    "generated_at": "2026-07-12T06:15:34Z",
     "rounds": {
       "r32": {
         "mulige": 16,
