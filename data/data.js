@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-12T03:01:10Z",
+    "generated_at": "2026-07-12T03:15:35Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -641,7 +641,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Switzerland",
         "utcDate": "2026-07-12T01:00:00Z",
         "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fd_status": "PAUSED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -1813,7 +1813,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-12T03:01:11Z",
+    "generated_at": "2026-07-12T03:15:35Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2479,7 +2479,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "Switzerland",
         "utcDate": "2026-07-12T01:00:00Z",
         "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fd_status": "PAUSED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2719,7 +2719,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-12T03:01:11Z",
+    "generated_at": "2026-07-12T03:15:35Z",
     "rounds": {
       "r32": {
         "mulige": 16,
