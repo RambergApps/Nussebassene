@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T01:02:33Z",
+  "generated_at": "2026-07-12T01:15:33Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -665,11 +665,11 @@
       "borte": "Switzerland",
       "utcDate": "2026-07-12T01:00:00Z",
       "fifa_status": "3",
-      "fd_status": "TIMED",
+      "fd_status": "IN_PLAY",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
-        "home_score": 0,
+        "home_score": 2,
         "away_score": 0,
         "source": "fifa_calendar",
         "source_role": "primary"
