@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-12T03:31:07Z",
+    "generated_at": "2026-07-12T03:45:34Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -640,15 +640,15 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Argentina",
         "borte": "Switzerland",
         "utcDate": "2026-07-12T01:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fifa_status": "0",
+        "fd_status": "IN_PLAY",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 3,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -1140,6 +1140,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Lautaro Martínez",
+        "player_id": 3220,
+        "team": "Argentina",
+        "team_id": 762,
+        "goals": 2,
+        "assists": 1,
+        "penalties": 1,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Leandro Trossard",
         "player_id": 8984,
         "team": "Belgium",
@@ -1547,17 +1558,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Kevin Pina",
-        "player_id": 40121,
-        "team": "Cape Verde Islands",
-        "team_id": 1930,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Ladislav Krejčí",
         "player_id": 1878,
         "team": "Czechia",
@@ -1813,7 +1813,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-12T03:31:07Z",
+    "generated_at": "2026-07-12T03:45:34Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2478,12 +2478,12 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "Argentina",
         "borte": "Switzerland",
         "utcDate": "2026-07-12T01:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "PAUSED",
+        "fifa_status": "0",
+        "fd_status": "IN_PLAY",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 1,
+          "home_score": 3,
           "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2719,7 +2719,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-12T03:31:07Z",
+    "generated_at": "2026-07-12T03:45:34Z",
     "rounds": {
       "r32": {
         "mulige": 16,
