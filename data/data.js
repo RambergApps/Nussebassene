@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-12T02:15:35Z",
+    "generated_at": "2026-07-12T02:31:06Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -649,7 +649,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -1085,6 +1085,17 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
+        "player": "Dan Ndoye",
+        "player_id": 77641,
+        "team": "Switzerland",
+        "team_id": 788,
+        "goals": 2,
+        "assists": null,
+        "penalties": null,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
         "player": "Daniel Muñoz",
         "player_id": 22010,
         "team": "Colombia",
@@ -1298,17 +1309,6 @@ window.NUSSEBASSENE_DATA = {
         "player_id": 103094,
         "team": "Saudi Arabia",
         "team_id": 801,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
-        "player": "Agustín Canobbio",
-        "player_id": 28614,
-        "team": "Uruguay",
-        "team_id": 758,
         "goals": 1,
         "assists": null,
         "penalties": null,
@@ -1813,7 +1813,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-12T02:15:35Z",
+    "generated_at": "2026-07-12T02:31:07Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2484,7 +2484,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 1,
-          "away_score": 0,
+          "away_score": 1,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -2559,7 +2559,7 @@ window.NUSSEBASSENE_DATA = {
           "id": "antall_ettmaalsseier",
           "tekst": "Hvor mange kamper avgjøres med ett mål i løpet av de første 90 minuttene, inkludert tilleggstid?",
           "poeng": 5,
-          "fasit": 3,
+          "fasit": 2,
           "beregnet": true
         },
         "sf": {
@@ -2719,7 +2719,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-12T02:15:35Z",
+    "generated_at": "2026-07-12T02:31:07Z",
     "rounds": {
       "r32": {
         "mulige": 16,
