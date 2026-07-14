@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T18:45:37Z",
+  "generated_at": "2026-07-14T19:01:19Z",
   "fifa": {
     "ok": true,
     "url": "https://api.fifa.com/api/v3/calendar/matches?from=2026-06-28T00%3A00%3A00Z&to=2026-07-20T23%3A59%3A59Z&language=en&count=500&idCompetition=17",
@@ -97,18 +97,19 @@
       }
     }
   ],
-  "match_count": 31,
+  "match_count": 32,
   "rounds": {
     "r32": 16,
     "r16": 8,
     "qf": 4,
     "sf": 2,
-    "final": 1
+    "final": 2
   },
   "unmapped_fd": [
     "M78",
     "M81",
     "M94",
+    "M103",
     "M104"
   ],
   "fd_result_fallback_enabled": true

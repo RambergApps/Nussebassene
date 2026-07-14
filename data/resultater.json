@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T18:45:37Z",
+  "generated_at": "2026-07-14T19:01:19Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -685,11 +685,16 @@
       "hjemme": "France",
       "borte": "Spain",
       "utcDate": "2026-07-14T19:00:00Z",
-      "fifa_status": "1",
+      "fifa_status": "3",
       "fd_status": "TIMED",
-      "ferdig": false,
-      "ferdig_kilde": null,
-      "resultat": null,
+      "ferdig": true,
+      "ferdig_kilde": "fifa_calendar",
+      "resultat": {
+        "home_score": 0,
+        "away_score": 0,
+        "source": "fifa_calendar",
+        "source_role": "primary"
+      },
       "tips": []
     },
     {
@@ -703,6 +708,22 @@
       "utcDate": "2026-07-15T19:00:00Z",
       "fifa_status": "1",
       "fd_status": "TIMED",
+      "ferdig": false,
+      "ferdig_kilde": null,
+      "resultat": null,
+      "tips": []
+    },
+    {
+      "id": "M103",
+      "match_no": 103,
+      "fifa_event_id": null,
+      "fd_match_id": null,
+      "runde": "final",
+      "hjemme": "TBD",
+      "borte": "TBD",
+      "utcDate": "2026-07-18T21:00:00Z",
+      "fifa_status": "1",
+      "fd_status": null,
       "ferdig": false,
       "ferdig_kilde": null,
       "resultat": null,
@@ -900,7 +921,7 @@
     "tips_total": 3,
     "bonus_total": 1,
     "helhetsbonus_total": 3,
-    "kamper_total": 31,
-    "kamper_ferdig": 28
+    "kamper_total": 32,
+    "kamper_ferdig": 29
   }
 }
