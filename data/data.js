@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-15T20:15:38Z",
+    "generated_at": "2026-07-15T20:31:15Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -694,7 +694,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -1841,7 +1841,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-15T20:15:38Z",
+    "generated_at": "2026-07-15T20:31:15Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2553,7 +2553,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
-          "home_score": 0,
+          "home_score": 1,
           "away_score": 0,
           "source": "fifa_calendar",
           "source_role": "primary"
@@ -2620,7 +2620,7 @@ window.NUSSEBASSENE_DATA = {
           "id": "totale_maal",
           "tekst": "Hvor mange mål scores totalt i semifinalene i løpet av de første 90 minuttene, inkludert tilleggstid?",
           "poeng": 5,
-          "fasit": 2,
+          "fasit": 3,
           "beregnet": true
         },
         "final": {
@@ -2773,7 +2773,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-15T20:15:38Z",
+    "generated_at": "2026-07-15T20:31:15Z",
     "rounds": {
       "r32": {
         "mulige": 16,
