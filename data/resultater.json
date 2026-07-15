@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T20:45:43Z",
+  "generated_at": "2026-07-15T21:01:22Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -712,7 +712,7 @@
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
         "home_score": 1,
-        "away_score": 0,
+        "away_score": 2,
         "source": "fifa_calendar",
         "source_role": "primary"
       },
@@ -778,7 +778,7 @@
         "id": "totale_maal",
         "tekst": "Hvor mange mål scores totalt i semifinalene i løpet av de første 90 minuttene, inkludert tilleggstid?",
         "poeng": 5,
-        "fasit": 3,
+        "fasit": 5,
         "beregnet": true
       },
       "final": {
