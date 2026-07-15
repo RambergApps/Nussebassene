@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-15T21:01:22Z",
+    "generated_at": "2026-07-15T21:15:41Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -686,8 +686,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "England",
         "borte": "Argentina",
         "utcDate": "2026-07-15T19:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -707,12 +707,12 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "final",
         "hjemme": "France",
-        "borte": "TBD",
+        "borte": "England",
         "utcDate": "2026-07-18T21:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -725,12 +725,12 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "final",
         "hjemme": "Spain",
-        "borte": "TBD",
+        "borte": "Argentina",
         "utcDate": "2026-07-19T19:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
-        "tippebar": false,
-        "tippe_status": "mangler_lag",
+        "tippebar": true,
+        "tippe_status": "åpen",
         "vis_tips": false,
         "ferdig": false,
         "ferdig_kilde": null,
@@ -1841,7 +1841,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-15T21:01:22Z",
+    "generated_at": "2026-07-15T21:15:41Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2548,8 +2548,8 @@ window.NUSSEBASSENE_DATA = {
         "hjemme": "England",
         "borte": "Argentina",
         "utcDate": "2026-07-15T19:00:00Z",
-        "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fifa_status": "0",
+        "fd_status": "FINISHED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
@@ -2567,7 +2567,7 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "final",
         "hjemme": "France",
-        "borte": "TBD",
+        "borte": "England",
         "utcDate": "2026-07-18T21:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
@@ -2583,7 +2583,7 @@ window.NUSSEBASSENE_DATA = {
         "fd_match_id": null,
         "runde": "final",
         "hjemme": "Spain",
-        "borte": "TBD",
+        "borte": "Argentina",
         "utcDate": "2026-07-19T19:00:00Z",
         "fifa_status": "1",
         "fd_status": null,
@@ -2773,7 +2773,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-15T21:01:22Z",
+    "generated_at": "2026-07-15T21:15:41Z",
     "rounds": {
       "r32": {
         "mulige": 16,
@@ -2826,8 +2826,11 @@ window.NUSSEBASSENE_DATA = {
         ]
       },
       "final": {
-        "mulige": 0,
-        "match_ids": []
+        "mulige": 2,
+        "match_ids": [
+          "M103",
+          "M104"
+        ]
       }
     },
     "deltakere": [
@@ -2873,7 +2876,7 @@ window.NUSSEBASSENE_DATA = {
           },
           "final": {
             "levert": 0,
-            "mulige": 0,
+            "mulige": 2,
             "komplett": false,
             "rundebonus": false,
             "helhetsbonus": 0,
