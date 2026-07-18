@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T21:45:43Z",
+  "generated_at": "2026-07-18T22:01:06Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -728,12 +728,12 @@
       "borte": "England",
       "utcDate": "2026-07-18T21:00:00Z",
       "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fd_status": "PAUSED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
         "home_score": 0,
-        "away_score": 3,
+        "away_score": 4,
         "source": "fifa_calendar",
         "source_role": "primary"
       },

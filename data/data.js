@@ -1,6 +1,6 @@
 window.NUSSEBASSENE_DATA = {
   "status": {
-    "generated_at": "2026-07-18T21:45:43Z",
+    "generated_at": "2026-07-18T22:01:06Z",
     "source": {
       "primary": "fifa_calendar",
       "control": "football-data.org",
@@ -710,7 +710,7 @@ window.NUSSEBASSENE_DATA = {
         "borte": "England",
         "utcDate": "2026-07-18T21:00:00Z",
         "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fd_status": "PAUSED",
         "tippebar": false,
         "tippe_status": "ferdig",
         "vis_tips": true,
@@ -718,7 +718,7 @@ window.NUSSEBASSENE_DATA = {
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 0,
-          "away_score": 3,
+          "away_score": 4,
           "source": "fifa_calendar",
           "source_role": "primary"
         }
@@ -1092,6 +1092,17 @@ window.NUSSEBASSENE_DATA = {
         "goals": 2,
         "assists": 2,
         "penalties": 1,
+        "source": "football-data.org",
+        "source_role": "golden_boot_control_source"
+      },
+      {
+        "player": "Bukayo Saka",
+        "player_id": 99813,
+        "team": "England",
+        "team_id": 770,
+        "goals": 2,
+        "assists": 3,
+        "penalties": null,
         "source": "football-data.org",
         "source_role": "golden_boot_control_source"
       },
@@ -1470,17 +1481,6 @@ window.NUSSEBASSENE_DATA = {
         "source_role": "golden_boot_control_source"
       },
       {
-        "player": "Franck Kessié",
-        "player_id": 1747,
-        "team": "Ivory Coast",
-        "team_id": 1935,
-        "goals": 1,
-        "assists": null,
-        "penalties": null,
-        "source": "football-data.org",
-        "source_role": "golden_boot_control_source"
-      },
-      {
         "player": "Gio Reyna",
         "player_id": 136733,
         "team": "United States",
@@ -1846,7 +1846,7 @@ window.NUSSEBASSENE_DATA = {
     ]
   },
   "resultater": {
-    "generated_at": "2026-07-18T21:45:43Z",
+    "generated_at": "2026-07-18T22:01:06Z",
     "source": {
       "status_source": "data/status.json",
       "api_fetching": "none_in_poengregning"
@@ -2575,12 +2575,12 @@ window.NUSSEBASSENE_DATA = {
         "borte": "England",
         "utcDate": "2026-07-18T21:00:00Z",
         "fifa_status": "3",
-        "fd_status": "IN_PLAY",
+        "fd_status": "PAUSED",
         "ferdig": true,
         "ferdig_kilde": "fifa_calendar",
         "resultat": {
           "home_score": 0,
-          "away_score": 3,
+          "away_score": 4,
           "source": "fifa_calendar",
           "source_role": "primary"
         },
@@ -2783,7 +2783,7 @@ window.NUSSEBASSENE_DATA = {
     }
   },
   "innleveringsstatus": {
-    "generated_at": "2026-07-18T21:45:43Z",
+    "generated_at": "2026-07-18T22:01:06Z",
     "rounds": {
       "r32": {
         "mulige": 16,
