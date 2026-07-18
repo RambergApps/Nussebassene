@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T23:01:07Z",
+  "generated_at": "2026-07-18T23:15:40Z",
   "source": {
     "status_source": "data/status.json",
     "api_fetching": "none_in_poengregning"
@@ -727,8 +727,8 @@
       "hjemme": "France",
       "borte": "England",
       "utcDate": "2026-07-18T21:00:00Z",
-      "fifa_status": "3",
-      "fd_status": "IN_PLAY",
+      "fifa_status": "0",
+      "fd_status": "FINISHED",
       "ferdig": true,
       "ferdig_kilde": "fifa_calendar",
       "resultat": {
